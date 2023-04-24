@@ -19,7 +19,6 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        inherit nur;
         config.allowUnfree = true;
       };
     in {
@@ -28,6 +27,7 @@
         inherit system;
 
         modules = [
+          nur.nixosModules.nur
           ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
