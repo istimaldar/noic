@@ -118,4 +118,6 @@ mkdir -p /etc/nix
 cat <<CONFIG | tee -a /etc/nix/nix.conf
 experimental-features = nix-command flakes
 CONFIG
-nixos-install --flake https://github.com/istimaldar/noic#system
+nix-env -iA nixos.git
+git clone https://github.com/istimaldar/noic.git /mnt/etc/nixos
+nixos-install --flake /mnt/etc/nixos#system
