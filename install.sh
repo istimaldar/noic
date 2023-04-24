@@ -72,11 +72,11 @@ then
   readarray -t PARTITIONS < <(lsblk "$DEVICE" -o NAME -ln)
   export BOOT_PARTITION="/dev/${PARTITIONS[1]}"
   export INSTALL_PARTITION="/dev/${PARTITIONS[2]}"
-  mkfs.vfat -n BOOT "$BOOT_PARTITION"
 fi
 
 # Create encrypted container
-cryptsetup --verify-passphrase -v luksFormat "$INSTALL_PARTITION"
+mkfs.vfat -n nix-boot "$BOOT_PARTITION"
+cryptsetup --verify-passphrase -v luksFormat "$INSTALL_PARTITION" --label nix-root
 cryptsetup open "$INSTALL_PARTITION" enc
 
 # Create volumes inside cryptocontainer
@@ -112,3 +112,10 @@ mkdir -p /mnt/var/log
 mount -o subvol=log,compress=zstd,noatime /dev/lvm/root /mnt/var/log
 mkdir /mnt/boot
 mount "$BOOT_PARTITION" /mnt/boot
+
+# Enable flakes support
+mkidr -p /etc/nix
+cat <<CONFIG | tee -a /etc/nix/nix.conf
+experimental-features = nix-command flakes
+CONFIG
+nixos-install --flake https://github.com/istimaldar/noic#system
