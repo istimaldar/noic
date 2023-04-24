@@ -3,7 +3,7 @@
   istimaldar = {
     isNormalUser = true;
     extraGroups = [
-      "sudo"
+      "wheel"
     ];
   };
 }
