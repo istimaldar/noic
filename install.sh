@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -exuo pipefail
+set -euo pipefail
 
 export SCRIPT=0
 export FORMAT=0
@@ -69,4 +69,46 @@ then
   parted "$DEVICE" -- mkpart ESP fat32 1MB 512MB
   parted "$DEVICE" -- set 1 esp on
   parted "$DEVICE" -- mkpart primary 512MB 100%
+  readarray -t PARTITIONS < <(lsblk "$DEVICE" -o NAME -ln)
+  export BOOT_PARTITION="/dev/${PARTITIONS[1]}"
+  export INSTALL_PARTITION="/dev/${PARTITIONS[2]}"
+  mkfs.vfat -n BOOT "$BOOT_PARTITION"
 fi
+
+# Create encrypted container
+cryptsetup --verify-passphrase -v luksFormat "$INSTALL_PARTITION"
+cryptsetup open "$INSTALL_PARTITION" enc
+
+# Create volumes inside cryptocontainer
+pvcreate /dev/mapper/enc
+vgcreate lvm /dev/mapper/enc
+lvcreate --size "${SWAP}GB" --name swap lvm
+lvcreate --extents 100%FREE --name root lvm
+
+# Format partitions in cryptocontainer
+mkswap /dev/lvm/swap
+mkfs.btrfs /dev/lvm/root
+
+# Create subvolumes for btrfs
+swapon /dev/lvm/swap
+mount -t btrfs /dev/lvm/root /mnt
+btrfs subvolume create /mnt/root
+btrfs subvolume create /mnt/home
+btrfs subvolume create /mnt/nix
+btrfs subvolume create /mnt/persist
+btrfs subvolume create /mnt/log
+btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
+umount /mnt
+
+# Mount the directories
+mount -o subvol=root,compress=zstd,noatime /dev/lvm/root /mnt
+mkdir /mnt/home
+mount -o subvol=home,compress=zstd,noatime /dev/lvm/root /mnt/home
+mkdir /mnt/nix
+mount -o subvol=nix,compress=zstd,noatime /dev/lvm/root /mnt/nix
+mkdir /mnt/persist
+mount -o subvol=persist,compress=zstd,noatime /dev/lvm/root /mnt/persist
+mkdir -p /mnt/var/log
+mount -o subvol=log,compress=zstd,noatime /dev/lvm/root /mnt/var/log
+mkdir /mnt/boot
+mount "$BOOT_PARTITION" /mnt/boot
