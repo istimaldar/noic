@@ -114,7 +114,7 @@ mkdir /mnt/boot
 mount "$BOOT_PARTITION" /mnt/boot
 
 # Enable flakes support
-mkidr -p /etc/nix
+mkdir -p /etc/nix
 cat <<CONFIG | tee -a /etc/nix/nix.conf
 experimental-features = nix-command flakes
 CONFIG
