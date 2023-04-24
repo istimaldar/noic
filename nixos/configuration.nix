@@ -27,7 +27,10 @@
   users.users = import ./users.nix pkgs;
   home-manager = {
     useGlobalPkgs = true;
-    users.istimaldar = import ../home-manager/home.nix config pkgs;
+    users.istimaldar = import ../home-manager/home.nix {
+      inherit config;
+      inherit pkgs;
+    };
   };
 
   networking.hostName = "kionithar";
