@@ -34,7 +34,6 @@
       automatic = true;
       dates = "Fri 22:00:00";
     };
-    registry.nixpkgs.flake = nixpkgs;
   };
 
   networking.hostName = "kionithar";
