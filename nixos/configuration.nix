@@ -28,7 +28,7 @@
 
   nix = {
     extraOptions = ''
-    experimental-features = nix-command flake
+    experimental-features = nix-command flakes
     '';
     gc = {
       automatic = true;
