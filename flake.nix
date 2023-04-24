@@ -21,7 +21,7 @@
         inherit system;
       };
     in {
-      nixosConfigurations.system = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixosConfigurations = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         inherit system;
 
