@@ -1,0 +1,4 @@
+{ pkgs, ... }:
+{
+  istimaldar.isNormalUser = true;
+}

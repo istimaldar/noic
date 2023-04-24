@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nur, home-manager, ... }:
 {
   imports = [
+    <home-manager/nixos>
     ./hardware-configuration.nix
+    ./users.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -22,6 +24,12 @@
         device = "/dev/disk/by-label/nix-root";
         preLVM = true;
       };
+  };
+
+  users.users = import ./users.nix pkgs;
+  home-manager = {
+    useGlobalPkgs = true;
+    users.istimaldar = import ../home-manager/home.nix config pkgs;
   };
 
   networking.hostName = "kionithar";
