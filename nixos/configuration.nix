@@ -26,6 +26,17 @@
 
   users.users = import ./users.nix pkgs;
 
+  nix = {
+    extraOptions = ''
+    experimental-features = nix-command flake
+    '';
+    gc = {
+      automatic = true;
+      dates = "Fri 22:00:00";
+    };
+    registry.nixpkgs.flake = pkgs;
+  };
+
   networking.hostName = "kionithar";
   networking.networkmanager.enable = true;
 

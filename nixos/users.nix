@@ -1,4 +1,9 @@
 { pkgs, ... }:
 {
-  istimaldar.isNormalUser = true;
+  istimaldar = {
+    isNormalUser = true;
+    extraGroups = [
+      "sudo"
+    ];
+  };
 }
