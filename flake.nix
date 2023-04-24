@@ -12,9 +12,13 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, nur, home-manager, ... }:
+  outputs = { nixpkgs, nur, home-manager, hyprland, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -28,6 +32,7 @@
 
         modules = [
           nur.nixosModules.nur
+          hyprland.nixosModules.default
           ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {

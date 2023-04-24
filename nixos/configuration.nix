@@ -36,6 +36,15 @@
     };
   };
 
+  programs.hyprland = {
+    enable = true;
+
+    xwayland = {
+      enable = true;
+      hidpi = false;
+    };
+  };
+
   networking.hostName = "kionithar";
   networking.networkmanager.enable = true;
 
