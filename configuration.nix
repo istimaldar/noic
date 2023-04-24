@@ -27,7 +27,6 @@
 
   networking.hostName = "kionithar";
   networking.networkmanager.enable = true;
-  networking.useDHCP = true;
 
   system.stateVersion = "22.11";
 }
