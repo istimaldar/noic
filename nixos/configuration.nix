@@ -1,4 +1,4 @@
-{ config, pkgs, nur, home-manager, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     home-manager/nixos
@@ -26,13 +26,6 @@
   };
 
   users.users = import ./users.nix pkgs;
-  home-manager = {
-    useGlobalPkgs = true;
-    users.istimaldar = import ../home-manager/home.nix {
-      inherit config;
-      inherit pkgs;
-    };
-  };
 
   networking.hostName = "kionithar";
   networking.networkmanager.enable = true;

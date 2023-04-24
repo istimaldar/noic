@@ -19,17 +19,21 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
+        inherit nur;
         config.allowUnfree = true;
       };
     in {
       nixosConfigurations.system = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         inherit system;
-        inherit nur;
-        inherit home-manager;
 
         modules = [
           ./nixos/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.users.istimaldar = import ./home-manager/home.nix;
+          }
         ];
       };
     };
