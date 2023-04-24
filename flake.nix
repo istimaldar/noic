@@ -21,7 +21,7 @@
         inherit system;
       };
     in {
-      nixosConfigurations.nixosConfigurations = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.kionithar = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         inherit system;
 
