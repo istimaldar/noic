@@ -16,6 +16,7 @@
     device = "nodev";
     efiSupport = true;
     enableCryptodisk = true;
+    useOSProber = true;
   };
   boot.initrd.luks.devices = {
       root = {
@@ -72,8 +73,6 @@
 
   networking.hostName = "kionithar";
   networking.networkmanager.enable = true;
-
-  virtualisation.virtualbox.guest.enable = true;
 
   system.stateVersion = "22.11";
 }
