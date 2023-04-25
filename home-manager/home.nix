@@ -128,6 +128,11 @@
     wofi = {
       enable = true;
     };
+
+
+    terminator = {
+      enable = true;
+    };
   };
 
   services = {
