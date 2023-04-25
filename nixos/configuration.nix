@@ -41,16 +41,19 @@
 
     xwayland = {
       enable = true;
-      hidpi = false;
+      hidpi = true;
     };
   };
 
   services = {
-    xserver.displayManager = {
-      defaultSession = "hyprland";
-      sddm = {
-        enable = true;
-        enableHidpi = true;
+    xserver = {
+      enable = true;
+      displayManager = {
+        defaultSession = "hyprland";
+        sddm = {
+          enable = true;
+          enableHidpi = true;
+        };
       };
     };
   };
