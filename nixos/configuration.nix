@@ -45,10 +45,6 @@
     };
   };
 
-  xdg.portal = {
-    enable = true;
-  };
-
   services = {
     xserver = {
       enable = true;
