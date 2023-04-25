@@ -9,6 +9,9 @@
       megasync
       keepassxc
     ];
+    file = {
+      ".config/hypr/hyprland.conf".source = ./files/hyprland.conf;
+    };
     stateVersion = "22.11";
   };
 
@@ -132,10 +135,6 @@
       enable = true;
     };
   };
-
-  wayland.windowManager.hyprland.extraConfig = ''
-  bindr=SUPER, SUPER_L, exec, pkill wofi || wofi
-  '';
 
   fonts.fontconfig.enable = true;
 }

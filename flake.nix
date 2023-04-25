@@ -33,7 +33,6 @@
         modules = [
           nur.nixosModules.nur
           hyprland.nixosModules.default
-          hyprland.homeManagerModules.default
           ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
