@@ -45,6 +45,16 @@
     };
   };
 
+  services = {
+    xserver.displayManager = {
+      defaultSession = "hyprland";
+      sddm = {
+        enable = true;
+        enableHidpi = true;
+      };
+    };
+  };
+
   networking.hostName = "kionithar";
   networking.networkmanager.enable = true;
 
