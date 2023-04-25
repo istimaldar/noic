@@ -6,6 +6,8 @@
     packages = with pkgs; [
       nerdfonts
       kitty
+      megasync
+      keepassxc
     ];
     stateVersion = "22.11";
   };
@@ -119,7 +121,21 @@
         "files.autoSaveDelay" = "500ms";
       };
     };
+
+    wofi = {
+      enable = true;
+    };
   };
+
+  services = {
+    dunst = {
+      enable = true;
+    };
+  };
+
+  wayland.windowManager.hyprland.extraConfig = ''
+  bindr=SUPER, SUPER_L, exec, pkill wofi || wofi
+  '';
 
   fonts.fontconfig.enable = true;
 }

@@ -43,6 +43,10 @@
       enable = true;
       hidpi = true;
     };
+
+    xdg.portal = {
+      enable = true;
+    };
   };
 
   services = {
@@ -55,6 +59,17 @@
           enableHidpi = true;
         };
       };
+    };
+
+    pipewire = {
+      enable = true;
+      asla.enable = true;
+    };
+  };
+
+  security = {
+    polkit = {
+      enable = true;
     };
   };
 
