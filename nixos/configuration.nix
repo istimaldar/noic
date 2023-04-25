@@ -43,10 +43,10 @@
       enable = true;
       hidpi = true;
     };
+  };
 
-    xdg.portal = {
-      enable = true;
-    };
+  xdg.portal = {
+    enable = true;
   };
 
   services = {
