@@ -33,8 +33,8 @@
         modules = [
           nur.nixosModules.nur
           hyprland.nixosModules.default
-          ./nixos/configuration.nix
           hyprland.homeManagerModules.default
+          ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
