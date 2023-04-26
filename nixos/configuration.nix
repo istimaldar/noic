@@ -73,6 +73,9 @@
       alsa.enable = true;
       pulse.enable = true;
     };
+
+
+    gnome.gnome-keyring.enable = true;
   };
 
   security = {

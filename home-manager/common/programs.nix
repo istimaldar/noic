@@ -6,12 +6,6 @@
     mutableExtensionsDir = false;
     extensions =  pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
-        name = "languagetool-linter";
-        publisher = "davidlday";
-        version = "0.20.0";
-        sha256 = "x1/6+2/27ygKu8N/eX6wDwo/HIkHGKPo7S8+gqrDeVk=";
-      }
-      {
         name = "nord-visual-studio-code";
         publisher = "arcticicestudio";
         version = "0.19.0";
@@ -24,10 +18,16 @@
         sha256 = "08lhzhrn6p0xwi0hcyp6lj9bvpfj87vr99klzsiy8ji7621dzql3";
       }
       {
+        name = "languagetool-linter";
+        publisher = "davidlday";
+        version = "0.20.0";
+        sha256 = "0nbrqfm84gigxpla6607i4f3y2hgn1z7jzy3pc52ivzndzxzlpy7";
+      }
+      {
         name = "gitlens";
         publisher = "eamodio";
-        version = "2023.4.1305";
-        sha256 = "1aiw4r6gv3x18krpdgnx721s3a4jg0fa6l5hp4865kzjfv7m0032";
+        version = "2023.4.2605";
+        sha256 = "0wjjkwqy66dn05973qwgnicvm92lc3g2awfpdsly6j4xjcrfwax3";
       }
       {
         name = "kotlin";
@@ -78,22 +78,28 @@
         sha256 = "13bs7406g4nq5wfxh90zyp4yq62wlzzwl7gzkill2a56gvrfgiad";
       }
       {
-        name = "vscode-java-pack";
-        publisher = "vscjava";
-        version = "0.25.2023032708";
-        sha256 = "1fn2rqxip1839iw2skv1wwymirzbsh9iynqhdp60gkimg2w36504";
-      }
-      {
         name = "errorlens";
         publisher = "usernamehw";
-        version = "3.9.0";
-        sha256 = "GFMVELwM9ugCNeaq51mibZf0V4hRGate1L3WOgMYAQQ=";
+        version = "3.10.1";
+        sha256 = "1q6i0s9bdqspc0l5df233sga844mwrllcabgy1wxhvyzkyxn7b22";
       }
       {
         name = "vscode-conventional-commits";
         publisher = "vivaxy";
         version = "1.25.0";
-        sha256 = "KPP1suR16rIJkwj8Gomqa2ExaFunuG42fp14lBAZuwI=";
+        sha256 = "00mv34898y4xgqv6xf57bdl32qbbma4imz08jc4v5skmwjrgbwr8";
+      }
+      {
+        name = "vscode-java-pack";
+        publisher = "vscjava";
+        version = "0.25.2023042006";
+        sha256 = "0igc60dgnhl95cr8z7n4762b4lnf845zrnawnv6f42w7yigqwchz";
+      }
+      {
+        name = "python";
+        publisher = "ms-python";
+        version = "2023.7.11161005";
+        sha256 = "KKcgTSAl7aDZ6HcQ8aJKt3j4sBDHis33uIFQhENjrNk=";
       }
     ];
     userSettings = {
@@ -263,5 +269,191 @@
         };
       };
     };
+  };
+
+  waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top"; 
+        height = 33;
+        output = [
+          "HDMI-A-1"
+        ];
+    
+        modules-left = [
+          "wlr/workspaces"
+        ];
+        modules-center = [
+          "clock"
+        ];
+        modules-right =  [
+          "tray"
+          "pulseaudio"
+          "custom/power"
+        ];
+
+        "wlr/workspaces" = {
+          on-click = "activate";
+          sort-by-name = false;
+          sort-by-number = true;
+          all-outputs = true;
+          active-only = false;
+        };
+
+        clock = {
+          interval = 1;
+          format = "{: %H:%M:%S   %Y-%m-%d}";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        };
+
+        tray = {
+          icon-size = 13;
+          spacing = 10;
+        };
+
+        pulseaudio = {
+          format = "{icon} {volume}%";
+          format-muted = " Muted";
+          scroll-step = 1;
+          on-click = "pavucontrol";
+          format-icons = {
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = [
+              ""
+              ""
+              "墳"
+              ""
+            ];
+          };
+        };
+
+        "custom/power" = {
+          format = "⏻";
+          on-click = "wlogout";
+        };
+      };
+    };
+    style = ''
+    * {
+      border: none;
+      border-radius: 0;
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 14px;
+      min-height: 0;
+    }
+
+    window#waybar {
+      background: transparent;
+      color: #cdd6f4;
+    }
+
+    tooltip {
+      background: #1e1e2e;
+      border-radius: 10px;
+      border-width: 2px;
+      border-style: solid;
+      border-color: #11111b;
+    }
+
+    #workspaces button {
+      padding: 5px;
+      color: #313244;
+      margin-right: 5px;
+    }
+
+    #workspaces button.active {
+      color: #a6adc8;
+    }
+
+    #workspaces button.focused {
+      color: #a6adc8;
+      background: #eba0ac;
+      border-radius: 10px;
+    }
+
+    #workspaces button.urgent {
+      color: #11111b;
+      background: #a6e3a1;
+      border-radius: 10px;
+    }
+
+    #workspaces button:hover {
+      background: #11111b;
+      color: #cdd6f4;
+      border-radius: 0;
+      border: 0;
+      outline: 0;
+    }
+
+    #custom-language, #custom-updates, #custom-caffeine, #custom-power, #clock, #battery, #pulseaudio, #network, #workspaces, #tray, #backlight {
+      background: #1e1e2e;
+      padding: 0px 10px;
+      margin: 3px 0px;
+    }
+
+    #tray {
+      border-radius: 10px;
+      margin-right: 4px;
+    }
+
+    #workspaces {
+      background: #1e1e2e;
+      border-radius: 10px;
+      padding-right: 0px;
+      padding-left: 5px;
+      margin-left: 5px;
+    }
+
+    #custom-caffeine {
+      color: #89dceb;
+
+    }
+
+    #custom-language {
+      color: #f38ba8;
+    }
+
+    #custom-updates {
+      color: #f5c2e7;
+    }
+
+    #clock {
+      color: #f9e2af;
+      border-radius: 10px;
+    }
+
+    #network {
+      color: #fab387;
+      border-radius: 10px 0px 0px 10px;
+      padding-right: 12px;
+    }
+
+    #pulseaudio {
+      color: #89b4fa;
+    }
+
+    #battery{
+      color:  #a6e3a1;
+
+    }
+
+    #backlight{
+      color: #cba6f7;
+    }
+    #custom-power{
+      color: #a6adc8;
+      background: #1e1e2e;
+      border-radius: 0 10px 10px 0;
+      margin-right: 5px;
+    }
+    '';
   };
 }

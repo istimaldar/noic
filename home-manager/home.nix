@@ -5,6 +5,7 @@
     homeDirectory = "/home/istimaldar";
     packages = import ./common/packages.nix pkgs;
     file = import ./common/files.nix pkgs;
+    sessionVariables = import ./common/variables.nix pkgs;
     stateVersion = "22.11";
   };
 

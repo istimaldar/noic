@@ -24,6 +24,10 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [
+          (import ./overlays/hyprland.nix)
+          (import ./overlays/insomnia.nix)
+        ];
       };
     in {
       nixosConfigurations.kionithar = nixpkgs.lib.nixosSystem {

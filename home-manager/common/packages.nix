@@ -1,6 +1,5 @@
 { pkgs, ... }: with pkgs; [
   nerdfonts
-  kitty
   megasync
   keepassxc
   pinentry
@@ -8,4 +7,9 @@
   slack
   skypeforlinux
   telegram-desktop
+
+  d2
+  languagetool
+
+  insomnia
 ]
