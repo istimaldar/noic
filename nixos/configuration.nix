@@ -82,6 +82,18 @@
     polkit = {
       enable = true;
     };
+
+    pki.certificateFiles = [
+      ../certificates/mitmproxy-ca-cert.pem
+    ];
+  };
+
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      dockerSocket.enable = true;
+    };
   };
 
   networking.hostName = "kionithar";

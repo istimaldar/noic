@@ -9,6 +9,18 @@
     stateVersion = "22.11";
   };
 
+  systemd.user.services = {
+    mitmproxy = {
+      Unit = {
+        Description = "A free and open source interactive HTTPS proxy";
+      };
+
+      Service = {
+        ExecStart = "${pkgs.mitmproxy}/bin/mitmweb";
+      };    
+    };
+  };
+
   programs = import ./common/programs.nix pkgs;
 
   services = import ./common/services.nix pkgs;

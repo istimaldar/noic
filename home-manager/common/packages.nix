@@ -12,4 +12,9 @@
   languagetool
 
   insomnia
+  mitmproxy
+
+  podman-compose
+  buildah
+  skopeo 
 ]
