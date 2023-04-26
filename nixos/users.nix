@@ -5,5 +5,6 @@
     extraGroups = [
       "wheel"
     ];
+    shell = pkgs.zsh;
   };
 }

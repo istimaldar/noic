@@ -37,12 +37,22 @@
     };
   };
 
-  programs.hyprland = {
-    enable = true;
-
-    xwayland = {
+  programs = {
+    hyprland = {
       enable = true;
-      hidpi = true;
+
+      xwayland = {
+        enable = true;
+        hidpi = true;
+      };
+    };
+
+    zsh = {
+      enable = true;
+    };
+
+    openvpn3 = {
+      enable = true;
     };
   };
 
@@ -73,6 +83,8 @@
 
   networking.hostName = "kionithar";
   networking.networkmanager.enable = true;
+
+  time.timeZone = "Asia/Tbilisi";
 
   system.stateVersion = "22.11";
 }

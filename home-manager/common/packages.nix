@@ -4,4 +4,8 @@
   megasync
   keepassxc
   pinentry
+
+  slack
+  skypeforlinux
+  telegram-desktop
 ]
