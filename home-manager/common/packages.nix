@@ -9,7 +9,9 @@
   telegram-desktop
   webcord
 
-  ncspot
+  doctl
+  kubectl
+  k9s
 
   d2
   languagetool
