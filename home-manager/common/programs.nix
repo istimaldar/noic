@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, host, ... }: {
   vscode = {
     enable = true;
     enableExtensionUpdateCheck = false;
@@ -278,9 +278,7 @@
         layer = "top";
         position = "top"; 
         height = 33;
-        output = [
-          "HDMI-A-1"
-        ];
+        output = host.waybarOn;
     
         modules-left = [
           "wlr/workspaces"

@@ -29,10 +29,9 @@
           (import ./overlays/insomnia.nix)
         ];
       };
-    in {
-      nixosConfigurations.kionithar = nixpkgs.lib.nixosSystem {
-        inherit pkgs;
-        inherit system;
+      mkHostConfiguration = host: nixpkgs.lib.nixosSystem {
+        inherit pkgs system;
+        specialArgs = { inherit host; };
 
         modules = [
           nur.nixosModules.nur
@@ -42,9 +41,34 @@
           {
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
-            home-manager.users.istimaldar = import ./home-manager/home.nix;
+            home-manager.users.istimaldar.imports = [
+              ({ config, ... }: import ./home-manager/home.nix {
+                inherit config pkgs host;
+              })
+            ];
           }
         ];
+      };
+    in {
+      nixosConfigurations = 
+      {
+        kionithar = mkHostConfiguration {
+          name = "kionithar";
+          waybarOn = [];
+        };
+        lirianiko = mkHostConfiguration {
+          name = "lirianiko";
+          waybarOn = [
+            "HDMI-A-1"
+          ];
+        };
+      };
+      defaultPackage.x86_64-linux = with pkgs; 
+      stdenv.mkDerivation {
+        name = "install.sh";
+        phases = [ "installPhase" ];
+        src = ./.;
+        installPhase = "mkdir -p $out/bin; ls $src; install -t $out/bin $src/install.sh";
       };
     };
 

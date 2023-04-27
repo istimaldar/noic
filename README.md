@@ -7,5 +7,5 @@ NOIC is stands for Nix OS Installation Configurator.
 To start installation on a fresh device, just type
 
 ```bash
-./install.sh -fd /dev/sda
+nix run github:istimaldar/noic# -- -fd /dev/sda
 ```

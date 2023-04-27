@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, host, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -96,7 +96,7 @@
     };
   };
 
-  networking.hostName = "kionithar";
+  networking.hostName = host.name;
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Tbilisi";

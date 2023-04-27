@@ -5,12 +5,16 @@ set -euo pipefail
 export SCRIPT=0
 export FORMAT=0
 export SWAP=8
+export DEVICE=""
+export BOOT_PARTITION=""
+export INSTALL_PARTITION=""
+export TARGET="kionithar"
 
 usage() {
     cat <<HELP
 Usage:
-    install.sh ( -f | --format ) ( -d | --device ) [ -w | --swap ] [ -s | --script ]
-    install.sh ( -b | --boot-partition ) ( -i | --install-partition ) [ -w | --swap ] [ -s | --script ]
+    install.sh ( -f | --format ) ( -d | --device ) [ -w | --swap ] [ -s | --script ] [ -t | --target ]
+    install.sh ( -b | --boot-partition ) ( -i | --install-partition ) [ -w | --swap ] [ -s | --script ] [ -t | --target ]
 
 -s, --script                                    Run in script mode. Do not prompt for user output.
 -f, --format                                    Format device and create GPT partition table before installation.
@@ -18,6 +22,7 @@ Usage:
 -b <partition>, --boot-partition <partition>    Partition to mount as boot.
 -i <partiton>, --install-partition <partition>  Partition to install system on.
 -w <size>, --swap <size>                        Size of the swap partition in gigabytes. [default: 8]
+-t <target>, --target <target>                  Configuration target to apply. [default: kionithar]
 HELP
 
     exit 2;
@@ -42,6 +47,7 @@ do
     -b | --boot-partition)    export BOOT_PARTITION="$2"     ; shift 2;  ;;
     -i | --install-partition) export INSTALL_PARTITION="$2"  ; shift 2;  ;;
     -w | --swap)              export SWAP="$2"               ; shift 2;  ;;
+    -t | --target)            export TARGET="$2"             ; shift 2;  ;;
     --)                       shift                          ; break;    ;;
     *) echo "Unexpected option: $1 - this should not happen."
        usage ;;
@@ -118,4 +124,4 @@ mkdir -p /etc/nix
 cat <<CONFIG | tee -a /etc/nix/nix.conf
 experimental-features = nix-command flakes
 CONFIG
-nixos-install --flake github:istimaldar/noic#kionithar
+nixos-install --flake "github:istimaldar/noic#$TARGET"

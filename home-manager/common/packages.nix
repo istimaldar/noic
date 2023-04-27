@@ -7,6 +7,9 @@
   slack
   skypeforlinux
   telegram-desktop
+  webcord
+
+  ncspot
 
   d2
   languagetool
@@ -16,5 +19,15 @@
 
   podman-compose
   buildah
-  skopeo 
+  skopeo
+
+  dotnet-sdk
+  poetry
+  (python311.withPackages(ps: with ps; [
+    virtualenv
+  ]))
+
+  jetbrains.rider
+  jetbrains.pycharm-professional
+  jetbrains.idea-ultimate
 ]
