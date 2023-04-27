@@ -4,26 +4,35 @@
     ./hardware-configuration.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.supportedFilesystems = [ "btrfs" ];
-  hardware.enableAllFirmware = true;
-  nixpkgs.config.allowUnfree = true;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    supportedFilesystems = [ "btrfs" ];
+    loader = {
+      efi.canTouchEfiVariables = true;
+      grub = {
+        enable = true;
+        version = 2;
+        device = "nodev";
+        efiSupport = true;
+        enableCryptodisk = true;
+        useOSProber = true;
+      };
+    };
 
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub = {
-    enable = true;
-    version = 2;
-    device = "nodev";
-    efiSupport = true;
-    enableCryptodisk = true;
-    useOSProber = true;
-  };
-  boot.initrd.luks.devices = {
+    initrd.luks.devices = {
       root = {
         device = "/dev/disk/by-label/nix-root";
         preLVM = true;
       };
+    };
+
+    kernel.sysctl = {
+      "net.ipv4.ip_unprivileged_port_start" = 0;
+    };
   };
+
+  hardware.enableAllFirmware = true;
+  nixpkgs.config.allowUnfree = true;
 
   users.users = import ./users.nix pkgs;
 

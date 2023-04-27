@@ -12,6 +12,17 @@
   doctl
   kubectl
   k9s
+  (pkgs.wrapHelm pkgs.kubernetes-helm 
+    { 
+      plugins =  with kubernetes-helmPlugins; [
+        helm-secrets
+        helm-diff
+      ]; 
+    }
+  )
+  helmsman
+  kube3d
+  go-task
 
   d2
   languagetool
@@ -27,8 +38,7 @@
   buildah
   skopeo
 
-  jdk11
-  jdk17
+  jdk
   maven
   go
   dotnet-sdk

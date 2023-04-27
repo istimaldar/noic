@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "install",
         "nixos",
-        "terminal"
+        "terminal",
+        "k8s"
     ]
 }
