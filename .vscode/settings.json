@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "install",
-        "nixos"
+        "nixos",
+        "terminal"
     ]
 }

@@ -18,11 +18,19 @@
 
   insomnia
   mitmproxy
+  httpie
+  fd
+  duf
+  tldr
 
   podman-compose
   buildah
   skopeo
 
+  jdk11
+  jdk17
+  maven
+  go
   dotnet-sdk
   poetry
   (python311.withPackages(ps: with ps; [
