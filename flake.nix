@@ -54,7 +54,9 @@
       {
         kionithar = mkHostConfiguration {
           name = "kionithar";
-          waybarOn = [];
+          waybarOn = [
+            "DP-1"
+          ];
         };
         lirianiko = mkHostConfiguration {
           name = "lirianiko";
