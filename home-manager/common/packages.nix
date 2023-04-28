@@ -28,6 +28,10 @@
   d2
   languagetool
   devbox
+  unzip
+  liquibase
+  awscli2
+  jq
 
   krita
   insomnia
