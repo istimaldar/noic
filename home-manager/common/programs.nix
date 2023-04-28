@@ -111,6 +111,7 @@
       "languageToolLinter.serviceType" = "managed";
       "files.autoSave" = "afterDelay";
       "files.autoSaveDelay" = "500ms";
+      "window.menuBarVisibility" = "toggle";
     };
   };
 
