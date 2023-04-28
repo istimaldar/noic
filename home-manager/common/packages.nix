@@ -3,6 +3,7 @@
   megasync
   keepassxc
   pinentry
+  hyprpaper
 
   slack
   skypeforlinux
@@ -26,7 +27,9 @@
 
   d2
   languagetool
+  devbox
 
+  krita
   insomnia
   mitmproxy
   httpie

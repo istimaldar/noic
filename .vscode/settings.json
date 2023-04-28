@@ -3,6 +3,7 @@
         "install",
         "nixos",
         "terminal",
-        "k8s"
+        "k8s",
+        "ui"
     ]
 }
