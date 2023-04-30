@@ -42,6 +42,7 @@
   fd
   duf
   tldr
+  logseq
 
   podman-compose
   buildah
