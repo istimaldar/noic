@@ -6,6 +6,12 @@
     packages = import ./common/packages.nix pkgs;
     file = import ./common/files.nix { inherit pkgs host; };
     sessionVariables = import ./common/variables.nix pkgs;
+    pointerCursor = {
+      package = pkgs.nordzy-cursor-theme;
+      gtk.enable = true;
+      name = "Nordzy-cursors";
+      x11.enable = true;
+    };
     stateVersion = "22.11";
   };
 
