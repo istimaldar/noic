@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/istimaldar/noic.git
     targetRevision: HEAD
-    path: charts/argo-system
+    path: kubernetes/charts/argo-system
     helm:
       parameters:
         - name: environment
@@ -45,7 +45,7 @@ spec:
   source:
     repoURL: https://github.com/istimaldar/noic.git
     targetRevision: HEAD
-    path: charts/argo-user
+    path: kubernetes/charts/argo-user
     helm:
       parameters:
         - name: environment

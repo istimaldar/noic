@@ -16,7 +16,7 @@ spec:
       chart: traefik
       helm:
         valueFiles:
-          - $values/values/{{ .Values.environment }}/traefik.values.yaml
+          - $values/kubernetes/values/{{ .Values.environment }}/traefik.values.yaml
     - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
@@ -52,7 +52,7 @@ spec:
       chart: argo-cd
       helm:
         valueFiles:
-          - $values/values/{{ .Values.environment }}/argo-cd.values.yaml
+          - $values/kubernetes/values/{{ .Values.environment }}/argo-cd.values.yaml
     - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
@@ -88,7 +88,7 @@ spec:
       chart: drone
       helm:
         valueFiles:
-          - $values/values/{{ .Values.environment }}/drone.values.yaml
+          - $values/kubernetes/values/{{ .Values.environment }}/drone.values.yaml
     - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
@@ -124,7 +124,7 @@ spec:
       chart: mattermost-team-edition
       helm:
         valueFiles:
-          - $values/values/{{ .Values.environment }}/mattermost.values.yaml
+          - $values/kubernetes/values/{{ .Values.environment }}/mattermost.values.yaml
     - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
