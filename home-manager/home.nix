@@ -25,5 +25,21 @@
 
   services = import ./common/services.nix pkgs;
 
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.nordic;
+      name = "Nordic";
+    };
+  };
+
+  qt = {
+    enable = true;
+    style = {
+      package = pkgs.nordic;
+      name = "Nordic";
+    };
+  };
+
   fonts.fontconfig.enable = true;
 }
