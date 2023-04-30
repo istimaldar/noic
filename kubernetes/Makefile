@@ -1,8 +1,4 @@
 .PHONY: build install
-build: export PKGS_PODMAN = $(shell which helmsman)
-build: export PKGS_KUBECTL = $(shell which kubectl)
-build: export PKGS_HELMSMAN = $(shell which helmsman)
-build: export PKGS_K3D = $(shell which k3d)
 build: export PKGS_BASH = $(shell which bash)
 
 build:
@@ -13,4 +9,4 @@ install:
 	mkdir -p ${out}/bin
 	cp kubelocal ${out}/bin
 	mkdir -p ${out}/share
-	cp ${src}/k3d.yaml ${out}/share
+	cp -rf ${src}/k3d.yaml ${src}/bootstrap ${src}/charts ${src}/values ${out}/share

@@ -1,0 +1,19 @@
+image:
+  tag: 2.16.0
+
+ingress:
+  enabled: true
+  hosts:
+    - host: drone.local.gd
+      paths:
+        - path: /
+          pathType: Prefix
+
+persistentVolume:
+  enabled: false
+
+extraSecretNamesForEnvFrom:
+  - drone
+
+env:
+  DRONE_SERVER_HOST: drone.local.gd

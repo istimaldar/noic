@@ -1,0 +1,68 @@
+{{ if .Values.applications.system.enabled -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: system
+  labels:
+    {{- include "argo-applications.labels" . | nindent 4 }}
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/istimaldar/noic.git
+    targetRevision: HEAD
+    path: charts/argo-system
+    helm:
+      parameters:
+        - name: environment
+          value: {{ .Values.environment | quote }}
+      valueFiles:
+        - ../../values/{{ .Values.environment }}/argo-system.values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true 
+{{- end }}
+{{ if .Values.applications.user.enabled -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: user
+  labels:
+    {{- include "argo-applications.labels" . | nindent 4 }}
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/istimaldar/noic.git
+    targetRevision: HEAD
+    path: charts/argo-user
+    helm:
+      parameters:
+        - name: environment
+          value: {{ .Values.environment | quote }}
+      valueFiles:
+        - ../../values/{{ .Values.environment }}/argo-user.values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true 
+{{- end }}

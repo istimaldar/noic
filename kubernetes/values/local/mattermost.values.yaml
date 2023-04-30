@@ -1,0 +1,14 @@
+persistence:
+  data:
+    enabled: false
+  plugins:
+    enabled: false
+
+ingress:
+  enabled: true
+  hosts:
+    - mattermost.local.gd
+
+mysql:
+  mysqlUser: mattermost
+  mysqlPassword: mattermost

@@ -1,0 +1,29 @@
+context = "bootstrap"
+
+[namespaces]
+    [namespaces.traefik]
+    [namespaces.argocd]
+
+[helmRepos]
+    traefik = "https://traefik.github.io/charts"
+    argo = "https://argoproj.github.io/argo-helm"
+
+[apps]
+    [apps.argocd]
+        namespace = "argocd"
+        enabled = true
+        chart = "argo/argo-cd"
+        version = "5.29.1"
+        valuesFile = "../values/local/argo-cd.values.yaml"
+        priority = -1
+        wait = true
+        [apps.argocd.set]
+            "server.ingress.enabled" = "false"
+    [apps.argo-applictions]
+        namespace = "argocd"
+        enabled = true
+        chart = "../charts/argo-applications"
+        version = "0.1.0"
+        valuesFile = "../values/local/argo-applications.values.yaml"
+        priority = 0
+        wait = true

@@ -1,0 +1,144 @@
+{{ if .Values.applications.traefik.enabled -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  labels:
+    {{- include "argo-system.labels" . | nindent 4 }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  project: default
+  sources:
+    - repoURL: https://traefik.github.io/charts
+      targetRevision: '22.1.0'
+      chart: traefik
+      helm:
+        valueFiles:
+          - $values/values/{{ .Values.environment }}/traefik.values.yaml
+    - repoURL: https://github.com/istimaldar/noic.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: traefik
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true 
+{{- end }}
+{{ if .Values.applications.traefik.enabled -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  labels:
+    {{- include "argo-system.labels" . | nindent 4 }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  project: default
+  sources:
+    - repoURL: https://argoproj.github.io/argo-helm
+      targetRevision: '5.29.1'
+      chart: argo-cd
+      helm:
+        valueFiles:
+          - $values/values/{{ .Values.environment }}/argo-cd.values.yaml
+    - repoURL: https://github.com/istimaldar/noic.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true 
+{{- end }}
+{{ if .Values.applications.drone.enabled -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: drone
+  labels:
+    {{- include "argo-system.labels" . | nindent 4 }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  project: default
+  sources:
+    - repoURL: https://charts.drone.io
+      targetRevision: '0.6.3'
+      chart: drone
+      helm:
+        valueFiles:
+          - $values/values/{{ .Values.environment }}/drone.values.yaml
+    - repoURL: https://github.com/istimaldar/noic.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: drone
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true 
+{{- end }}
+{{ if .Values.applications.mattermost.enabled -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mattermost
+  labels:
+    {{- include "argo-system.labels" . | nindent 4 }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  project: default
+  sources:
+    - repoURL: https://helm.mattermost.com
+      targetRevision: '6.6.22'
+      chart: mattermost-team-edition
+      helm:
+        valueFiles:
+          - $values/values/{{ .Values.environment }}/mattermost.values.yaml
+    - repoURL: https://github.com/istimaldar/noic.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mattermost
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true 
+{{- end }}

@@ -1,0 +1,26 @@
+providers:
+  kubernetesIngress:
+    publishedService:
+      enabled: true
+  kubernetesCRD:
+    allowCrossNamespace: true
+
+ports:
+  traefik:
+    port: 9000
+    expose: true
+    exposedPort: 9000
+    protocol: TCP
+  web:
+    port: 8000
+    expose: true
+    exposedPort: 80
+    protocol: TCP
+    http3:
+      enabled: false
+  websecure: null
+  metrics:
+    port: 9100
+    expose: false
+    exposedPort: 9100
+    protocol: TCP

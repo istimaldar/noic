@@ -1,0 +1,10 @@
+environment: local
+applications:
+  traefik:
+    enabled: true
+  argocd:
+    enabled: true
+  drone:
+    enabled: true
+  mattermost:
+    enabled: true

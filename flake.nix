@@ -90,7 +90,11 @@
           )
           helmsman
           kube3d
+          kubectl
           podman
+          jq
+          gnused
+          xclip
         ];
       };
     };

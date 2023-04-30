@@ -1,0 +1,6 @@
+environment: local
+applications:
+  system:
+    enabled: true
+  user:
+    enabled: false

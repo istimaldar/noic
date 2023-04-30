@@ -1,0 +1,20 @@
+controller:
+  replicas: 1
+
+server:
+  replicas: 1
+  extraArgs:
+    - --insecure
+  ingress:
+    enabled: true
+    hosts:
+      - argo.local.gd
+
+repoServer:
+  replicas: 1
+
+applicationSet:
+  replicaCount: 1
+
+metrics:
+  enabled: true
