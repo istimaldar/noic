@@ -72,6 +72,27 @@
         src = ./.;
         installPhase = "mkdir -p $out/bin; ls $src; install -t $out/bin $src/install.sh";
       };
+      packages.x86_64-linux.kubelocal = with pkgs; 
+      stdenv.mkDerivation {
+        name = "kubelocal";
+        src = ./kubernetes;
+        buildInputs = [
+          which
+          envsubst
+          k9s
+          (pkgs.wrapHelm pkgs.kubernetes-helm 
+            { 
+              plugins =  with kubernetes-helmPlugins; [
+                helm-secrets
+                helm-diff
+              ]; 
+            }
+          )
+          helmsman
+          kube3d
+          podman
+        ];
+      };
     };
 
 }

@@ -45,6 +45,7 @@
   buildah
   skopeo
 
+  gnumake
   jdk
   maven
   go

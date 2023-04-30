@@ -1,0 +1,34 @@
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+metadata:
+  name: $CLUSTER_NAME
+servers: 1
+agents: 3
+image: rancher/k3s:v1.26.3-k3s1
+volumes:
+  - volume: /dev/mapper:/dev/mapper
+ports:
+  - port: 80:80
+    nodeFilters:
+      - loadbalancer
+  - port: 9000:9000
+    nodeFilters:
+      - loadbalancer
+registries:
+  use:
+    - "k3d-$REGISTRY_NAME:$REGISTRY_PORT"
+options:
+  k3d:
+    wait: true 
+    timeout: "60s"
+    disableLoadbalancer: false 
+    disableImageVolume: false
+    disableRollback: false
+  k3s:
+    extraArgs:
+      - arg: --disable=traefik
+        nodeFilters:
+          - server:*
+  kubeconfig:
+    updateDefaultKubeconfig: true
+    switchCurrentContext: true
