@@ -10,6 +10,7 @@
   skypeforlinux
   telegram-desktop
   webcord
+  mattermost-desktop
 
   doctl
   kubectl
