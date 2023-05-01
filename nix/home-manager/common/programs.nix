@@ -277,193 +277,273 @@
     settings = {
       mainBar = {
         layer = "top";
-        position = "top"; 
-        height = 33;
+        position = "top";
+        height = 41;
+        spacing = 4;
         output = host.waybarOn;
-    
         modules-left = [
           "wlr/workspaces"
-          "hyprland/language"
         ];
         modules-center = [
           "clock"
         ];
-        modules-right =  [
+        modules-right = [
           "tray"
+          "cpu"
+          "memory"
+          "network"
           "pulseaudio"
-          "custom/power"
         ];
-
         "wlr/workspaces" = {
-          on-click = "activate";
-          sort-by-name = false;
-          sort-by-number = true;
-          all-outputs = true;
-          active-only = false;
+            disable-scroll = true;
+            all-outputs = true;
+            format = "{icon}";
+            sort-by-number = true;
+            format-icons = {
+                "1" = "󰨞";
+                "2" = "";
+                "3" = "";
+                "4" = "";
+                "5" = "󰒱";
+                "6" = "";
+                "7" = "";
+                "8" = "";
+                "9" = "";
+                "10" = "󱂛";
+                "11" = "󱀣";
+                "12" = "󰟵";
+                urgent = "";
+                focused = "";
+                default = "";
+            };
         };
-
         "hyprland/language" = {
           format = "{}";
+          format-en = "English";
+          format-by = "Беларуская";
+          format-ge = "ქართული";
         };
-
-        clock = {
-          interval = 1;
-          format = "{: %H:%M:%S   %Y-%m-%d}";
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-        };
-
-        tray = {
-          icon-size = 13;
-          spacing = 10;
-        };
-
-        pulseaudio = {
-          format = "{icon} {volume}%";
-          format-muted = " Muted";
-          scroll-step = 1;
-          on-click = "pavucontrol";
+        keyboard-state = {
+          numlock = true;
+          capslock = true;
+          format = "{name} {icon}";
           format-icons = {
-            headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = [
-              ""
-              ""
-              "墳"
-              ""
-            ];
+            locked = "";
+            unlocked = "";
           };
         };
-
-        "custom/power" = {
-          format = "⏻";
-          on-click = "wlogout";
+        "wlr/mode" = {
+          format = "<span style=\"italic\">{}</span>";
+        };
+        "wlr/scratchpad" = {
+          format = "{icon} {count}";
+          show-empty = false;
+          format-icons = [
+            ""
+            ""
+          ];
+          tooltip = true;
+          tooltip-format = "{app}: {title}";
+        };
+        mpd = {
+            format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
+            format-disconnected = "Disconnected ";
+            format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+            unknown-tag = "N/A";
+            interval = 2;
+            consume-icons = {
+                on = " ";
+            };
+            random-icons = {
+                off = "<span color=\"#f53c3c\"></span> ";
+                on = " ";
+            };
+            repeat-icons = {
+                on = " ";
+            };
+            single-icons = {
+                on = "1 ";
+            };
+            state-icons = {
+                paused = "";
+                playing = "";
+            };
+            tooltip-format = "MPD (connected)";
+            tooltip-format-disconnected = "MPD (disconnected)";
+        };
+        idle_inhibitor = {
+          format = "{icon}";
+          format-icons = {
+            activated = "";
+            deactivated = "";
+          };
+        };
+        tray = {
+            icon-size = 15;
+            spacing = 10;
+        };
+        clock = {
+          interval= 1;
+          format = "{: %Y-%m-%d  %H:%M:%S}";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>";
+        };
+        cpu = {
+          format = "{usage}% ";
+          tooltip = false;
+        };
+        memory = {
+          format = "{}% ";
+        };
+        network = {
+          # "interface": "wlp2*", // (Optional) To force the use of this interface
+          format-wifi = "<span font='18' rise='-2500'></span> {signalStrength}%";
+          format-ethernet = "{ipaddr}/{cidr} ";
+          tooltip-format = "{ifname} via {gwaddr} ";
+          format-linked = "{ifname} (No IP) ";
+          format-disconnected = "⚠ Disconnected";
+          format-alt = "{ifname}: {ipaddr}/{cidr}";
+        };
+        pulseaudio = {
+          # // "scroll-step": 1, // %, can be a float
+          format = "<span font='18' rise='-2500'>{icon}</span> {volume}%";
+          format-bluetooth = "{icon} {volume}% ";
+          format-bluetooth-muted = " {icon} {format_source}";
+          format-muted = " {format_source}";
+          format-source = "{volume}% ";
+          format-source-muted = "";
+          format-icons = {
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car=  "";
+            default = ["" "" ""];
+          };
+          on-click = "pavucontrol";
         };
       };
     };
     style = ''
+    @define-color base   #3b4252;
+    @define-color mantle #181825;
+    @define-color crust  #4c566a;
+
+    @define-color text     #cdd6f4;
+    @define-color subtext0 #a6adc8;
+    @define-color subtext1 #bac2de;
+
+    @define-color surface0 #313244;
+    @define-color surface1 #45475a;
+    @define-color surface2 #585b70;
+
+    @define-color overlay0 #6c7086;
+    @define-color overlay1 #7f849c;
+    @define-color overlay2 #9399b2;
+
+    @define-color blue      #89b4fa;
+    @define-color lavender  #b4befe;
+    @define-color sapphire  #74c7ec;
+    @define-color sky       #89dceb;
+    @define-color teal      #94e2d5;
+    @define-color green     #a6e3a1;
+    @define-color yellow    #f9e2af;
+    @define-color peach     #fab387;
+    @define-color maroon    #eba0ac;
+    @define-color red       #bf616a;
+    @define-color mauve     #cba6f7;
+    @define-color flamingo  #f2cdcd;
+    @define-color rosewater #f5e0dc;
+
     * {
-      border: none;
-      border-radius: 0;
-      font-family: monospace;
-      font-weight: bold;
+      font-family: Fira Code;
       font-size: 14px;
-      min-height: 0;
     }
 
     window#waybar {
-      background: transparent;
-      color: #cdd6f4;
+      background-color: alpha(@base, 0.9);
+      border: 2px solid alpha(@crust, 0.1);
     }
 
-    tooltip {
-      background: #1e1e2e;
-      border-radius: 10px;
-      border-width: 2px;
-      border-style: solid;
-      border-color: #11111b;
-    }
-
-    #workspaces button {
-      padding: 5px;
-      color: #313244;
-      margin-right: 5px;
-    }
-
-    #workspaces button.active {
-      color: #a6adc8;
-    }
-
-    #workspaces button.focused {
-      color: #a6adc8;
-      background: #eba0ac;
-      border-radius: 10px;
-    }
-
-    #workspaces button.urgent {
-      color: #11111b;
-      background: #a6e3a1;
-      border-radius: 10px;
-    }
-
-    #workspaces button:hover {
-      background: #11111b;
-      color: #cdd6f4;
-      border-radius: 0;
-      border: 0;
-      outline: 0;
-    }
-
-    #language {
-      background: #1e1e2e;
-      padding: 0px 10px;
-      border-radius: 10px;
-      margin-left: 5px;
-    }
-
-    #custom-language, #custom-updates, #custom-caffeine, #custom-power, #clock, #battery, #pulseaudio, #network, #workspaces, #tray, #backlight {
-      background: #1e1e2e;
-      padding: 0px 10px;
-      margin: 3px 0px;
-    }
-
+    #clock,
+    #battery,
+    #backlight,
+    #disk,
+    #pulseaudio,
     #tray {
-      border-radius: 10px;
-      margin-right: 4px;
+      padding: 0 10px;
     }
 
-    #workspaces {
-      background: #1e1e2e;
-      border-radius: 10px;
-      padding-right: 0px;
-      padding-left: 5px;
-      margin-left: 5px;
-    }
-
-    #custom-caffeine {
-      color: #89dceb;
-
-    }
-
-    #custom-language {
-      color: #f38ba8;
-    }
-
-    #custom-updates {
-      color: #f5c2e7;
+    #cpu,
+    #memory,
+    #network {
+      padding: 0 7px;
     }
 
     #clock {
-      color: #f9e2af;
-      border-radius: 10px;
+      color: @sky;
     }
 
-    #network {
-      color: #fab387;
-      border-radius: 10px 0px 0px 10px;
-      padding-right: 12px;
+    #wifi {
+      color: @sapphire;
+    }
+
+    #battery {
+      color: @green;
     }
 
     #pulseaudio {
-      color: #89b4fa;
+      color: @flamingo;
     }
 
-    #battery{
-      color:  #a6e3a1;
-
+    #network {
+      color: @maroon;
     }
 
-    #backlight{
-      color: #cba6f7;
+    #backlight {
+      color: @mauve;
     }
-    #custom-power{
-      color: #a6adc8;
-      background: #1e1e2e;
-      border-radius: 0 10px 10px 0;
-      margin-right: 5px;
+
+    #workspaces button {
+      color: @text;
+      border-radius: 16px;
+      transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
+    }
+
+    #workspaces button:hover {
+      background-color: @mauve;
+    }
+
+    #workspaces button.active {
+      color: @maroon;
+      background-color: shade(@surface1, 0.9);
+    }
+
+    .modules-right {
+      background-color: @surface1;
+      border-radius: 16px;
+      margin: 5px 5px 5px 10px;
+    }
+
+    .modules-left {
+      background-color: @surface1;
+      border-radius: 16px;
+      margin: 5px;
+    }
+
+    .modules-center {
+      background-color: @surface1;
+      border-radius: 16px;
+      margin: 5px;
+    }
+
+    .custom-spotify {
+      padding: 0 10px;
+      color: @green;
+    }
+
+    .modules-left > widget:first-child > #workspaces {
+      margin-left: 0;
     }
     '';
   };

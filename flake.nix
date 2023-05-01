@@ -25,8 +25,8 @@
         inherit system;
         config.allowUnfree = true;
         overlays = [
-          (import ./overlays/hyprland.nix)
-          (import ./overlays/insomnia.nix)
+          (import ./nix/overlays/hyprland.nix)
+          (import ./nix/overlays/insomnia.nix)
         ];
       };
       mkHostConfiguration = host: nixpkgs.lib.nixosSystem {
@@ -36,13 +36,13 @@
         modules = [
           nur.nixosModules.nur
           hyprland.nixosModules.default
-          ./nixos/configuration.nix
+          ./nix/nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
             home-manager.users.istimaldar.imports = [
-              ({ config, ... }: import ./home-manager/home.nix {
+              ({ config, ... }: import ./nix/home-manager/home.nix {
                 inherit config pkgs host;
               })
             ];

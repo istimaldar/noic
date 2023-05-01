@@ -106,7 +106,7 @@
     };
 
     pki.certificateFiles = [
-      ../certificates/mitmproxy-ca-cert.pem
+      ../../certificates/mitmproxy-ca-cert.pem
     ];
   };
 

@@ -75,7 +75,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: drone
+  name: concourse-ci
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
@@ -88,13 +88,13 @@ spec:
       chart: drone
       helm:
         valueFiles:
-          - $values/kubernetes/values/{{ .Values.environment }}/drone.values.yaml
+          - $values/kubernetes/values/{{ .Values.environment }}/concourse-ci.values.yaml
     - repoURL: https://codeberg.org/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
     server: https://kubernetes.default.svc
-    namespace: drone
+    namespace: concourse-ci
   syncPolicy:
     automated:
       prune: true
