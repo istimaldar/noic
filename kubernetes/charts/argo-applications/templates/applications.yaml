@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/istimaldar/noic.git
+    repoURL: https://codeberg.org/istimaldar/noic.git
     targetRevision: HEAD
     path: kubernetes/charts/argo-system
     helm:
@@ -43,7 +43,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/istimaldar/noic.git
+    repoURL: https://codeberg.org/istimaldar/noic.git
     targetRevision: HEAD
     path: kubernetes/charts/argo-user
     helm:

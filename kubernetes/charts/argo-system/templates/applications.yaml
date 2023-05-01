@@ -17,7 +17,7 @@ spec:
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/traefik.values.yaml
-    - repoURL: https://github.com/istimaldar/noic.git
+    - repoURL: https://codeberg.org/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -53,7 +53,7 @@ spec:
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/argo-cd.values.yaml
-    - repoURL: https://github.com/istimaldar/noic.git
+    - repoURL: https://codeberg.org/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -89,7 +89,7 @@ spec:
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/drone.values.yaml
-    - repoURL: https://github.com/istimaldar/noic.git
+    - repoURL: https://codeberg.org/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -125,7 +125,7 @@ spec:
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/mattermost.values.yaml
-    - repoURL: https://github.com/istimaldar/noic.git
+    - repoURL: https://codeberg.org/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
