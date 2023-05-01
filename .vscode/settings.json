@@ -4,6 +4,7 @@
         "nixos",
         "terminal",
         "k8s",
-        "ui"
+        "ui",
+        "workflow"
     ]
 }
