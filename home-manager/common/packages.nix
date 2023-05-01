@@ -4,7 +4,9 @@
   keepassxc
   pinentry
   hyprpaper
-  xclip
+  slurp
+  grim
+  wl-clipboard
 
   slack
   skypeforlinux
