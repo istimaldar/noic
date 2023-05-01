@@ -17,7 +17,7 @@ makeSureClusterCreated() {
         k3d registry create --default-network podman --port 0.0.0.0:$$REGISTRY_PORT $$REGISTRY_NAME
         k3d cluster create --config ${out}/share/k3d.yaml
         kubectl create namespace drone
-        jq -r '.drone | to_entries[] | "--from-literal=\(.key)=\(.value)"' ~/.secrets.json | tr '\n' ' ' | sed 's/^/kubectl create secret -n drone generic drone /' | bash -
+        jq -r '.drone | to_entries[] | "--from-literal=\(.key)=\(.value)"' ~/common/secrets.json | tr '\n' ' ' | sed 's/^/kubectl create secret -n drone generic drone /' | bash -
     fi
 }
 
@@ -39,10 +39,6 @@ makeSureClusterBootstraped() {
     helmsman --apply -f ${out}/share/bootstrap/bootstrap.toml
 }
 
-copyArgoCdCredentials() {
-    kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d | xclip -i -selection clipboard
-}
-
 makeSureClusterStopeed() {
     k3d cluster delete $$CLUSTER_NAME
     k3d registry delete k3d-$$REGISTRY_NAME
@@ -60,6 +56,5 @@ case $$1 in
         makeSureRegistryStarted
         makeSureClusterStarted
         makeSureClusterBootstraped
-        copyArgoCdCredentials
         ;;
 esac

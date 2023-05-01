@@ -94,7 +94,6 @@
           podman
           jq
           gnused
-          xclip
         ];
       };
     };
