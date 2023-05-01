@@ -283,6 +283,7 @@
     
         modules-left = [
           "wlr/workspaces"
+          "hyprland/language"
         ];
         modules-center = [
           "clock"
@@ -299,6 +300,10 @@
           sort-by-number = true;
           all-outputs = true;
           active-only = false;
+        };
+
+        "hyprland/language" = {
+          format = "{}";
         };
 
         clock = {
@@ -390,6 +395,13 @@
       border-radius: 0;
       border: 0;
       outline: 0;
+    }
+
+    #language {
+      background: #1e1e2e;
+      padding: 0px 10px;
+      border-radius: 10px;
+      margin-left: 5px;
     }
 
     #custom-language, #custom-updates, #custom-caffeine, #custom-power, #clock, #battery, #pulseaudio, #network, #workspaces, #tray, #backlight {
