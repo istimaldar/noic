@@ -1,5 +1,7 @@
 environment: local
 applications:
+  cert_manager:
+    enabled: true
   traefik:
     enabled: true
   argocd:
