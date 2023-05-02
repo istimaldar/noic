@@ -1,0 +1,9 @@
+{{ if eq .Values.environment "local" -}}
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: ca-issuer
+spec:
+  ca:
+    secretName: ca-key-pair
+{{- end }}

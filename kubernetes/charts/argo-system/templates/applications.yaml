@@ -3,26 +3,60 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: traefik
+  name: cert-manager
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
-    argocd.argoproj.io/sync-wave: "-1"
+    argocd.argoproj.io/sync-wave: "-3"
 spec:
   project: default
   sources:
     - repoURL: https://charts.jetstack.io
       targetRevision: '1.11.1'
-      chart: traefik
+      chart: cert-manager
       helm:
         valueFiles:
-          - $values/kubernetes/values/{{ .Values.environment }}/traefik.values.yaml
+          - $values/kubernetes/values/{{ .Values.environment }}/cert-manager.values.yaml
     - repoURL: https://codeberg.org/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
     server: https://kubernetes.default.svc
-    namespace: traefik
+    namespace: cert-manager
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager-issuer
+  labels:
+    {{- include "argo-system.labels" . | nindent 4 }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+spec:
+  project: default
+  sources:
+    - repoURL: https://codeberg.org/istimaldar/noic.git
+      targetRevision: HEAD
+      path: kubernetes/charts/cert-manager-issuer
+      helm:
+        parameters:
+          - name: environment
+            value: {{ .Values.environment | quote }}
+        valueFiles:
+          - ../../values/{{ .Values.environment }}/cert-manager-issuer.values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cert-manager
   syncPolicy:
     automated:
       prune: true

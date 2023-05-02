@@ -37,6 +37,7 @@
   awscli2
   jq
   terraform
+  openssl
 
   krita
   insomnia
