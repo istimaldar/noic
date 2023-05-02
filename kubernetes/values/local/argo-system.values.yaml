@@ -1,0 +1,11 @@
+applications:
+  cert_manager:
+    enabled: true
+  traefik:
+    enabled: true
+  argocd:
+    enabled: true
+  drone:
+    enabled: true
+  mattermost:
+    enabled: false

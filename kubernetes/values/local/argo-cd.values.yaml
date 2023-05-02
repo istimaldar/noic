@@ -7,8 +7,14 @@ server:
     - --insecure
   ingress:
     enabled: true
+    server.ingress.annotations:
+      cert-manager.io/cluster-issuer: ca-issuer
     hosts:
       - argo.local.gd
+    tls:
+      - hosts:
+          - argo.local.gd
+        secretName: myingress-cert
 
 repoServer:
   replicas: 1
