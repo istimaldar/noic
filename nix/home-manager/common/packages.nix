@@ -36,6 +36,7 @@
   liquibase
   awscli2
   jq
+  terraform
 
   krita
   insomnia
