@@ -19,6 +19,14 @@
       };
     };
 
+    plymouth = {
+      enable = true;
+      themePackages = [
+        pkgs.libsForQt5.breeze-plymouth
+      ];
+      theme = "breeze";
+    };
+
     initrd.luks.devices = {
       root = {
         device = "/dev/disk/by-label/nix-root";
