@@ -396,7 +396,7 @@
         };
         network = {
           # "interface": "wlp2*", // (Optional) To force the use of this interface
-          format-wifi = "<span font='18' rise='-2500'></span> {signalStrength}%";
+          format-wifi = "<span font='16' rise='-2500'></span>  {signalStrength}%";
           format-ethernet = "{ipaddr}/{cidr} ";
           tooltip-format = "{ifname} via {gwaddr} ";
           format-linked = "{ifname} (No IP) ";
@@ -456,7 +456,7 @@
     @define-color rosewater #f5e0dc;
 
     * {
-      font-family: Fira Code;
+      font-family: JetBrainsMono Nerd Font;
       font-size: 14px;
     }
 
