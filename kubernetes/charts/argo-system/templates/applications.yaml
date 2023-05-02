@@ -1,3 +1,39 @@
+{{ if .Values.applications.cert_manager.enabled -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  labels:
+    {{- include "argo-system.labels" . | nindent 4 }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  project: default
+  sources:
+    - repoURL: https://charts.jetstack.io
+      targetRevision: '1.11.1'
+      chart: traefik
+      helm:
+        valueFiles:
+          - $values/kubernetes/values/{{ .Values.environment }}/traefik.values.yaml
+    - repoURL: https://codeberg.org/istimaldar/noic.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: traefik
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true 
+{{- end }}
 {{ if .Values.applications.traefik.enabled -}}
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -34,7 +70,7 @@ spec:
       - PrunePropagationPolicy=foreground
       - PruneLast=true 
 {{- end }}
-{{ if .Values.applications.traefik.enabled -}}
+{{ if .Values.applications.argocd.enabled -}}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -59,42 +95,6 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-      allowEmpty: true
-    syncOptions:
-      - Validate=false
-      - CreateNamespace=true
-      - PrunePropagationPolicy=foreground
-      - PruneLast=true 
-{{- end }}
-{{ if .Values.applications.drone.enabled -}}
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: concourse-ci
-  labels:
-    {{- include "argo-system.labels" . | nindent 4 }}
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
-spec:
-  project: default
-  sources:
-    - repoURL: https://charts.drone.io
-      targetRevision: '0.6.3'
-      chart: drone
-      helm:
-        valueFiles:
-          - $values/kubernetes/values/{{ .Values.environment }}/concourse-ci.values.yaml
-    - repoURL: https://codeberg.org/istimaldar/noic.git
-      targetRevision: HEAD
-      ref: values
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: concourse-ci
   syncPolicy:
     automated:
       prune: true
