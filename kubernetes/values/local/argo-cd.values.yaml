@@ -14,7 +14,7 @@ server:
     tls:
       - hosts:
           - argo.local.gd
-        secretName: myingress-cert
+        secretName: ingress-cert
 
 repoServer:
   replicas: 1
@@ -24,3 +24,13 @@ applicationSet:
 
 metrics:
   enabled: true
+
+crds:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+
+global:
+  statefulsetAnnotations:
+    argocd.argoproj.io/sync-wave: "-2"
+  deploymentAnnotations:
+    argocd.argoproj.io/sync-wave: "-2"

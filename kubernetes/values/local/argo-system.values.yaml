@@ -4,7 +4,7 @@ applications:
   traefik:
     enabled: true
   argocd:
-    enabled: false
+    enabled: true
   drone:
     enabled: false
   mattermost:
