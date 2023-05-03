@@ -1,0 +1,12 @@
+zitadel:
+  masterkey: "OlYh3S9d6lYxjRUYAPMuOPBlchKsr9Mv"
+  configmapConfig:
+    ExternalSecure: false
+    TLS:
+      Enabled: false
+    secretConfig:
+      Database:
+        cockroach:
+          User:
+            Password: "4qU2K2SHBKw4HoPNKLAqvm6hl7iViVCv"
+replicaCount: 1
