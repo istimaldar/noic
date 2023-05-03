@@ -1,3 +1,39 @@
+{{ if .Values.applications.longhorn.enabled -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: longhorn
+  labels:
+    {{- include "argo-system.labels" . | nindent 4 }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
+spec:
+  project: default
+  sources:
+    - repoURL: https://charts.longhorn.io
+      targetRevision: '1.4.1'
+      chart: longhorn
+      helm:
+        valueFiles:
+          - $values/kubernetes/values/{{ .Values.environment }}/longhorn.values.yaml
+    - repoURL: https://codeberg.org/istimaldar/noic.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: longhorn
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true 
+{{- end }}
 {{ if .Values.applications.cert_manager.enabled -}}
 ---
 apiVersion: argoproj.io/v1alpha1

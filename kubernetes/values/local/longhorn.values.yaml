@@ -1,0 +1,5 @@
+annotations:
+  argocd.argoproj.io/sync-wave: "-5"
+serviceAccount:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"

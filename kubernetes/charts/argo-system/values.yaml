@@ -1,5 +1,7 @@
 environment: local
 applications:
+  longhorn:
+    enabled: true
   cert_manager:
     enabled: true
   traefik:
