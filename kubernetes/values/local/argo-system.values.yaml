@@ -1,6 +1,6 @@
 applications:
   longhorn:
-    enabled: true
+    enabled: false
   cert_manager:
     enabled: true
   traefik:

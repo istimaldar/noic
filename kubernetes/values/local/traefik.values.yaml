@@ -34,19 +34,3 @@ ports:
     expose: false
     exposedPort: 9100
     protocol: TCP
-
-deployment:
-  annotations:
-    argocd.argoproj.io/sync-wave: "-3"
-ingressRoute:
-  dashboard:
-    annotations:
-      argocd.argoproj.io/sync-wave: "-3"
-service:
-  annotations:
-    argocd.argoproj.io/sync-wave: "-3"
-persistence:
-  annotations:
-    argocd.argoproj.io/sync-wave: "-3"
-serviceAccountAnnotations:
-  argocd.argoproj.io/sync-wave: "-3"
