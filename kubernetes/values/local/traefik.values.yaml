@@ -16,8 +16,6 @@ ports:
     expose: true
     exposedPort: 80
     protocol: TCP
-    http3:
-      enabled: true
   websecure:
     port: 8443
     expose: true
