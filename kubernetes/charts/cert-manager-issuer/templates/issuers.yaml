@@ -1,6 +1,6 @@
 {{ if eq .Values.environment "local" -}}
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
   name: ca-issuer
   {{- with .Values.issuer.annotations }}
