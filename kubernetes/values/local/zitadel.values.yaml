@@ -1,4 +1,6 @@
 zitadel:
+  dbSslRootCrtSecret: ""
+  dbSslClientCrtSecret: ""
   masterkey: "OlYh3S9d6lYxjRUYAPMuOPBlchKsr9Mv"
   configmapConfig:
     ExternalSecure: false
