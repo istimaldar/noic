@@ -1,9 +1,9 @@
-{{ if .Values.applications.longhorn.enabled -}}
+{{ if .Values.applications.openebs.enabled -}}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: longhorn
+  name: openebs
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
@@ -11,18 +11,18 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://charts.longhorn.io
-      targetRevision: '1.4.1'
-      chart: longhorn
+    - repoURL: https://openebs.github.io/charts
+      targetRevision: '3.6.0'
+      chart: openebs
       helm:
         valueFiles:
-          - $values/kubernetes/values/{{ .Values.environment }}/longhorn.values.yaml
+          - $values/kubernetes/values/{{ .Values.environment }}/openebs.values.yaml
     - repoURL: https://codeberg.org/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
     server: https://kubernetes.default.svc
-    namespace: longhorn
+    namespace: openebs
   syncPolicy:
     automated:
       prune: true

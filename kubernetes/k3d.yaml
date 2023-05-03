@@ -7,6 +7,7 @@ agents: 3
 image: rancher/k3s:v1.26.3-k3s1
 volumes:
   - volume: /dev/mapper:/dev/mapper
+  - volume: $HOME/.kubedata:/var/openebs
 ports:
   - port: 80:80
     nodeFilters:

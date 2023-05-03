@@ -1,6 +1,6 @@
 applications:
-  longhorn:
-    enabled: false
+  openebs:
+    enabled: true
   cert_manager:
     enabled: true
   traefik:
