@@ -94,6 +94,7 @@
           podman
           jq
           gnused
+          wl-clipboard
         ];
       };
     };

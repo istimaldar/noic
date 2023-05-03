@@ -2,10 +2,10 @@ applications:
   cert_manager:
     enabled: true
   traefik:
-    enabled: true
+    enabled: false
   argocd:
-    enabled: true
+    enabled: false
   drone:
-    enabled: true
+    enabled: false
   mattermost:
     enabled: false

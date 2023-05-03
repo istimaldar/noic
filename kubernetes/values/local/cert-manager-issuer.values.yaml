@@ -1,0 +1,6 @@
+secret:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+issuer:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
