@@ -8,6 +8,8 @@ applications:
     enabled: true
   argocd:
     enabled: true
+  zitadel:
+    enabled: true
   drone:
     enabled: true
   mattermost:

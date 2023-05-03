@@ -1,4 +1,4 @@
-{ config, pkgs, host, ... }:
+{ lib, config, pkgs, host, ... }:
 {
   home = {
     username = "istimaldar";
@@ -11,6 +11,12 @@
       gtk.enable = true;
       name = "Nordzy-cursors";
       x11.enable = true;
+    };
+    activation = {
+      k3dDirectories = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        mkdir -p $HOME/.kubedata/openebs
+        mkdir -p $HOME/.kubedata/udev
+        '';
     };
     stateVersion = "22.11";
   };

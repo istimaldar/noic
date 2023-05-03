@@ -42,8 +42,8 @@
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
             home-manager.users.istimaldar.imports = [
-              ({ config, ... }: import ./nix/home-manager/home.nix {
-                inherit config pkgs host;
+              ({ lib, config, ... }: import ./nix/home-manager/home.nix {
+                inherit lib config pkgs host;
               })
             ];
           }
