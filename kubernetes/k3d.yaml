@@ -11,6 +11,9 @@ ports:
   - port: 80:80
     nodeFilters:
       - loadbalancer
+  - port: 80:80
+    nodeFilters:
+      - loadbalancer
   - port: 9000:9000
     nodeFilters:
       - loadbalancer

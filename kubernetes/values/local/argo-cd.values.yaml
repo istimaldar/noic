@@ -7,7 +7,7 @@ server:
     - --insecure
   ingress:
     enabled: true
-    server.ingress.annotations:
+    annotations:
       cert-manager.io/cluster-issuer: ca-issuer
     hosts:
       - argo.local.gd
