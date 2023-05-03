@@ -3,10 +3,10 @@ prometheus:
   enabled: false
 startupapicheck:
   jobAnnotations:
-    argocd.argoproj.io/sync-wave: "-3"
+    argocd.argoproj.io/sync-wave: "-4"
   rbac:
     annotations:
-      argocd.argoproj.io/sync-wave: "-3"
+      argocd.argoproj.io/sync-wave: "-4"
   serviceAccount:
     annotations:
-      argocd.argoproj.io/sync-wave: "-3"
+      argocd.argoproj.io/sync-wave: "-4"
