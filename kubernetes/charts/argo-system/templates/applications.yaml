@@ -190,7 +190,7 @@ spec:
   project: default
   sources:
     - repoURL: https://charts.cockroachdb.com/
-      targetRevision: '5.29.1'
+      targetRevision: '10.0.8'
       chart: cockroachdb
       helm:
         valueFiles:
