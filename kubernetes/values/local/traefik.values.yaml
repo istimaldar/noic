@@ -27,6 +27,10 @@ ports:
       enabled: true
     tls:
       enabled: true
+      options: ""
+      certResolver: ""
+      domains: []
+      middlewares: []
   metrics:
     port: 9100
     expose: false
