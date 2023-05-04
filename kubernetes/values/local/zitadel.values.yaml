@@ -28,7 +28,7 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: ca-issuer
   hosts:
-    - zitadel.local.gd
+    - host: zitadel.local.gd
   tls:
     - hosts:
         - zitadel.local.gd
