@@ -8,7 +8,7 @@ storage:
     size: 10Gi
     storageClass: openebs-hostpath
 tls:
-  enabled: false
+  enabled: true
   certManager: true
   certManagerIssuer:
     group: cert-manager.io
