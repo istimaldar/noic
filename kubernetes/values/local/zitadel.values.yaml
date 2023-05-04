@@ -3,20 +3,31 @@ zitadel:
   dbSslClientCrtSecret: ""
   masterkey: "OlYh3S9d6lYxjRUYAPMuOPBlchKsr9Mv"
   configmapConfig:
-    ExternalSecure: false
+    ExternalPort: 443
+    ExternalDomain: zitadel.local.gd
+    ExternalSecure: true
     TLS:
       Enabled: false
     Database:
       cockroach:
+        Host: crdb-public.zitadel.svc.cluster.local
         User:
           SSL:
-            Mode: disable
+            Mode: "verufy-full"
         Admin:
           SSL:
-            Mode: disable
+            Mode: "verufy-full"
   secretConfig:
-    Database:
-      cockroach:
         User:
           Password: "4qU2K2SHBKw4HoPNKLAqvm6hl7iViVCv"
 replicaCount: 1
+ingress:
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: ca-issuer
+  hosts:
+    - zitadel.local.gd
+  tls:
+    - hosts:
+        - zitadel.local.gd
+      secretName: ingress-cert
