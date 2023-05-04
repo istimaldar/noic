@@ -6,6 +6,14 @@ zitadel:
     ExternalSecure: false
     TLS:
       Enabled: false
+    Database:
+      cockroach:
+        User:
+          SSL:
+            Mode: disable
+        Admin:
+          SSL:
+            Mode: disable
   secretConfig:
     Database:
       cockroach:
