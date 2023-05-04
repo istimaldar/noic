@@ -1,6 +1,6 @@
 zitadel:
-  dbSslRootCrtSecret: ""
-  dbSslClientCrtSecret: ""
+  dbSslRootCrtSecret: "crdb-ca-secret"
+  dbSslClientCrtSecret: "crdb-client-secret"
   masterkey: "OlYh3S9d6lYxjRUYAPMuOPBlchKsr9Mv"
   configmapConfig:
     ExternalPort: 443
