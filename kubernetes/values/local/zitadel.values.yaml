@@ -10,7 +10,6 @@ zitadel:
       Enabled: false
     Database:
       cockroach:
-        Host: crdb-public.zitadel.svc.cluster.local
         User:
           SSL:
             Mode: "verufy-full"
