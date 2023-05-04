@@ -18,6 +18,8 @@ zitadel:
           SSL:
             Mode: "verufy-full"
   secretConfig:
+    Database:
+      cockroach:
         User:
           Password: "4qU2K2SHBKw4HoPNKLAqvm6hl7iViVCv"
 replicaCount: 1
