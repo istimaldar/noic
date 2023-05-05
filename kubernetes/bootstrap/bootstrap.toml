@@ -10,7 +10,7 @@ context = "bootstrap"
     argo = "https://argoproj.github.io/argo-helm"
 
 [apps]
-    [apps.workflows]
+    [apps.argo-workflows]
         namespace = "workflows"
         enabled = true
         chart = "argo/argo-workflows"
@@ -18,7 +18,7 @@ context = "bootstrap"
         valuesFile = "../values/local/argo-workflows.values.yaml"
         priority = -2
         wait = true
-        [apps.workflows.set]
+        [apps.argo-workflows.set]
             "server.ingress.enabled" = "false"
     [apps.argocd]
         namespace = "argocd"
