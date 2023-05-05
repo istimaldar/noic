@@ -8,11 +8,8 @@ zitadel:
     ExternalSecure: true
     TLS:
       Enabled: false
-    DefaultInstance:
-      InstanceName: sntlk
-      DefaultLanguage: en
+    FirstInstance:
       Org:
-        Name: sntlk
         Human:
           UserName: 'istimaldar'
           FirstName: 'istimaldar'
