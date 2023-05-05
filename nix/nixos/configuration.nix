@@ -127,8 +127,14 @@
     };
   };
 
-  networking.hostName = host.name;
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = host.name;
+    networkmanager.enable = true;
+    nameservers = [
+      "1.1.1.1"
+      "8.8.8.8"
+    ];
+  };
 
   time.timeZone = "Asia/Tbilisi";
 
