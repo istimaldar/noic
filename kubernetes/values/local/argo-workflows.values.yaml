@@ -1,0 +1,25 @@
+workflow:
+  serviceAccount:
+    create: true
+    name: "argo-workflow"
+  rbac:
+    create: true
+controller:
+  workflowNamespaces:
+    - argo-cd
+    - zitadel
+    - workflows
+server:
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: ca-issuer
+    hosts:
+      - workflows.127.0.0.1.nip.io
+    pathType: Prefix
+    paths: 
+      - /
+    tls:
+      - hosts:
+          - workflows.127.0.0.1.nip.io
+        secretName: ingress-cert

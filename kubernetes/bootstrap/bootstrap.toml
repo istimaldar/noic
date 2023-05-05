@@ -1,14 +1,24 @@
 context = "bootstrap"
 
 [namespaces]
-    [namespaces.traefik]
     [namespaces.argocd]
+    [namespaces.workflows]
 
 [helmRepos]
     traefik = "https://traefik.github.io/charts"
     argo = "https://argoproj.github.io/argo-helm"
 
 [apps]
+    [apps.workflows]
+        namespace = "workflows"
+        enabled = true
+        chart = "argo/argo-workflows"
+        version = "0.25.1"
+        valuesFile = "../values/local/argo-workflows.values.yaml"
+        priority = -2
+        wait = true
+        [apps.workflows.set]
+            "server.ingress.enabled" = "false"
     [apps.argocd]
         namespace = "argocd"
         enabled = true

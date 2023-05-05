@@ -8,6 +8,8 @@ applications:
     enabled: true
   argocd:
     enabled: true
+  argo_workflows:
+    enabled: true
   zitadel:
     enabled: true
   drone:
