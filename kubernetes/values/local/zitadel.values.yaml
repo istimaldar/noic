@@ -10,6 +10,7 @@ zitadel:
       Enabled: false
     FirstInstance:
       Org:
+        Name: SNTLK
         Human:
           UserName: 'istimaldar'
           FirstName: 'istimaldar'
