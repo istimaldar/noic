@@ -4,7 +4,7 @@ image:
 ingress:
   enabled: true
   hosts:
-    - host: drone.local.gd
+    - host: drone.127.0.0.1.nip.io
       paths:
         - path: /
           pathType: Prefix
@@ -16,4 +16,4 @@ extraSecretNamesForEnvFrom:
   - drone
 
 env:
-  DRONE_SERVER_HOST: drone.local.gd
+  DRONE_SERVER_HOST: drone.127.0.0.1.nip.io
