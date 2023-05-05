@@ -12,10 +12,10 @@ zitadel:
       cockroach:
         User:
           SSL:
-            Mode: "verufy-full"
+            Mode: "verify-full"
         Admin:
           SSL:
-            Mode: "verufy-full"
+            Mode: "verify-full"
   secretConfig:
     Database:
       cockroach:
