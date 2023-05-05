@@ -38,6 +38,7 @@
   jq
   terraform
   openssl
+  protobuf
 
   krita
   insomnia
