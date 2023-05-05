@@ -8,10 +8,21 @@ zitadel:
     ExternalSecure: true
     TLS:
       Enabled: false
-    FirstInstance:
+    DefaultInstance:
+      InstanceName: sntlk
+      DefaultLanguage: en
       Org:
+        Name: sntlk
         Human:
-          Username: 'istimaldar'
+          UserName: 'istimaldar'
+          FirstName: 'istimaldar'
+          LastName: 'istimaldar'
+          NickName: 'istimaldar'
+          DisplayName: 'istimaldar'
+          Email:
+            Address: 'istimaldar@gmail.com'
+            Verified: true
+          PreferredLanguage: en
           Password: 'Qq_12345'
     Database:
       cockroach:
