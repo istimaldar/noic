@@ -44,14 +44,7 @@ makeSureClusterStopeed() {
     k3d registry delete k3d-$$REGISTRY_NAME
 }
 
-copyArgoCdCredentials() {
-    kubectl get secrets -n argocd argocd-initial-admin-secret -o json | jq -r '.data.password' | base64 -d | wl-copy
-}
-
 case $$1 in
-    creds)
-        copyArgoCdCredentials
-        ;;
     stop)
         makeSureClusterStopeed
         ;;
@@ -65,6 +58,5 @@ case $$1 in
         makeSureRegistryStarted
         makeSureClusterStarted
         makeSureClusterBootstraped
-        copyArgoCdCredentials
         ;;
 esac
