@@ -31,10 +31,6 @@ server:
       end
       return hs  
 
-configs:
-  secret:
-    argocdServerAdminPassword: 'Qq_12345'
-
 redis:
   image:
     repository: docker.io/library/redis
