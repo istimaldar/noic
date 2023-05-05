@@ -8,6 +8,11 @@ zitadel:
     ExternalSecure: true
     TLS:
       Enabled: false
+    FirstInstance:
+      Org:
+        Human:
+          Username: 'istimaldar'
+          Password: 'Qq_12345'
     Database:
       cockroach:
         User:
@@ -20,7 +25,11 @@ zitadel:
     Database:
       cockroach:
         User:
+          Username: "zitadel"
           Password: "4qU2K2SHBKw4HoPNKLAqvm6hl7iViVCv"
+        Admin:
+          Username: 'root'
+          Password: ''
 replicaCount: 1
 ingress:
   enabled: true
