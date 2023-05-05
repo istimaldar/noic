@@ -2,6 +2,7 @@ context = "bootstrap"
 
 [namespaces]
     [namespaces.argocd]
+    [namespaces.zitadel]
     [namespaces.workflows]
 
 [helmRepos]

@@ -6,7 +6,7 @@ workflow:
     create: true
 controller:
   workflowNamespaces:
-    - argo-cd
+    - argocd
     - zitadel
     - workflows
 server:
