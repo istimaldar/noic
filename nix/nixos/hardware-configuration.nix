@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, host, ... }:
 {
   imports = [ ];
 
@@ -7,40 +7,42 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/mapper/lvm-root";
-    fsType = "btrfs";
-    options = [ "subvol=root" ];
-  };
+  fileSystems = {
+    "/" = {
+      device = "/dev/mapper/lvm-root";
+      fsType = "btrfs";
+      options = [ "subvol=root" ];
+    };
 
-  fileSystems."/home" = {
-    device = "/dev/mapper/lvm-root";
-    fsType = "btrfs";
-    options = [ "subvol=home" ];
-  };
+    "/home" = {
+      device = "/dev/mapper/lvm-root";
+      fsType = "btrfs";
+      options = [ "subvol=home" ];
+    };
 
-  fileSystems."/nix" = {
-    device = "/dev/mapper/lvm-root";
-    fsType = "btrfs";
-    options = [ "subvol=nix" ];
-  };
+    "/nix" = {
+      device = "/dev/mapper/lvm-root";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
+    };
 
-  fileSystems."/persist" = {
-    device = "/dev/mapper/lvm-root";
-    fsType = "btrfs";
-    options = [ "subvol=persist" ];
-  };
+    "/persist" = {
+      device = "/dev/mapper/lvm-root";
+      fsType = "btrfs";
+      options = [ "subvol=persist" ];
+    };
 
-  fileSystems."/var/log" = {
-    device = "/dev/mapper/lvm-root";
-    fsType = "btrfs";
-    options = [ "subvol=log" ];
-  };
+    "/var/log" = {
+      device = "/dev/mapper/lvm-root";
+      fsType = "btrfs";
+      options = [ "subvol=log" ];
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/nix-boot";
-    fsType = "vfat";
-  };
+    "/boot" = {
+      device = "/dev/disk/by-label/nix-boot";
+      fsType = "vfat";
+    };
+  } // host.extraMounts;
 
   swapDevices = [
     {

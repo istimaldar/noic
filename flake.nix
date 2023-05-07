@@ -52,18 +52,8 @@
     in {
       nixosConfigurations = 
       {
-        kionithar = mkHostConfiguration {
-          name = "kionithar";
-          waybarOn = [
-            "DP-1"
-          ];
-        };
-        lirianiko = mkHostConfiguration {
-          name = "lirianiko";
-          waybarOn = [
-            "HDMI-A-1"
-          ];
-        };
+        kionithar = (mkHostConfiguration) import ./nix/hosts/kionithar.nix;
+        lirianiko = mkHostConfiguration (import ./nix/hosts/lirianiko.nix);
       };
       defaultPackage.x86_64-linux = with pkgs; 
       stdenv.mkDerivation {

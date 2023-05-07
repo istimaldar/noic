@@ -67,4 +67,12 @@
   jetbrains.pycharm-professional
   jetbrains.idea-ultimate
   jetbrains.datagrip
+
+  obs-studio
+  audacity
+  olive-editor
+  tesseract
+  openai-whisper
+  ffmpeg_6-full
+  vlc
 ]
