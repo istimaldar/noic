@@ -47,6 +47,21 @@
     };
   };
 
+  hardware.opengl = if host.amdGpu then {
+    extraPackages = with pkgs; [
+      rocm-runtime
+      rocm-opencl-icd
+      rocm-opencl-runtime
+      amdvlk
+      miopen
+    ];
+    driSupport = true;
+  } else {};
+
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
+  ];
+
   hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;
 

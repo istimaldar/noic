@@ -1,0 +1,13 @@
+waybarOn = [
+  "HDMI-A-1"
+]
+amdGpu = true
+
+[extraMounts."/mnt/c"]
+  device = "/dev/nvme0n1p3"
+  fsType = "ntfs3" 
+  options = [
+    "ro",
+    "uid=1000"
+  ]
+

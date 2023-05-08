@@ -26,8 +26,8 @@
       {
         name = "gitlens";
         publisher = "eamodio";
-        version = "2023.4.2605";
-        sha256 = "0wjjkwqy66dn05973qwgnicvm92lc3g2awfpdsly6j4xjcrfwax3";
+        version = "2023.5.505";
+        sha256 = "1nnk54yyk4pbarwmm65wxjaqsgngpbd5mf59bal0l25ib7sjabdj";
       }
       {
         name = "kotlin";
@@ -60,6 +60,12 @@
         sha256 = "1jr74lrjbmciam2zpfajicnj662fij37l31x46i0idhmvvsrssr3";
       }
       {
+        name = "python";
+        publisher = "ms-python";
+        version = "2023.9.11251005";
+        sha256 = "0cdnxybggn38gds44wzygy6862cc68mjiqk3slbf77srs5bmpdf1";
+      }
+      {
         name = "vscode-yaml";
         publisher = "redhat";
         version = "1.12.2";
@@ -80,8 +86,8 @@
       {
         name = "errorlens";
         publisher = "usernamehw";
-        version = "3.10.1";
-        sha256 = "1q6i0s9bdqspc0l5df233sga844mwrllcabgy1wxhvyzkyxn7b22";
+        version = "3.11.0";
+        sha256 = "10xq4s0vnjbximh30a61i4liw42ynm81apibhl7p2l0159227qkl";
       }
       {
         name = "vscode-conventional-commits";
@@ -94,12 +100,6 @@
         publisher = "vscjava";
         version = "0.25.2023042006";
         sha256 = "0igc60dgnhl95cr8z7n4762b4lnf845zrnawnv6f42w7yigqwchz";
-      }
-      {
-        name = "python";
-        publisher = "ms-python";
-        version = "2023.7.11161005";
-        sha256 = "KKcgTSAl7aDZ6HcQ8aJKt3j4sBDHis33uIFQhENjrNk=";
       }
     ];
     userSettings = {

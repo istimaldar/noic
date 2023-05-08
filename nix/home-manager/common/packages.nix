@@ -39,6 +39,7 @@
   terraform
   openssl
   protobuf
+  yt-dlp
 
   krita
   insomnia
@@ -59,8 +60,9 @@
   go
   dotnet-sdk
   poetry
-  (python311.withPackages(ps: with ps; [
+  (python310.withPackages(ps: with ps; [
     virtualenv
+    torchWithRocm
   ]))
 
   jetbrains.rider
@@ -75,4 +77,8 @@
   openai-whisper
   ffmpeg_6-full
   vlc
+
+  mesa
+  ocl-icd
+  clinfo
 ]

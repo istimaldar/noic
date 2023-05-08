@@ -16,9 +16,13 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    romc = {
+      url = "github:nixos-rocm/nixos-rocm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, nur, home-manager, hyprland, ... }:
+  outputs = { nixpkgs, nur, home-manager, hyprland, romc, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -49,12 +53,24 @@
           }
         ];
       };
+      hosts = ./hosts;
     in {
-      nixosConfigurations = 
-      {
-        kionithar = (mkHostConfiguration) import ./nix/hosts/kionithar.nix;
-        lirianiko = mkHostConfiguration (import ./nix/hosts/lirianiko.nix);
-      };
+      nixosConfigurations = builtins.listToAttrs (
+        builtins.map (
+          element: 
+          let
+            name = builtins.head (
+              builtins.split "\\." element
+            ); 
+            path = hosts + ("/" + name + ".toml");
+            content = pkgs.lib.importTOML path;
+            settings = content // { name = name; };
+          in { name = name; value = mkHostConfiguration settings; }
+        )
+        (
+          builtins.attrNames (builtins.readDir hosts)
+        )
+      );
       defaultPackage.x86_64-linux = with pkgs; 
       stdenv.mkDerivation {
         name = "install.sh";

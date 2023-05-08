@@ -5,6 +5,8 @@
     extraGroups = [
       "wheel"
       "podman"
+      "render"
+      "video"
     ];
     shell = pkgs.zsh;
   };

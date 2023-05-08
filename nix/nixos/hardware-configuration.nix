@@ -2,10 +2,24 @@
 {
   imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "nvme" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+  boot = {
+    initrd = {
+      availableKernelModules = [ 
+        "ata_piix"
+        "ohci_pci"
+        "ehci_pci"
+        "ahci"
+        "nvme"
+        "sd_mod"
+        "sr_mod"
+      ] ++ lib.lists.optional host.amdGpu "amdgpu";
+      kernelModules = [ 
+        "dm-snapshot" 
+      ];
+    };
+    kernelModules = [ ];
+    extraModulePackages = [ ];
+  };
 
   fileSystems = {
     "/" = {

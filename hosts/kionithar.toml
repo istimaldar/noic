@@ -1,0 +1,6 @@
+waybarOn = [
+  "DP-1"
+]
+amdGpu = false
+
+[extraMounts]
