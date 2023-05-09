@@ -9,6 +9,7 @@ zitadel:
     TLS:
       Enabled: false
     FirstInstance:
+      MachineKeyPath: '/machinekey/zitadel-admin-sa.json'
       Org:
         Name: SNTLK
         Human:
@@ -22,6 +23,12 @@ zitadel:
             Verified: true
           PreferredLanguage: en
           Password: 'Qq_12345'
+        Machine:
+          Machine:
+            Username: zitadel-authomation
+            Name: Authomation
+          MachineKey:
+            Type: 1
     Database:
       cockroach:
         User:
