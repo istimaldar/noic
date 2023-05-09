@@ -10,6 +10,8 @@ controller:
     - zitadel
     - workflows
 server:
+  extraArgs:
+    - --auth-mode=server
   ingress:
     enabled: true
     annotations:
