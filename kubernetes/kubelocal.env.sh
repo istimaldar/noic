@@ -16,8 +16,6 @@ makeSureClusterCreated() {
     then
         k3d registry create --default-network podman --port 0.0.0.0:$$REGISTRY_PORT $$REGISTRY_NAME
         k3d cluster create --config ${out}/share/k3d.yaml
-        kubectl create namespace drone
-        jq -r '.drone | to_entries[] | "--from-literal=\(.key)=\(.value)"' ~/common/secrets.json | tr '\n' ' ' | sed 's/^/kubectl create secret -n drone generic drone /' | bash -
     fi
 }
 

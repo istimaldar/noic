@@ -1,6 +1,8 @@
 environment: local
 applications:
-  longhorn:
+  openebs:
+    enabled: true
+  crossplane:
     enabled: true
   cert_manager:
     enabled: true

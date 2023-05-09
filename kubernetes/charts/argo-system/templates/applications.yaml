@@ -34,6 +34,42 @@ spec:
       - PrunePropagationPolicy=foreground
       - PruneLast=true 
 {{- end }}
+{{ if .Values.applications.crossplane.enabled -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: crossplane
+  labels:
+    {{- include "argo-system.labels" . | nindent 4 }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "-4"
+spec:
+  project: default
+  sources:
+    - repoURL: https://charts.crossplane.io/stable
+      targetRevision: '1.12.0'
+      chart: crossplane
+      helm:
+        valueFiles:
+          - $values/kubernetes/values/{{ .Values.environment }}/crossplane.values.yaml
+    - repoURL: https://codeberg.org/istimaldar/noic.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: crossplane-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true 
+{{- end }}
 {{ if .Values.applications.cert_manager.enabled -}}
 ---
 apiVersion: argoproj.io/v1alpha1
