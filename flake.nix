@@ -31,6 +31,7 @@
         overlays = [
           (import ./nix/overlays/hyprland.nix)
           (import ./nix/overlays/insomnia.nix)
+          (import ./nix/overlays/custom-packages.nix)
         ];
       };
       mkHostConfiguration = host: nixpkgs.lib.nixosSystem {
@@ -71,38 +72,19 @@
           builtins.attrNames (builtins.readDir hosts)
         )
       );
-      defaultPackage.x86_64-linux = with pkgs; 
-      stdenv.mkDerivation {
-        name = "install.sh";
-        phases = [ "installPhase" ];
-        src = ./.;
-        installPhase = "mkdir -p $out/bin; ls $src; install -t $out/bin $src/install.sh";
+      apps.x86_64-linux = with pkgs.istimaldar; {
+        default = {
+          type = "app";
+          program = "${installer}/bin/install.sh";
+        };
+        kubelocal = {
+          type = "app";
+          program = "${kubelocal}/bin/kubelocal.sh";
+        };
       };
-      packages.x86_64-linux.kubelocal = with pkgs; 
-      stdenv.mkDerivation {
-        name = "kubelocal";
-        src = ./kubernetes;
-        buildInputs = [
-          which
-          envsubst
-          k9s
-          (pkgs.wrapHelm pkgs.kubernetes-helm 
-            { 
-              plugins =  with kubernetes-helmPlugins; [
-                helm-secrets
-                helm-diff
-              ]; 
-            }
-          )
-          helmsman
-          kube3d
-          kubectl
-          podman
-          jq
-          gnused
-          wl-clipboard
-        ];
+      packages.x86_64-linux = with pkgs.istimaldar; {
+        installer = installer;
+        kubelocal = kubelocal;
       };
     };
-
 }
