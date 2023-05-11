@@ -105,7 +105,7 @@
         name = "terraform";
         publisher = "HashiCorp";
         version = "2.26.2023050414";
-        sha256 = "MuXce60JKjuGk+JLGwHnATmaJTVZrWG7VzMUy8IJ8Fk=";
+        sha256 = "BcfCgVEK2jwxa8csSM+wKN2HvO6SB7HzBF7Ui1ekQkA=";
       }
     ];
     userSettings = {
