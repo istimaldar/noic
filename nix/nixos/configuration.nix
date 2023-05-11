@@ -49,9 +49,13 @@
 
   hardware.opengl = if host.amdGpu then {
     extraPackages = with pkgs; [
+      hip-amd
       rocm-runtime
+      rocm-device-libs
+      rocm-comgr
       rocm-opencl-icd
       rocm-opencl-runtime
+      rocmlir
       amdvlk
       miopen
     ];

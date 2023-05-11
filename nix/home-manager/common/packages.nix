@@ -1,4 +1,28 @@
-{ pkgs, ... }: with pkgs; [
+{ pkgs, host, ... }: with pkgs;
+let helmWithPackages = (wrapHelm kubernetes-helm 
+    { 
+      plugins =  with kubernetes-helmPlugins; [
+        helm-secrets
+        helm-diff
+      ]; 
+    }
+  );
+  gpuWhisper = (
+    let torchPackage = if host.amdGpu then python3Packages.torchWithRocm else python3Packages.torch;
+    in
+    openai-whisper.override {
+      cudaSupport = host.amdGpu;
+      torch = torchPackage;
+      torchWithCuda = torchPackage;
+      transformers = python3Packages.transformers.override {
+        torch = torchPackage;
+      };
+    }
+  );
+  pythonWithPackages = (python310.withPackages(ps: with ps; [
+    virtualenv
+  ]));
+in  [
   nerdfonts
   megasync
   keepassxc
@@ -17,14 +41,7 @@
   doctl
   kubectl
   k9s
-  (pkgs.wrapHelm pkgs.kubernetes-helm 
-    { 
-      plugins =  with kubernetes-helmPlugins; [
-        helm-secrets
-        helm-diff
-      ]; 
-    }
-  )
+  helmWithPackages
   helmsman
   kube3d
   go-task
@@ -40,6 +57,7 @@
   openssl
   protobuf
   yt-dlp
+  jwt-cli
 
   krita
   insomnia
@@ -49,6 +67,8 @@
   duf
   tldr
   logseq
+  spotifywm
+  spicetify-cli
 
   podman-compose
   buildah
@@ -59,12 +79,9 @@
   maven
   go
   dotnet-sdk
+  pythonWithPackages
   poetry
-  (python310.withPackages(ps: with ps; [
-    virtualenv
-    torchWithRocm
-  ]))
-
+  
   jetbrains.rider
   jetbrains.pycharm-professional
   jetbrains.idea-ultimate
@@ -74,11 +91,13 @@
   audacity
   olive-editor
   tesseract
-  openai-whisper
+  gpuWhisper
   ffmpeg_6-full
   vlc
 
   mesa
   ocl-icd
   clinfo
+
+  terraform-ls
 ]

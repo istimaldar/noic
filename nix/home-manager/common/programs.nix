@@ -101,6 +101,12 @@
         version = "0.25.2023042006";
         sha256 = "0igc60dgnhl95cr8z7n4762b4lnf845zrnawnv6f42w7yigqwchz";
       }
+      {
+        name = "terraform";
+        publisher = "HashiCorp";
+        version = "2.26.2023050414";
+        sha256 = "MuXce60JKjuGk+JLGwHnATmaJTVZrWG7VzMUy8IJ8Fk=";
+      }
     ];
     userSettings = {
       "workbench.colorTheme" = "Nord";
@@ -112,6 +118,9 @@
       "files.autoSave" = "afterDelay";
       "files.autoSaveDelay" = "500ms";
       "window.menuBarVisibility" = "toggle";
+      "terraform.languageServer.enable" = true;
+      "terraform.languageServer.path" = "${pkgs.terraform-ls}/bin/terraform-ls";
+      "terraform.languageServer.terraform.path" = "${pkgs.terraform}/bin/terraform";
     };
   };
 

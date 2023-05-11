@@ -4,7 +4,7 @@
 
   boot = {
     initrd = {
-      availableKernelModules = [ 
+      availableKernelModules = lib.lists.optional host.amdGpu "amdgpu" ++ [ 
         "ata_piix"
         "ohci_pci"
         "ehci_pci"
@@ -12,7 +12,7 @@
         "nvme"
         "sd_mod"
         "sr_mod"
-      ] ++ lib.lists.optional host.amdGpu "amdgpu";
+      ];
       kernelModules = [ 
         "dm-snapshot" 
       ];

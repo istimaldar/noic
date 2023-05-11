@@ -3,7 +3,7 @@
   home = {
     username = "istimaldar";
     homeDirectory = "/home/istimaldar";
-    packages = import ./common/packages.nix pkgs;
+    packages = import ./common/packages.nix { inherit pkgs host; };
     file = import ./common/files.nix { inherit pkgs host; };
     sessionVariables = import ./common/variables.nix pkgs;
     pointerCursor = {
