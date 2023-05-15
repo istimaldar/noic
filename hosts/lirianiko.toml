@@ -1,7 +1,7 @@
 waybarOn = [
   "HDMI-A-1"
 ]
-amdGpu = true
+amdGpu = false
 
 [extraMounts."/mnt/c"]
   device = "/dev/nvme0n1p3"

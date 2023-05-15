@@ -1,6 +1,7 @@
 { pkgs, host, ... }: {
   vscode = {
     enable = true;
+    package = pkgs.vscodium;
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
     mutableExtensionsDir = false;
@@ -26,14 +27,20 @@
       {
         name = "gitlens";
         publisher = "eamodio";
-        version = "2023.5.505";
-        sha256 = "1nnk54yyk4pbarwmm65wxjaqsgngpbd5mf59bal0l25ib7sjabdj";
+        version = "2023.5.1105";
+        sha256 = "0d274wi4ykqid4k2c03rxnaylwwl25rh39k42rgzkp48j0y3j09d";
       }
       {
         name = "kotlin";
         publisher = "fwcd";
         version = "0.2.31";
         sha256 = "1yngrbqndb7jccmakpjv98y8amffvk2zbj3dhz0khdxz6ym18vb3";
+      }
+      {
+        name = "terraform";
+        publisher = "hashicorp";
+        version = "2.26.2023051115";
+        sha256 = "8RvVJh0GgTRMUolmH1j1qA5qZoBopkS2tv9s227cSic=";
       }
       {
         name = "vscode-jetbrains-keybindings";
@@ -62,8 +69,8 @@
       {
         name = "python";
         publisher = "ms-python";
-        version = "2023.9.11251005";
-        sha256 = "0cdnxybggn38gds44wzygy6862cc68mjiqk3slbf77srs5bmpdf1";
+        version = "2023.9.11311005";
+        sha256 = "14y1mhf1g5qm0vnk9sg9j2w4z94avqaxxr8xa1b32awki9skmxgx";
       }
       {
         name = "vscode-yaml";
@@ -100,12 +107,6 @@
         publisher = "vscjava";
         version = "0.25.2023042006";
         sha256 = "0igc60dgnhl95cr8z7n4762b4lnf845zrnawnv6f42w7yigqwchz";
-      }
-      {
-        name = "terraform";
-        publisher = "HashiCorp";
-        version = "2.26.2023050414";
-        sha256 = "BcfCgVEK2jwxa8csSM+wKN2HvO6SB7HzBF7Ui1ekQkA=";
       }
     ];
     userSettings = {

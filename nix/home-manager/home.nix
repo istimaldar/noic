@@ -14,6 +14,7 @@
     };
     activation = {
       k3dDirectories = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        /run/current-system/sw/bin/hyprctl reload
         mkdir -p $HOME/.kubedata/openebs
         mkdir -p $HOME/.kubedata/udev
         '';

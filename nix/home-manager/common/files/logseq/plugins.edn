@@ -8,14 +8,14 @@
     :logseq-toolbox {:version "0.0.3", :repo "tankcool/logseq-toolbox", :effect false, :theme false}
     :logtools {:version "0.1.1", :repo "cannibalox/logtools", :effect false, :theme false}
     :logseq-diagrams-as-code {:version "0.0.20", :repo "npgrosser/logseq-diagrams-as-code", :effect false, :theme false}
-    :unfinished-business {:version "0.1.5", :repo "QWxleA/Unfinished-business", :effect false, :theme false}
+    :unfinished-business {:version "0.1.6", :repo "QWxleA/Unfinished-business", :effect false, :theme false}
     :logseq-copy-code-plugin {:version "v.1.2.0", :repo "vyleung/logseq-copy-code-plugin", :effect true, :theme false}
     :logseq-pdf-export-plugin {:version "2.2.8", :repo "sawhney17/logseq-pdf-export", :effect true, :theme false}
     :logseq-tags {:version "v0.1.2", :repo "gidongkwon/logseq-plugin-tags", :effect false, :theme false}
     :logseq-move-block {:version "v0.1.0", :repo "vipzhicheng/logseq-plugin-move-block", :effect true, :theme false}
     :logseq-awesome-links {:version "v1.15.16", :repo "yoyurec/logseq-awesome-links", :effect true, :theme false}
     :logseq-anki-sync {:version "v4.4.0", :repo "debanjandhar12/logseq-anki-sync", :effect true, :theme false}
-    :logseq-journals-calendar {:version "v0.10.8", :repo "xyhp915/logseq-journals-calendar", :effect false, :theme false}
+    :logseq-journals-calendar {:version "v0.10.10", :repo "xyhp915/logseq-journals-calendar", :effect false, :theme false}
     :logseq-awesome-props {:version "v1.10.0", :repo "yoyurec/logseq-awesome-props", :effect true, :theme false}
     :logseq-awesome-content {:version "v1.2.1", :repo "yoyurec/logseq-awesome-content", :effect true, :theme false}
     :logseq-awesome-styler {:version "v3.7.1", :repo "yoyurec/logseq-awesome-styler", :effect true, :theme false}

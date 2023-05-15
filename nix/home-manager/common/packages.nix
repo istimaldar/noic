@@ -86,6 +86,8 @@ in  [
   jetbrains.pycharm-professional
   jetbrains.idea-ultimate
   jetbrains.datagrip
+  jetbrains.goland
+  jetbrains.clion
 
   obs-studio
   audacity

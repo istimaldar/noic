@@ -11,7 +11,6 @@
       efi.canTouchEfiVariables = true;
       grub = {
         enable = true;
-        version = 2;
         device = "nodev";
         efiSupport = true;
         enableCryptodisk = true;
@@ -22,15 +21,18 @@
     plymouth = {
       enable = true;
       themePackages = [
-        pkgs.libsForQt5.breeze-plymouth
+        pkgs.nixos-bgrt-plymouth
       ];
-      theme = "breeze";
+      theme = "nixos-bgrt";
     };
 
-    initrd.luks.devices = {
-      root = {
-        device = "/dev/disk/by-label/nix-root";
-        preLVM = true;
+    initrd = {
+      systemd.enable = true;
+      luks.devices = {
+        root = {
+          device = "/dev/disk/by-label/nix-root";
+          preLVM = true;
+        };
       };
     };
 
@@ -47,17 +49,19 @@
     };
   };
 
+  # Yes, we need half of KDE just to run Nordic theme for SDDM ¯\_(ツ)_/¯
+  environment.systemPackages = with pkgs; [
+    nordic
+    libsForQt5.plasma-framework
+    libsForQt5.plasma-workspace
+    libsForQt5.qt5.qtgraphicaleffects
+  ];
+
   hardware.opengl = if host.amdGpu then {
     extraPackages = with pkgs; [
-      hip-amd
-      rocm-runtime
-      rocm-device-libs
-      rocm-comgr
       rocm-opencl-icd
       rocm-opencl-runtime
-      rocmlir
       amdvlk
-      miopen
     ];
     driSupport = true;
   } else {};
@@ -108,11 +112,13 @@
   services = {
     xserver = {
       enable = true;
+      videoDrivers = if host.amdGpu then [ "amdgpu" ] else [ "modesetting" "fbdev" ];
       displayManager = {
         defaultSession = "hyprland";
         sddm = {
           enable = true;
           enableHidpi = true;
+          theme = "Nordic/Nordic";
         };
       };
     };
