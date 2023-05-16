@@ -3,7 +3,7 @@
     :logseq-mark-map {:version "v0.3.17", :repo "vipzhicheng/logseq-plugin-mark-map", :effect false, :theme false}
     :logseq-agenda {:version "v2.15.2", :repo "haydenull/logseq-plugin-agenda", :effect true, :theme false}
     :logseq-awesome-ui {:version "v2.2.6", :repo "yoyurec/logseq-awesome-ui", :effect true, :theme false}
-    :logseq-graph-analysis {:version "0.9.1", :repo "trashhalo/logseq-graph-analysis", :effect false, :theme false}
+    :logseq-graph-analysis {:version "0.10.2", :repo "trashhalo/logseq-graph-analysis", :effect false, :theme false}
     :logseq-banners-plugin {:version "v3.4.11", :repo "yoyurec/logseq-banners-plugin", :effect true, :theme false}
     :logseq-toolbox {:version "0.0.3", :repo "tankcool/logseq-toolbox", :effect false, :theme false}
     :logtools {:version "0.1.1", :repo "cannibalox/logtools", :effect false, :theme false}
@@ -14,9 +14,10 @@
     :logseq-tags {:version "v0.1.2", :repo "gidongkwon/logseq-plugin-tags", :effect false, :theme false}
     :logseq-move-block {:version "v0.1.0", :repo "vipzhicheng/logseq-plugin-move-block", :effect true, :theme false}
     :logseq-awesome-links {:version "v1.15.16", :repo "yoyurec/logseq-awesome-links", :effect true, :theme false}
-    :logseq-anki-sync {:version "v4.4.0", :repo "debanjandhar12/logseq-anki-sync", :effect true, :theme false}
+    :logseq-anki-sync {:version "v4.6.1", :repo "debanjandhar12/logseq-anki-sync", :effect true, :theme false}
     :logseq-journals-calendar {:version "v0.10.10", :repo "xyhp915/logseq-journals-calendar", :effect false, :theme false}
     :logseq-awesome-props {:version "v1.10.0", :repo "yoyurec/logseq-awesome-props", :effect true, :theme false}
     :logseq-awesome-content {:version "v1.2.1", :repo "yoyurec/logseq-awesome-content", :effect true, :theme false}
     :logseq-awesome-styler {:version "v3.7.1", :repo "yoyurec/logseq-awesome-styler", :effect true, :theme false}
+    :logseq13-full-house {:version "v2.6.0", :repo "stdword/logseq13-full-house-plugin", :effect false, :theme false}
 }
