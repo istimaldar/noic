@@ -129,6 +129,17 @@
       pulse.enable = true;
     };
 
+    dnsmasq = {
+      enable = true;
+      settings = {
+        address = "/cluster.local/127.0.0.1";
+        server = [
+          "1.1.1.1"
+          "8.8.8.8"
+        ];
+      };
+    };
+
 
     gnome.gnome-keyring.enable = true;
   };
@@ -154,10 +165,12 @@
 
   networking = {
     hostName = host.name;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "default";
+    };
     nameservers = [
-      "1.1.1.1"
-      "8.8.8.8"
+      "127.0.0.1"
     ];
   };
 

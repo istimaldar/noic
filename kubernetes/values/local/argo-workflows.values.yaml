@@ -18,10 +18,12 @@ server:
       cert-manager.io/cluster-issuer: ca-issuer
     hosts:
       - workflows.127.0.0.1.nip.io
+      - argo-workflows-server.workflows.svc.cluster.local
     pathType: Prefix
     paths: 
       - /
     tls:
       - hosts:
           - workflows.127.0.0.1.nip.io
+          - argo-workflows-server.workflows.svc.cluster.local
         secretName: ingress-cert

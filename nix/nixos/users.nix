@@ -7,6 +7,7 @@
       "podman"
       "render"
       "video"
+      "networkmanagerF"
     ];
     shell = pkgs.zsh;
   };
