@@ -10,12 +10,10 @@ server:
     annotations:
       cert-manager.io/cluster-issuer: ca-issuer
     hosts:
-      - argo.127.0.0.1.nip.io
-      - argocd-server.argocd.svc.cluster.local
+      - argo.kubelocal
     tls:
       - hosts:
-          - argo.127.0.0.1.nip.io
-          - argocd-server.argocd.svc.cluster.local
+          - argo.kubelocal
         secretName: ingress-cert
 
   config:

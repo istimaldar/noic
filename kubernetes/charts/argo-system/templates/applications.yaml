@@ -140,6 +140,42 @@ spec:
       - PrunePropagationPolicy=foreground
       - PruneLast=true 
 {{- end }}
+{{ if .Values.applications.trust_manager.enabled -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: trust_manager
+  labels:
+    {{- include "argo-system.labels" . | nindent 4 }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+spec:
+  project: default
+  sources:
+    - repoURL: https://charts.jetstack.io
+      targetRevision: '0.4.0'
+      chart: trust-manager
+      helm:
+        valueFiles:
+          - $values/kubernetes/values/{{ .Values.environment }}/trust_manager.values.yaml
+    - repoURL: https://codeberg.org/istimaldar/noic.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cert-manager
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true 
+{{- end }}
 {{ if .Values.applications.traefik.enabled -}}
 ---
 apiVersion: argoproj.io/v1alpha1

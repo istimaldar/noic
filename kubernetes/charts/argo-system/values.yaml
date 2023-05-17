@@ -6,6 +6,8 @@ applications:
     enabled: true
   cert_manager:
     enabled: true
+  trust_manager:
+    enabled: true
   traefik:
     enabled: true
   argocd:

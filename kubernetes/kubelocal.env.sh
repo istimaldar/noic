@@ -16,6 +16,8 @@ makeSureClusterCreated() {
     then
         k3d registry create --default-network podman --port 0.0.0.0:$$REGISTRY_PORT $$REGISTRY_NAME
         k3d cluster create --config ${out}/share/k3d.yaml
+        jq --arg nodeHosts "$(kubectl get configmaps -n kube-system coredns -o json | jq -r '.data.NodeHosts')" '. * {data: {NodeHosts: $$nodeHosts}}' ${out}/share/patches/coredns.json | kubectl apply -f -
+        kubectl delete pod -n kube-system -l k8s-app=kube-dns
     fi
 }
 

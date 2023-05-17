@@ -102,4 +102,6 @@ in  [
   clinfo
 
   terraform-ls
+
+  istimaldar.kubelocal
 ]

@@ -17,13 +17,11 @@ server:
     annotations:
       cert-manager.io/cluster-issuer: ca-issuer
     hosts:
-      - workflows.127.0.0.1.nip.io
-      - argo-workflows-server.workflows.svc.cluster.local
+      - workflows.kubelocal
     pathType: Prefix
     paths: 
       - /
     tls:
       - hosts:
-          - workflows.127.0.0.1.nip.io
-          - argo-workflows-server.workflows.svc.cluster.local
+          - workflows.kubelocal
         secretName: ingress-cert
