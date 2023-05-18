@@ -7,7 +7,7 @@ metadata:
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
-    argocd.argoproj.io/sync-wave: "-5"
+    argocd.argoproj.io/sync-wave: "-6"
 spec:
   project: default
   sources:
@@ -43,7 +43,7 @@ metadata:
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
-    argocd.argoproj.io/sync-wave: "-4"
+    argocd.argoproj.io/sync-wave: "-5"
 spec:
   project: default
   sources:
@@ -79,7 +79,7 @@ metadata:
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
-    argocd.argoproj.io/sync-wave: "-4"
+    argocd.argoproj.io/sync-wave: "-5"
 spec:
   project: default
   sources:
@@ -113,7 +113,7 @@ metadata:
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
-    argocd.argoproj.io/sync-wave: "-4"
+    argocd.argoproj.io/sync-wave: "-5"
 spec:
   project: default
   sources:
@@ -149,7 +149,7 @@ metadata:
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
-    argocd.argoproj.io/sync-wave: "-3"
+    argocd.argoproj.io/sync-wave: "-5"
 spec:
   project: default
   sources:
@@ -185,7 +185,7 @@ metadata:
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
-    argocd.argoproj.io/sync-wave: "-3"
+    argocd.argoproj.io/sync-wave: "-4"
 spec:
   project: default
   sources:
@@ -293,7 +293,7 @@ metadata:
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
-    argocd.argoproj.io/sync-wave: "-3"
+    argocd.argoproj.io/sync-wave: "-5"
 spec:
   project: default
   sources:
@@ -327,7 +327,7 @@ metadata:
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
-    argocd.argoproj.io/sync-wave: "-2"
+    argocd.argoproj.io/sync-wave: "-3"
 spec:
   project: default
   sources:

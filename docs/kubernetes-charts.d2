@@ -1,0 +1,18 @@
+system : argo-system
+
+system -> open-ebs
+open-ebs -> crossplane
+open-ebs -> cert-manager
+open-ebs  -> trust-manager
+cert-manager -> traefik
+trust-manager -> custom-certs
+traefik -> zitadel
+open-ebs -> zitadel-db
+zitadel-db -> zitadel
+zitadel -> zitadel-bootstrap
+custom-certs -> zitadel-bootstrap
+crossplane -> zitadel-bootstrap
+zitadel-bootstrap -> argocd
+zitadel-bootstrap -> argo-workflows
+zitadel-bootstrap -> concourse-ci
+zitadel-bootstrap -> mattermost
