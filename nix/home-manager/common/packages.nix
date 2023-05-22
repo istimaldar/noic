@@ -69,6 +69,7 @@ in  [
   logseq
   spotifywm
   spicetify-cli
+  gomplate
 
   podman-compose
   buildah
