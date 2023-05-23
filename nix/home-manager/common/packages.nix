@@ -70,6 +70,7 @@ in  [
   spotifywm
   spicetify-cli
   gomplate
+  marktext
 
   podman-compose
   buildah
@@ -82,6 +83,7 @@ in  [
   dotnet-sdk
   pythonWithPackages
   poetry
+  julia
   
   jetbrains.rider
   jetbrains.pycharm-professional

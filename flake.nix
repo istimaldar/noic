@@ -58,11 +58,11 @@
     in {
       nixosConfigurations = builtins.listToAttrs (
         builtins.map (
-          element: 
+          element:
           let
             name = builtins.head (
               builtins.split "\\." element
-            ); 
+            );
             path = hosts + ("/" + name + ".toml");
             content = pkgs.lib.importTOML path;
             settings = content // { name = name; };
