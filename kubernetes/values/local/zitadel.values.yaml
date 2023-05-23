@@ -4,7 +4,7 @@ zitadel:
   masterkey: "OlYh3S9d6lYxjRUYAPMuOPBlchKsr9Mv"
   configmapConfig:
     ExternalPort: 443
-    ExternalDomain: zitadel.kubelocal
+    ExternalDomain: zitadel.local.gd
     ExternalSecure: true
     TLS:
       Enabled: false
@@ -52,12 +52,12 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: ca-issuer
   hosts:
-    - host: zitadel.kubelocal
+    - host: zitadel.local.gd
       paths:
         - path: /
           pathType: Prefix
 
   tls:
     - hosts:
-        - zitadel.kubelocal
+        - zitadel.local.gd
       secretName: ingress-cert

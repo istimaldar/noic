@@ -132,7 +132,7 @@
     dnsmasq = {
       enable = true;
       settings = {
-        address = "/kubelocal/127.0.0.1";
+        address = "/local.gd/127.0.0.1";
         server = [
           "1.1.1.1"
           "8.8.8.8"
