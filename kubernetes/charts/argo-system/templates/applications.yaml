@@ -145,7 +145,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: trust_manager
+  name: trust-manager
   labels:
     {{- include "argo-system.labels" . | nindent 4 }}
   annotations:
@@ -158,7 +158,7 @@ spec:
       chart: trust-manager
       helm:
         valueFiles:
-          - $values/kubernetes/values/{{ .Values.environment }}/trust_manager.values.yaml
+          - $values/kubernetes/values/{{ .Values.environment }}/trust-manager.values.yaml
     - repoURL: https://codeberg.org/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
