@@ -5,12 +5,15 @@
     enable = true;
   };
 
-  terminator = {
+  firefox = {
     enable = true;
   };
 
-  firefox = {
+  thunderbird = {
     enable = true;
+    profiles = {
+      
+    };
   };
 
   gpg = {

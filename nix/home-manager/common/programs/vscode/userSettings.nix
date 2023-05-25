@@ -14,4 +14,6 @@
   "git.autofetch" = true;
   "workbench.iconTheme" = "vscode-icons";
   "gitblame.inlineMessageEnabled" = true;
+  "vsicons.dontShowNewVersionMessage" = true;
+  "window.titleBarStyle" = "native";
 }
