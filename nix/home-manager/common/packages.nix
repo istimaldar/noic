@@ -54,6 +54,8 @@ in  [
   awscli2
   jq
   terraform
+  vagrant
+  packer
   openssl
   protobuf
   yt-dlp
@@ -70,7 +72,8 @@ in  [
   spotifywm
   spicetify-cli
   gomplate
-  marktext
+  zettlr
+  texlive.combined.scheme-full
 
   podman-compose
   buildah

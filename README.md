@@ -1,3 +1,5 @@
+<h1 align="center">NOIC</h1>
+
 ## Naming
 
 NOIC is stands for Nix OS Installation Configurator.
