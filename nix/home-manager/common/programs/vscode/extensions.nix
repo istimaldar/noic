@@ -173,4 +173,10 @@
     version = "3.3.0";
     sha256 = "0wl8vl8n0avd6nbfmis0lnlqlyh4yp3cca6kvjzgw5xxdc5bl38r";
   }
+  {
+    name = "vs-code-vagrantfile";
+    publisher = "marcostazi";
+    version = "0.0.7";
+    sha256 = "78O3Mt2zSgyTI1K92JqUcT86QVLLZZDcqym4/xDT7VY=";
+  }
 ]

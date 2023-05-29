@@ -58,6 +58,7 @@ in  [
   packer
   openssl
   protobuf
+  ansible
   yt-dlp
   jwt-cli
 

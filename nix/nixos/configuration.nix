@@ -50,12 +50,19 @@
   };
 
   # Yes, we need half of KDE just to run Nordic theme for SDDM ¯\_(ツ)_/¯
-  environment.systemPackages = with pkgs; [
-    nordic
-    libsForQt5.plasma-framework
-    libsForQt5.plasma-workspace
-    libsForQt5.qt5.qtgraphicaleffects
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      nordic
+      libsForQt5.plasma-framework
+      libsForQt5.plasma-workspace
+      libsForQt5.qt5.qtgraphicaleffects
+    ];
+    etc = {
+      "vbox/networks.conf".text = ''
+      * 10.128.0.0/16 192.168.56.0/21
+      '';
+    };
+  };
 
   hardware.opengl = if host.amdGpu then {
     extraPackages = with pkgs; [
@@ -73,7 +80,12 @@
   hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;
 
-  users.users = import ./users.nix pkgs;
+  users = {
+    users = import ./users.nix pkgs;
+    extraGroups.vboxusers.members = [
+      "istimaldar"
+    ];
+  };
 
   nix = {
     extraOptions = ''
@@ -156,6 +168,11 @@
   };
 
   virtualisation = {
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
+
     podman = {
       enable = true;
       dockerCompat = true;

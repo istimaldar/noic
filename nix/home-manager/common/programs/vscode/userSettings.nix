@@ -3,7 +3,7 @@
   "redhat.telemetry.enabled" = true;
   "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
   "editor.fontLigatures" = true;
-  "languageToolLinter.managed.classPath" = "/home/istimaldar/.nix-profile/share/languagetool-server.jar";
+  "languageToolLinter.managed.classPath" = "${pkgs.languagetool}/share/languagetool-server.jar";
   "languageToolLinter.serviceType" = "managed";
   "files.autoSave" = "afterDelay";
   "files.autoSaveDelay" = "500ms";
@@ -16,4 +16,6 @@
   "gitblame.inlineMessageEnabled" = true;
   "vsicons.dontShowNewVersionMessage" = true;
   "window.titleBarStyle" = "native";
+  "editor.bracketPairColorization.enabled" = true;
+  "editor.autoClosingBrackets" = "always";
 }

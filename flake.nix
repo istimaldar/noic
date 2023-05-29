@@ -5,6 +5,9 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
+    vbpatch = {
+      url = "github:erdnaxe/nixpkgs/virtualbox-update";
+    };
     nur = {
       url = "github:nix-community/NUR";
     };
@@ -22,9 +25,13 @@
     };
   };
 
-  outputs = { nixpkgs, nur, home-manager, hyprland, romc, ... }:
+  outputs = { nixpkgs, vbpatch, nur, home-manager, hyprland, romc, ... }:
     let
       system = "x86_64-linux";
+      vb = import vbpatch {
+        inherit system;
+        config.allowUnfree = true;
+      };
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -32,6 +39,13 @@
           (import ./nix/overlays/hyprland.nix)
           (import ./nix/overlays/insomnia.nix)
           (import ./nix/overlays/custom-packages.nix)
+          (self: super: {
+            virtualbox = vb.virtualbox;
+            virtualboxExtpack = vb.virtualboxExtpack;
+            virtualboxWithExtpack = vb.virtualboxWithExtpack;
+            virtualboxHeadless = vb.virtualboxHeadless;
+            virtualboxHardened = vb.virtualboxHardened;
+          })
         ];
       };
       mkHostConfiguration = host: nixpkgs.lib.nixosSystem {
