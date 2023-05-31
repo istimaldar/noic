@@ -62,6 +62,7 @@ in  [
   ansible-lint
   yt-dlp
   jwt-cli
+  glances
 
   krita
   insomnia
