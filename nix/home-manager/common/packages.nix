@@ -59,6 +59,7 @@ in  [
   openssl
   protobuf
   ansible
+  ansible-lint
   yt-dlp
   jwt-cli
 
