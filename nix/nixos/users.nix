@@ -3,6 +3,8 @@
   istimaldar = {
     isNormalUser = true;
     extraGroups = [
+      "qemu-libvirtd"
+      "libvirtd" 
       "wheel"
       "podman"
       "render"

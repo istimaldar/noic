@@ -56,10 +56,11 @@
       libsForQt5.plasma-framework
       libsForQt5.plasma-workspace
       libsForQt5.qt5.qtgraphicaleffects
+      virtiofsd
     ];
     etc = {
-      "vbox/networks.conf".text = ''
-      * 10.128.0.0/16 192.168.56.0/21
+      "libvirt/qemu.conf".text = ''
+      memory_backing_dir = "/dev/shm"
       '';
     };
   };
@@ -122,6 +123,15 @@
   };
 
   services = {
+    u9fs = {
+      enable = true;
+    };
+    nfs = {
+      server = {
+        enable = true;
+      };
+    };
+
     xserver = {
       enable = true;
       videoDrivers = if host.amdGpu then [ "amdgpu" ] else [ "modesetting" "fbdev" ];
@@ -168,9 +178,9 @@
   };
 
   virtualisation = {
-    virtualbox.host = {
+    libvirtd = {
       enable = true;
-      enableExtensionPack = true;
+      onBoot = "start";
     };
 
     podman = {

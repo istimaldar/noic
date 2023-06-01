@@ -5,6 +5,8 @@
   boot = {
     initrd = {
       availableKernelModules = lib.lists.optional host.amdGpu "amdgpu" ++ [ 
+        "kvm-amd"
+        "kvm-intel"
         "ata_piix"
         "ohci_pci"
         "ehci_pci"

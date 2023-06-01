@@ -63,7 +63,7 @@ in  [
   yt-dlp
   jwt-cli
   glances
-
+  
   krita
   insomnia
   mitmproxy
