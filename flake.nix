@@ -45,6 +45,7 @@
             virtualboxWithExtpack = vb.virtualboxWithExtpack;
             virtualboxHeadless = vb.virtualboxHeadless;
             virtualboxHardened = vb.virtualboxHardened;
+            electron = super.electron_24;
           })
         ];
       };
