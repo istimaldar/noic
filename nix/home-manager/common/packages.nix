@@ -90,6 +90,7 @@ in  [
   pythonWithPackages
   poetry
   julia
+  ruby
   
   jetbrains.rider
   jetbrains.pycharm-professional
@@ -97,6 +98,7 @@ in  [
   jetbrains.datagrip
   jetbrains.goland
   jetbrains.clion
+  jetbrains.ruby-mine
 
   obs-studio
   audacity
