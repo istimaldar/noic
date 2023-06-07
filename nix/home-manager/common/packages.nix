@@ -58,6 +58,7 @@ in  [
   packer
   openssl
   protobuf
+  grpc
   ansible
   ansible-lint
   yt-dlp
