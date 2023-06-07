@@ -44,8 +44,8 @@
   {
     name = "gitlens";
     publisher = "eamodio";
-    version = "2023.5.2405";
-    sha256 = "0my4xpi0mldfccc55k527p1y2gfcf0zxaf8fqpzlrgn4n57yvnx2";
+    version = "2023.6.705";
+    sha256 = "0s62fk3p55gi3whcailsnclsq0gd3cds2j2y8fpb79kcndh8170f";
   }
   {
     name = "shell-format";
@@ -96,6 +96,12 @@
     sha256 = "0bjyx9ri7fl68ryy0icn1lc3r8gxkpwaxhh900ij8xfvabqvcx6m";
   }
   {
+    name = "VS-code-vagrantfile";
+    publisher = "marcostazi";
+    version = "0.0.7";
+    sha256 = "0mpdsc8gzf19mgf90rfba90klgvijjddigaj4f9hqjmkvlrbghzg";
+  }
+  {
     name = "vscode-kubernetes-tools";
     publisher = "ms-kubernetes-tools";
     version = "1.3.11";
@@ -104,8 +110,8 @@
   {
     name = "python";
     publisher = "ms-python";
-    version = "2023.9.11371007";
-    sha256 = "18287c12y8hxs5jx28kg672b1azyh6x60cxs2b1abrfh7nnx874k";
+    version = "2023.11.11581008";
+    sha256 = "0xfpg4rpiax9nz4b5ah4m2kn7ir996b4s9zfmbmmrkizvz5cdhi4";
   }
   {
     name = "makefile-tools";
@@ -118,6 +124,12 @@
     publisher = "oderwat";
     version = "8.3.1";
     sha256 = "0iwd6y2x2nx52hd3bsav3rrhr7dnl4n79ln09picmnh1mp4rrs3l";
+  }
+  {
+    name = "ansible";
+    publisher = "redhat";
+    version = "2.2.70";
+    sha256 = "16qqvmsljvmbdq4la3i6l2xdcbm8m7fz0l409wbgvwv04m0xjwr7";
   }
   {
     name = "vscode-yaml";
@@ -172,17 +184,5 @@
     publisher = "wix";
     version = "3.3.0";
     sha256 = "0wl8vl8n0avd6nbfmis0lnlqlyh4yp3cca6kvjzgw5xxdc5bl38r";
-  }
-  {
-    name = "vs-code-vagrantfile";
-    publisher = "marcostazi";
-    version = "0.0.7";
-    sha256 = "78O3Mt2zSgyTI1K92JqUcT86QVLLZZDcqym4/xDT7VY=";
-  }
-  {
-    name = "ansible";
-    publisher = "redhat";
-    version = "2.2.69";
-    sha256 = "bAO6cCAev/UF/luqkaNQPCo+AgAI2H3nhngVG3voyho=";
   }
 ]
