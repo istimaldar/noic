@@ -92,7 +92,7 @@
     },
     :logseq-flow-nord
     {
-        :version "v0.1.6",
+        :version "v0.9.3",
         :repo "henices/logseq-flow-nord",
         :effect true,
         :theme true

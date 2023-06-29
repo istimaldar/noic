@@ -15,6 +15,7 @@
         efiSupport = true;
         enableCryptodisk = true;
         useOSProber = true;
+        configurationLimit = 2;
       };
     };
 

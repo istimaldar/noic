@@ -1,11 +1,17 @@
 { pkgs, host, ... }: {
   vscode = import ./programs/vscode.nix { inherit pkgs host; };
 
+  neovim = import ./programs/nvim.nix { inherit pkgs host; };
+
   wofi = {
     enable = true;
   };
 
   firefox = {
+    enable = true;
+  };
+
+  chromium = {
     enable = true;
   };
 

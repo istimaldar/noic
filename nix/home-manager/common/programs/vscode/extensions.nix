@@ -185,4 +185,10 @@
     version = "3.3.0";
     sha256 = "0wl8vl8n0avd6nbfmis0lnlqlyh4yp3cca6kvjzgw5xxdc5bl38r";
   }
+  {
+    name = "remote-containers";
+    publisher = "ms-vscode-remote";
+    version = "0.297.0";
+    sha256 = "eHyi3fuXTE8i/EFOHxf+WUtrgVHclSzzdPwgxRlyENo=";
+  }
 ]
