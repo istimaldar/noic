@@ -103,7 +103,7 @@ in  [
 
   obs-studio
   audacity
-  olive-editor
+  # olive-editor
   tesseract
   gpuWhisper
   ffmpeg_6-full
