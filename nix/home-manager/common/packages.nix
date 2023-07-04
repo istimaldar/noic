@@ -108,6 +108,7 @@ in  [
   gpuWhisper
   ffmpeg_6-full
   vlc
+  qbittorrent
 
   mesa
   ocl-icd
