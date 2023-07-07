@@ -191,4 +191,10 @@
     version = "0.297.0";
     sha256 = "eHyi3fuXTE8i/EFOHxf+WUtrgVHclSzzdPwgxRlyENo=";
   }
+  {
+    name = "caddyfile-support";
+    publisher = "matthewpi";
+    version = "0.3.0";
+    sha256 = "1yiOnvC2w33kiPRdQYskee38Cid/GOj9becLadP1fUY=";
+  }
 ]

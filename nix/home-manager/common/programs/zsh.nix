@@ -1,6 +1,8 @@
 { ... }: {
   enable = true;
-  enableSyntaxHighlighting = true;
+  syntaxHighlighting = {
+    enable = true;
+  };
   enableAutosuggestions = true;
   enableCompletion = true;
   initExtra = ''

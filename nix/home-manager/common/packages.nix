@@ -1,10 +1,10 @@
 { pkgs, host, ... }: with pkgs;
-let helmWithPackages = (wrapHelm kubernetes-helm 
-    { 
+let helmWithPackages = (wrapHelm kubernetes-helm
+    {
       plugins =  with kubernetes-helmPlugins; [
         helm-secrets
         helm-diff
-      ]; 
+      ];
     }
   );
   gpuWhisper = (
@@ -22,6 +22,11 @@ let helmWithPackages = (wrapHelm kubernetes-helm
   pythonWithPackages = (python310.withPackages(ps: with ps; [
     virtualenv
   ]));
+  gcloud = google-cloud-sdk.withExtraComponents (
+    [
+      google-cloud-sdk.components.gke-gcloud-auth-plugin
+    ]
+  );
 in  [
   nerdfonts
   megasync
@@ -45,6 +50,7 @@ in  [
   helmsman
   kube3d
   go-task
+  gcloud
 
   d2
   languagetool
@@ -64,7 +70,7 @@ in  [
   yt-dlp
   jwt-cli
   glances
-  
+
   krita
   insomnia
   mitmproxy
@@ -92,7 +98,11 @@ in  [
   poetry
   julia
   ruby
-  
+  babashka
+  clojure
+  yarn
+  nodejs_18
+
   jetbrains.rider
   jetbrains.pycharm-professional
   jetbrains.idea-ultimate
