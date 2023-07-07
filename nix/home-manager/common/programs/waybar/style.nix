@@ -84,6 +84,13 @@ window#waybar {
   transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.68);
 }
 
+#language {
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: @sky;
+}
+
 #workspaces button:hover {
   background-color: @mauve;
 }

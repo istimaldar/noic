@@ -6,6 +6,7 @@
   output = host.waybarOn;
   modules-left = [
     "wlr/workspaces"
+    "hyprland/language"
   ];
   modules-center = [
     "clock"
@@ -42,9 +43,10 @@
   };
   "hyprland/language" = {
     format = "{}";
-    format-en = "English";
-    format-by = "Беларуская";
-    format-ge = "ქართული";
+    format-en = "Anhelskaja";
+    format-by = "Biełaruskaja";
+    format-ka = "Kartuli";
+    format-ru = "Rasiejskaja";
   };
   keyboard-state = {
     numlock = true;
