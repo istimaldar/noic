@@ -3,5 +3,5 @@
   settings = {
     mainBar = import ./waybar/mainBar.nix { inherit pkgs host; };
   };
-  style = import ./waybar/style.nix { inherit pkgs host; };
+  style = (builtins.readFile ./waybar/style.css);
 }

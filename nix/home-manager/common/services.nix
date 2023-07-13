@@ -1,7 +1,5 @@
-{ pkgs, ... }: {
-  dunst = {
-    enable = true;
-  };
+{ pkgs, host, ... }: {
+  dunst = import ./services/dnust.nix { inherit pkgs host; };
 
   gpg-agent =  {
     enable = true;

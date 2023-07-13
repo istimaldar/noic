@@ -1,0 +1,76 @@
+:root {
+    --polar-night-0: #2e3440;
+    --polar-night-1: #3b4252;
+    --polar-night-2: #434c5e;
+    --polar-night-3: #4c566a;
+
+    --snow-storm-0: #d8dee9;
+    --snow-storm-1: #e5e9f0;
+    --snow-storm-2: #eceff4;
+
+    --frost-0: #8fbcbb;
+    --frost-1: #88c0d0;
+    --frost-2: #81a1c1;
+    --frost-3: #5e81ac;
+
+    --aurora-0: #bf616a;
+    --aurora-1: #d08770;
+    --aurora-2: #ebcb8b;
+    --aurora-3: #a3be8c;
+    --aurora-4: #b48ead;
+}
+
+*{
+    font-family: monospace;
+}
+
+window {
+    margin: 1px;
+    border: 0px solid var(--frost-0);
+    background-color: var(--frost-0);
+    border-radius: 15px 15px 15px 15px;
+}
+
+#input {
+    margin: 5px;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 0px solid black;
+    background-color: #3b4252;
+    color: white;
+}
+
+#inner-box {
+    margin: 5px;
+    background-color: #3b4252;
+}
+
+#outer-box {
+    margin: 5px;
+    padding:20px;
+    background-color: #2e3440;
+    border-radius: 15px 15px 15px 15px;
+}
+
+#scroll {
+    
+}
+
+#text {
+    margin: 5px;
+    color: #d8dee9;
+    /* border: 2px solid cyan; */
+    /* background-color: cyan; */
+}
+
+/* #entry:nth-child(even){
+    background-color: #404552;
+} */
+
+#entry:selected {
+    background-color: var(--frost-2);
+}
+
+#text:selected {
+    text-decoration-color: var(--snow-storm-0);
+}

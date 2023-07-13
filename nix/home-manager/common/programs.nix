@@ -3,9 +3,7 @@
 
   neovim = import ./programs/nvim.nix { inherit pkgs host; };
 
-  wofi = {
-    enable = true;
-  };
+  wofi = import ./programs/wofi.nix { inherit pkgs host; };
 
   firefox = {
     enable = true;

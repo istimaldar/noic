@@ -1,4 +1,3 @@
-{ ... }: ''
 @define-color base   #3b4252;
 @define-color mantle #181825;
 @define-color crust  #4c566a;
@@ -126,4 +125,3 @@ window#waybar {
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;
 }
-''
