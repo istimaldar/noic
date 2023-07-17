@@ -86,6 +86,7 @@ in  [
   texlive.combined.scheme-full
 
   podman-compose
+  podman-desktop
   buildah
   skopeo
 
