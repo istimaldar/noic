@@ -83,6 +83,8 @@ in  [
   spicetify-cli
   gomplate
   zettlr
+  spotifywm
+  kavita
   texlive.combined.scheme-full
 
   podman-compose
@@ -114,7 +116,7 @@ in  [
 
   obs-studio
   audacity
-  # olive-editor
+  olive-editor
   tesseract
   gpuWhisper
   ffmpeg_6-full
