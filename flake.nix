@@ -16,22 +16,15 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    podman-input = {
-      url = "github:NickCao/nixpkgs/podman-desktop";
-    };
     romc = {
       url = "github:nixos-rocm/nixos-rocm";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, nur, home-manager, hyprland, podman-input, romc, ... }:
+  outputs = { nixpkgs, nur, home-manager, hyprland, romc, ... }:
     let
       system = "x86_64-linux";
-      podman-pkgs = import podman-input {
-        inherit system;
-        config.allowUnfree = true;
-      };
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -41,7 +34,6 @@
           (import ./nix/overlays/custom-packages.nix)
           (self: super: {
             electron = super.electron_24;
-            podman-desktop = podman-pkgs.podman-desktop;
           })
         ];
       };
