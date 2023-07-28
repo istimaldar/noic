@@ -44,8 +44,8 @@
   {
     name = "gitlens";
     publisher = "eamodio";
-    version = "2023.6.705";
-    sha256 = "0s62fk3p55gi3whcailsnclsq0gd3cds2j2y8fpb79kcndh8170f";
+    version = "2023.7.2105";
+    sha256 = "0qz59vn9dyq9pxaxdg6dyk74ixzs0rvss65qg7rw16p39v4ri7p3";
   }
   {
     name = "shell-format";
@@ -68,8 +68,8 @@
   {
     name = "terraform";
     publisher = "hashicorp";
-    version = "2.26.2023051115";
-    sha256 = "8RvVJh0GgTRMUolmH1j1qA5qZoBopkS2tv9s227cSic=";
+    version = "2.27.2023071109";
+    sha256 = "1yjmvm65rjfcr0qvkpmi91h06yb32lfi3wdygqjigwrsmzxg3gwa";
   }
   {
     name = "vscode-jetbrains-keybindings";
@@ -80,8 +80,8 @@
   {
     name = "nix-ide";
     publisher = "jnoortheen";
-    version = "0.2.1";
-    sha256 = "0bibb3r4cb7chnx6vpyl41ig12pc0cbg0sb8f2khs52c71nk4bn8";
+    version = "0.2.2";
+    sha256 = "1264027sjh9a112si0y0p3pk3y36shj5b4qkpsj207z7lbxqq0wg";
   }
   {
     name = "vscode-colorize";
@@ -102,22 +102,34 @@
     sha256 = "0mpdsc8gzf19mgf90rfba90klgvijjddigaj4f9hqjmkvlrbghzg";
   }
   {
+    name = "caddyfile-support";
+    publisher = "matthewpi";
+    version = "0.3.0";
+    sha256 = "0ikxyp9nj2z7dpyyh63z4w5grvbr4j5l2pgli3j7vhxny2g8wa6p";
+  }
+  {
     name = "vscode-kubernetes-tools";
     publisher = "ms-kubernetes-tools";
-    version = "1.3.11";
-    sha256 = "1jr74lrjbmciam2zpfajicnj662fij37l31x46i0idhmvvsrssr3";
+    version = "1.3.13";
+    sha256 = "14r16wqbz69n5sixw7178zpv8jx6pf316gdv0h8pk1biijss9cg3";
   }
   {
     name = "python";
     publisher = "ms-python";
-    version = "2023.11.11581008";
-    sha256 = "0xfpg4rpiax9nz4b5ah4m2kn7ir996b4s9zfmbmmrkizvz5cdhi4";
+    version = "2023.13.12071009";
+    sha256 = "1xirh5knx6d0prdqpr2aza9kaf05ykbk3ln935ncz3i4gb6s71ky";
+  }
+  {
+    name = "remote-containers";
+    publisher = "ms-vscode-remote";
+    version = "0.303.0";
+    sha256 = "10l7p0vzpwp3pkqflm0dwgh862gvpqslv4gcb92il5c3isyb2y04";
   }
   {
     name = "makefile-tools";
     publisher = "ms-vscode";
-    version = "0.8.1";
-    sha256 = "05swb85r4s589c0j0yff54zwy7f08735a3vwyz54im0f6y2wqajl";
+    version = "0.8.4";
+    sha256 = "092pfyi1vjyd97mkfjicjp6j48ik1jqy2939vvzzhbax4d7jp68l";
   }
   {
     name = "indent-rainbow";
@@ -128,14 +140,14 @@
   {
     name = "ansible";
     publisher = "redhat";
-    version = "2.2.70";
-    sha256 = "16qqvmsljvmbdq4la3i6l2xdcbm8m7fz0l409wbgvwv04m0xjwr7";
+    version = "2.4.78";
+    sha256 = "1xcja7ncgav1nmycmfm6jwh6r86wpjz7jzxab4yddbhk1cl51djz";
   }
   {
     name = "vscode-yaml";
     publisher = "redhat";
-    version = "1.13.0";
-    sha256 = "07ayfsxsgb4i2bp3g1wf4chgx09468gy4gj70nlj1198fld1amgh";
+    version = "1.14.0";
+    sha256 = "0pww9qndd2vsizsibjsvscz9fbfx8srrj67x4vhmwr581q674944";
   }
   {
     name = "d2";
@@ -152,8 +164,8 @@
   {
     name = "errorlens";
     publisher = "usernamehw";
-    version = "3.11.0";
-    sha256 = "10xq4s0vnjbximh30a61i4liw42ynm81apibhl7p2l0159227qkl";
+    version = "3.12.0";
+    sha256 = "1vijylq0xs6bwly9lgca7qwr9bs4l3vs40dac8q9azvzixxrd7qv";
   }
   {
     name = "vscode-conventional-commits";
@@ -164,8 +176,8 @@
   {
     name = "vscode-java-pack";
     publisher = "vscjava";
-    version = "0.25.2023052400";
-    sha256 = "00dykmi7w9dswfwxxnlar2xq6vx14sy33iphd0gr6lrlpsiyhmpl";
+    version = "0.25.2023062906";
+    sha256 = "1p325909f5avgljgfijqngs23dcz9w2hbdi6j1rk7nnrj6qycb31";
   }
   {
     name = "vscode-icons";
@@ -176,25 +188,13 @@
   {
     name = "gitblame";
     publisher = "waderyan";
-    version = "10.2.0";
-    sha256 = "0iq2dlgkj7wqwdafcsg8acf3s5rcpfps82i5aj8qvjwv0xqrxyy3";
+    version = "10.4.0";
+    sha256 = "0gch9ank9pnr5zflgwk5k137ma6smqf3phd3qxg79yk2dcqfbwrw";
   }
   {
     name = "vscode-import-cost";
     publisher = "wix";
     version = "3.3.0";
     sha256 = "0wl8vl8n0avd6nbfmis0lnlqlyh4yp3cca6kvjzgw5xxdc5bl38r";
-  }
-  {
-    name = "remote-containers";
-    publisher = "ms-vscode-remote";
-    version = "0.297.0";
-    sha256 = "eHyi3fuXTE8i/EFOHxf+WUtrgVHclSzzdPwgxRlyENo=";
-  }
-  {
-    name = "caddyfile-support";
-    publisher = "matthewpi";
-    version = "0.3.0";
-    sha256 = "1yiOnvC2w33kiPRdQYskee38Cid/GOj9becLadP1fUY=";
   }
 ]
