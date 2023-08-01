@@ -69,7 +69,7 @@
     name = "terraform";
     publisher = "hashicorp";
     version = "2.27.2023071109";
-    sha256 = "1yjmvm65rjfcr0qvkpmi91h06yb32lfi3wdygqjigwrsmzxg3gwa";
+    sha256 = "RXQZu0J4UJwFl1e00cWNX5PeorfOXQ1AO+xmtQUmoxg=";
   }
   {
     name = "vscode-jetbrains-keybindings";
