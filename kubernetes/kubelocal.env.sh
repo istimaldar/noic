@@ -10,6 +10,7 @@ export DOCKER_SOCK="/run/user/1000/podman/podman.sock"
 export REGISTRY_PORT="5000"
 export REGISTRY_NAME=podman-registry
 export CLUSTER_NAME=local-infra
+export KUBERNETES_VERSION=v1.27.4-k3s1
 
 makeSureClusterCreated() {
     if [[ $(k3d cluster ls -o json | jq -r "map(select(.name == \"$$CLUSTER_NAME\")) | length // 0") -eq 0 ]];

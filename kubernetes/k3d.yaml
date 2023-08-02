@@ -4,7 +4,7 @@ metadata:
   name: $CLUSTER_NAME
 servers: 1
 agents: 3
-image: rancher/k3s:v1.26.3-k3s1
+image: rancher/k3s:$KUBERNETES_VERSION
 volumes:
   - volume: /dev/mapper:/dev/mapper
   - volume: $HOME/.kubedata/openebs:/var/openebs

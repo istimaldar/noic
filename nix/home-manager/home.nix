@@ -35,7 +35,31 @@
 
       Service = {
         ExecStart = "${pkgs.mitmproxy}/bin/mitmweb";
-      };    
+      };
+    };
+
+    kubelocal = {
+      Unit = {
+        Description = "Kubelocal k3d service";
+        After = [
+          "network.target"
+        ];
+      };
+
+      Service = {
+        Type = "simple";
+        ExecStart = "${pkgs.istimaldar.kubelocal}/bin/kubelocal.sh start";
+        ExecStop = "${pkgs.istimaldar.kubelocal}/bin/kubelocal.sh stop";
+        TimeoutStopSec = 20;
+        KillMode = "process";
+        Restart = "on-failure";
+      };
+
+      Install = {
+        WantedBy = [
+          "multi-user.target"
+        ];
+      };
     };
 
     kavita = {
