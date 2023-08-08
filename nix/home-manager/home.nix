@@ -48,7 +48,7 @@
 
       Service = {
         Type = "simple";
-        ExecStart = "${pkgs.istimaldar.kubelocal}/bin/kubelocal.sh start";
+        ExecStart = "${pkgs.istimaldar.kubelocal}/bin/kubelocal.sh";
         ExecStop = "${pkgs.istimaldar.kubelocal}/bin/kubelocal.sh stop";
         TimeoutStopSec = 20;
         KillMode = "process";
