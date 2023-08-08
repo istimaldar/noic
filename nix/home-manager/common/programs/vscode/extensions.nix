@@ -44,8 +44,8 @@
   {
     name = "gitlens";
     publisher = "eamodio";
-    version = "2023.7.2105";
-    sha256 = "0qz59vn9dyq9pxaxdg6dyk74ixzs0rvss65qg7rw16p39v4ri7p3";
+    version = "2023.8.505";
+    sha256 = "17cp9q6gsv4lv1d6c9d4i3aimfnrk69xk6f8xijd32phzdggbpd6";
   }
   {
     name = "shell-format";
@@ -116,14 +116,14 @@
   {
     name = "python";
     publisher = "ms-python";
-    version = "2023.13.12071009";
-    sha256 = "1xirh5knx6d0prdqpr2aza9kaf05ykbk3ln935ncz3i4gb6s71ky";
+    version = "2023.15.12191008";
+    sha256 = "1jk9c6ws0cpqsf44wxg80lhdg48fxrdn89xrc83g3dr9j75k1csv";
   }
   {
     name = "remote-containers";
     publisher = "ms-vscode-remote";
-    version = "0.303.0";
-    sha256 = "10l7p0vzpwp3pkqflm0dwgh862gvpqslv4gcb92il5c3isyb2y04";
+    version = "0.305.0";
+    sha256 = "1rx8hwwxbs8rj6wy34dnxrjczidm317jcvpxyhlb8390zh7r3d5j";
   }
   {
     name = "makefile-tools";
@@ -140,8 +140,8 @@
   {
     name = "ansible";
     publisher = "redhat";
-    version = "2.4.78";
-    sha256 = "1xcja7ncgav1nmycmfm6jwh6r86wpjz7jzxab4yddbhk1cl51djz";
+    version = "2.6.92";
+    sha256 = "1zn849da2bv8m17rvfj9i5y8s63mci0dxah8ak49wlg5hljqwadv";
   }
   {
     name = "vscode-yaml";
@@ -182,8 +182,8 @@
   {
     name = "vscode-icons";
     publisher = "vscode-icons-team";
-    version = "12.4.0";
-    sha256 = "0a0bp3ixvkmhfnxyn8jafgvvp35mzsax7192ax4az35hc09rmg83";
+    version = "12.5.0";
+    sha256 = "0fqawpfwqmj7hiv1g20z3zhs2rv3a9insqd93ad9416mhj89mcry";
   }
   {
     name = "gitblame";

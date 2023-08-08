@@ -59,6 +59,7 @@ in  [
   liquibase
   awscli2
   jq
+  yq-go
   terraform
   vagrant
   packer

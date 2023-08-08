@@ -202,6 +202,9 @@
       dockerCompat = true;
       dockerSocket.enable = true;
     };
+
+    waydroid.enable = true;
+    lxd.enable = true;
   };
 
   networking = {
