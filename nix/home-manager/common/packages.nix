@@ -130,7 +130,5 @@ in  [
 
   terraform-ls
 
-  istimaldar.beeper
-
   istimaldar.kubelocal
 ]
