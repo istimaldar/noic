@@ -4,6 +4,18 @@ waybarOn = [
 amdGpu = false
 stable = false
 
+[features.dotnet]
+enable = true
+
+[features.media_edit]
+enable = true
+
+[features.cloud]
+enable = true
+
+[features.messangers]
+enable = true
+
 [extraMounts."/mnt/c"]
   device = "/dev/nvme0n1p3"
   fsType = "ntfs3"

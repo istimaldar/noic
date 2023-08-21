@@ -5,15 +5,15 @@ amdGpu = false
 stable = false
 
 [features.dotnet]
-enable = true
+enable = false
 
 [features.media_edit]
-enable = true
+enable = false
 
 [features.cloud]
-enable = true
+enable = false
 
 [features.messangers]
-enable = true
+enable = false
 
 [extraMounts]

@@ -37,21 +37,6 @@ in  [
   grim
   wl-clipboard
 
-  slack
-  skypeforlinux
-  telegram-desktop
-  webcord
-  mattermost-desktop
-
-  doctl
-  kubectl
-  k9s
-  helmWithPackages
-  helmsman
-  kube3d
-  go-task
-  gcloud
-
   d2
   languagetool
   devbox
@@ -66,13 +51,10 @@ in  [
   openssl
   protobuf
   grpc
-  ansible
-  ansible-lint
   yt-dlp
   jwt-cli
   glances
 
-  krita
   insomnia
   mitmproxy
   httpie
@@ -97,7 +79,6 @@ in  [
   jdk
   maven
   go
-  dotnet-sdk
   pythonWithPackages
   poetry
   julia
@@ -107,7 +88,6 @@ in  [
   yarn
   nodejs_18
 
-  jetbrains.rider
   jetbrains.pycharm-professional
   jetbrains.idea-ultimate
   jetbrains.datagrip
@@ -115,12 +95,6 @@ in  [
   jetbrains.clion
   jetbrains.ruby-mine
 
-  obs-studio
-  audacity
-  olive-editor
-  tesseract
-  gpuWhisper
-  ffmpeg_6-full
   vlc
   qbittorrent
 
@@ -131,4 +105,32 @@ in  [
   terraform-ls
 
   istimaldar.kubelocal
+] ++ lib.lists.optionals host.features.dotnet.enable [
+  dotnet-sdk
+  jetbrains.rider
+] ++ lib.lists.optionals host.features.media_edit.enable [
+  obs-studio
+  audacity
+  olive-editor
+  tesseract
+  gpuWhisper
+  ffmpeg_6-full
+  krita
+] ++ lib.lists.optionals host.features.cloud.enable [
+  doctl
+  kubectl
+  k9s
+  helmWithPackages
+  helmsman
+  kube3d
+  go-task
+  gcloud
+  ansible
+  ansible-lint
+] ++ lib.lists.optionals host.features.messangers.enable [
+  slack
+  skypeforlinux
+  telegram-desktop
+  webcord
+  mattermost-desktop
 ]
