@@ -18,4 +18,6 @@
   "window.titleBarStyle" = "native";
   "editor.bracketPairColorization.enabled" = true;
   "editor.autoClosingBrackets" = "always";
+  "nix.enableLanguageServer" = true;
+  "nix.serverPath" = "nil"; 
 }

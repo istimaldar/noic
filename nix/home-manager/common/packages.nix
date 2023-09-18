@@ -55,6 +55,8 @@ in  [
   jwt-cli
   glances
 
+  redis
+
   insomnia
   mitmproxy
   httpie
@@ -87,6 +89,9 @@ in  [
   clojure
   yarn
   nodejs_18
+
+  nil
+  nodePackages.bash-language-server
 
   jetbrains.pycharm-professional
   jetbrains.idea-ultimate
@@ -133,4 +138,5 @@ in  [
   telegram-desktop
   webcord
   mattermost-desktop
+  beeper
 ]

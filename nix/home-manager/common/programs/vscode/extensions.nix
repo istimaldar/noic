@@ -27,8 +27,8 @@
   {
     name = "ansible";
     publisher = "redhat";
-    version = "2.6.92";
-    sha256 = "1zn849da2bv8m17rvfj9i5y8s63mci0dxah8ak49wlg5hljqwadv";
+    version = "2.7.98";
+    sha256 = "0bl7bzcz77fm9i6n8wgw3qqflir6lpry7h32icfdcvlhhz87hxkg";
   }
   {
     name = "d2";
@@ -51,7 +51,7 @@
   {
     name = "vscode-java-pack";
     publisher = "vscjava";
-    version = "0.25.2023062906";
-    sha256 = "1p325909f5avgljgfijqngs23dcz9w2hbdi6j1rk7nnrj6qycb31";
+    version = "0.25.2023091107";
+    sha256 = "01d30wisnzaqpmi50bki84kn7ayc44485xmgy7zw45zppl0pnrss";
   }
 ]

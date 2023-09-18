@@ -42,5 +42,16 @@
         core.sshCommand = "ssh -i ~/.ssh/git/kashxa";
       };
     }
+    {
+      condition = "gitdir:~/code/centaurea_infra/";
+      contents = {
+        user = {
+          name = "Centaurea Dev";
+          email = "dev@centaurea.io";
+          signingKey = "dev@centaurea.io";
+        };
+        core.sshCommand = "ssh -i ~/.ssh/git/centaurea_dev";
+      };
+    }
   ];
 }

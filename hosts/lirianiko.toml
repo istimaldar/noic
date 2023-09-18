@@ -1,5 +1,5 @@
 waybarOn = [
-  "HDMI-A-1"
+  "DP-2"
 ]
 amdGpu = false
 stable = false
