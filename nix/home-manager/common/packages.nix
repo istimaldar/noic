@@ -138,5 +138,5 @@ in  [
   telegram-desktop
   webcord
   mattermost-desktop
-  beeper
+  # beeper
 ]
