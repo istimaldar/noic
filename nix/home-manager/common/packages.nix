@@ -92,6 +92,7 @@ in  [
 
   nil
   nodePackages.bash-language-server
+  ltex-ls
 
   jetbrains.pycharm-professional
   jetbrains.idea-ultimate

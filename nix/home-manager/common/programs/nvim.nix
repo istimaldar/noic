@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   enable = true;
   defaultEditor = true;
   viAlias = true;
@@ -29,4 +29,20 @@
       };
     };
   };
+  extraConfig = ''
+    colorscheme nord
+  '';
+  plugins = with pkgs.vimPlugins; [
+    vim-airline
+    auto-pairs
+    nerdcommenter
+    neoformat
+    nerdtree
+    vim-multiple-cursors
+    vim-highlightedyank
+    SimpylFold
+    coc-markdownlint
+    nord-nvim
+    coc-ltex
+  ];
 }
