@@ -100,6 +100,7 @@ in  [
   jetbrains.goland
   jetbrains.clion
   jetbrains.ruby-mine
+  lapce
 
   vlc
   qbittorrent
