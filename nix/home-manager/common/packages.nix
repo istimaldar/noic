@@ -19,8 +19,9 @@ let helmWithPackages = (wrapHelm kubernetes-helm
       };
     }
   );
-  pythonWithPackages = (python310.withPackages(ps: with ps; [
+  pythonWithPackages = (python311.withPackages(ps: with ps; [
     virtualenv
+    python-lsp-server
   ]));
   gcloud = google-cloud-sdk.withExtraComponents (
     [
