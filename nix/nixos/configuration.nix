@@ -242,6 +242,10 @@
     nameservers = [
       "127.0.0.1"
     ];
+    firewall = {
+        enable = true;
+        allowedTCPPorts = [ 80 443 ];
+    };
   };
 
   time.timeZone = "Asia/Tbilisi";
