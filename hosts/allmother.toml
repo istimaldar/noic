@@ -1,10 +1,10 @@
 waybarOn = [
-  "HDMI-A-1"
+  "DP-1"
 ]
 amdGpu = false
 stable = false
-serveCache = false
-listenCache = true
+serveCache = true
+listenCache = false
 
 [features.dotnet]
 enable = true

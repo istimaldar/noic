@@ -46,8 +46,6 @@ in  [
   awscli2
   jq
   yq-go
-  terraform
-  vagrant
   packer
   openssl
   protobuf
@@ -79,8 +77,6 @@ in  [
   skopeo
 
   gnumake
-  jdk
-  maven
   go
   pythonWithPackages
   poetry
@@ -96,7 +92,6 @@ in  [
   ltex-ls
 
   jetbrains.pycharm-professional
-  jetbrains.idea-ultimate
   jetbrains.datagrip
   jetbrains.goland
   jetbrains.clion
@@ -110,9 +105,11 @@ in  [
   ocl-icd
   clinfo
 
-  terraform-ls
-
   istimaldar.kubelocal
+] ++ lib.lists.optionals host.features.java.enable [
+  jetbrains.idea-ultimate
+  jdk
+  maven
 ] ++ lib.lists.optionals host.features.dotnet.enable [
   dotnet-sdk
   jetbrains.rider
@@ -135,6 +132,9 @@ in  [
   gcloud
   ansible
   ansible-lint
+  terraform-ls
+  terraform
+  vagrant
 ] ++ lib.lists.optionals host.features.messangers.enable [
   slack
   skypeforlinux

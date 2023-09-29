@@ -3,6 +3,8 @@ waybarOn = [
 ]
 amdGpu = false
 stable = false
+serveCache = false
+listenCache = false
 
 [features.dotnet]
 enable = true
@@ -14,6 +16,9 @@ enable = true
 enable = true
 
 [features.messangers]
+enable = true
+
+[features.java]
 enable = true
 
 [extraMounts."/mnt/c"]

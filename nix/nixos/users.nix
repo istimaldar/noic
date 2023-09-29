@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ host, pkgs, ... }:
 {
   istimaldar = {
     isNormalUser = true;
@@ -13,4 +13,12 @@
     ];
     shell = pkgs.zsh;
   };
+} // (
+if host.serveCache then 
+{
+  nix-serve = {
+    isSystemUser = true;
+    group = "nix-serve";
+  };
 }
+else {})
