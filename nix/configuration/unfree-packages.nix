@@ -1,0 +1,17 @@
+[
+ "terraform"
+ "megasync"
+ "spotify"
+ "pycharm-professional"
+ "datagrip"
+ "goland"
+ "clion"
+ "ruby-mine"
+ "idea-ultimate"
+ "rider"
+ "slack"
+ "skypeforlinux"
+ "steam"
+ "steam-original"
+ "steam-run"
+]

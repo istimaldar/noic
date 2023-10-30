@@ -76,14 +76,15 @@
   } else {};
 
   systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
 
-  hardware.enableAllFirmware = true;
-  nixpkgs.config.allowUnfree = true;
-
+  hardware = {
+    enableRedistributableFirmware = true;
+  };
   users = {
     users = import ./users.nix { inherit pkgs host; };
+    groups.nix-serve = {};
     extraGroups.vboxusers.members = [
       "istimaldar"
     ];

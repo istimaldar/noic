@@ -23,15 +23,17 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
         overlays = [
           (import ./nix/overlays/hyprland.nix)
           (import ./nix/overlays/insomnia.nix)
           (import ./nix/overlays/custom-packages.nix)
-          (self: super: {
-            electron = super.electron_24;
-          })
         ];
+        config = {
+          allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) (import ./nix/configuration/unfree-packages.nix);
+          permittedInsecurePackages = [
+            "electron-24.8.6"
+          ];
+        };
       };
       mkHostConfiguration = host: nixpkgs.lib.nixosSystem {
         inherit pkgs system;
