@@ -65,7 +65,7 @@ in  [
   logseq
   spotifywm
   spicetify-cli
-  gomplate
+  (gomplate.override { buildGoModule = buildGo120Module; })
   zettlr
   spotifywm
   kavita
