@@ -138,7 +138,7 @@
   services = {
     k3s = {
       enable = host.features.kubernetes.enable;
-      role = if host.features.kubernetes.server then "server" else "client" ;
+      role = if host.features.kubernetes.server then "server" else "agent" ;
       token = if host.features.kubernetes.ha then "vBhBmda4ID46l6YzwXHM" else "";
       clusterInit = host.features.kubernetes.ha && host.features.kubernetes.server;
       serverAddr = if host.features.kubernetes.ha && !host.features.kubernetes.server then "https://192.168.100.5:6443" else "";
