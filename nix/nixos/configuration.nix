@@ -41,7 +41,6 @@
       "net.ipv4.ip_unprivileged_port_start" = 0;
       "net.netfilter.nf_conntrack_max" = 524288;
       "vm.overcommit_memory" = 1;
-      "net.ipv4.ip_forward" = 1;
       "kernel.panic" = 10;
       "kernel.panic_on_oops" = 1;
       "fs.file-max" = 92233720;
@@ -148,6 +147,13 @@
   };
 
   services = {
+    k3s = {
+      enable = true;
+      role = "server";
+      extraFlags = toString [
+        "--write-kubeconfig-mode=644"
+      ];
+    };
     u9fs = {
       enable = true;
     };
@@ -224,6 +230,14 @@
       onBoot = "start";
     };
 
+    virtualbox = {
+      host = {
+        enable = true;
+#        enableWebService = true;
+        enableExtensionPack = true;
+      };
+    };
+
     podman = {
       enable = true;
       dockerCompat = true;
@@ -239,13 +253,25 @@
     networkmanager = {
       enable = true;
       dns = "default";
+      wifi = {
+        scanRandMacAddress = false;
+        powersave = false;
+        backend = "iwd";
+      };
     };
     nameservers = [
       "127.0.0.1"
     ];
     firewall = {
         enable = true;
-        allowedTCPPorts = [ 80 443 ];
+        allowedTCPPorts = [
+          80
+          443
+          6443
+        ];
+        allowedUDPPorts = [
+          8472
+        ];
     };
   };
 

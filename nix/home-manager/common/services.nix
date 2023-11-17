@@ -6,4 +6,8 @@
     enableZshIntegration = true;
     pinentryFlavor = "gnome3";
   };
+
+  megasync = {
+    enable = true;
+  };
 }

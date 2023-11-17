@@ -30,7 +30,6 @@ let helmWithPackages = (wrapHelm kubernetes-helm
   );
 in  [
   nerdfonts
-  megasync
   keepassxc
   pinentry
   hyprpaper
@@ -65,7 +64,7 @@ in  [
   logseq
   spotifywm
   spicetify-cli
-  (gomplate.override { buildGoModule = buildGo120Module; })
+  gomplate
   zettlr
   spotifywm
   kavita
