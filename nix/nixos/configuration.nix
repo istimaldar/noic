@@ -102,18 +102,7 @@
     };
     settings = {
       auto-optimise-store = true;
-    } // (
-    if host.listenCache then {
-      substituters = [
-        "http://192-168-100-5.nip.io"
-        "https://nix-community.cachix.org"
-        "https://cache.nixos.org/"
-      ];
-      trusted-public-keys = [
-        "192-168-100-5.nip.io:AhhW8c9jU94ZJ5IcsYnZFdt0jNNWjKZfVl1S8128E8c="
-      ];
-    } else {}
-    );
+    };
   };
 
   programs = {
@@ -195,23 +184,7 @@
 
 
     gnome.gnome-keyring.enable = true;
-  } // (
-  if host.serveCache then {
-    nix-serve = {
-      enable = true;
-      secretKeyFile = "/var/cache-priv-key.pem";
-    };
-    nginx = {
-      enable = true;
-      recommendedProxySettings = true;
-      virtualHosts = {
-        "192-168-100-5.nip.io" = {
-          locations."/".proxyPass = "http://${config.services.nix-serve.bindAddress}:${toString config.services.nix-serve.port}";
-        };
-      };
-    };
-  } else {}
-  );
+  };
 
   security = {
     polkit = {
