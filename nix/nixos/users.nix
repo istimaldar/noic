@@ -4,7 +4,7 @@
     isNormalUser = true;
     extraGroups = [
       "qemu-libvirtd"
-      "libvirtd" 
+      "libvirtd"
       "wheel"
       "podman"
       "render"
@@ -13,12 +13,4 @@
     ];
     shell = pkgs.zsh;
   };
-} // (
-if host.serveCache then 
-{
-  nix-serve = {
-    isSystemUser = true;
-    group = "nix-serve";
-  };
 }
-else {})
