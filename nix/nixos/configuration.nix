@@ -137,8 +137,11 @@
 
   services = {
     k3s = {
-      enable = true;
-      role = "server";
+      enable = host.features.kubernetes.enable;
+      role = if host.features.kubernetes.server then "server" else "client" ;
+      token = if host.features.kubernetes.ha then "vBhBmda4ID46l6YzwXHM" else "";
+      clusterInit = host.features.kubernetes.ha && host.features.kubernetes.server;
+      serverAddr = if host.features.kubernetes.ha && !host.features.kubernetes.server then "https://192.168.100.5:6443" else "";
       extraFlags = toString [
         "--write-kubeconfig-mode=644"
       ];

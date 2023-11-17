@@ -21,4 +21,9 @@ enable = true
 [features.java]
 enable = true
 
+[features.kubernetes]
+enable = true
+ha = true
+server = true
+
 [extraMounts]

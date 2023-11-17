@@ -21,6 +21,11 @@ enable = true
 [features.java]
 enable = true
 
+[features.kubernetes]
+enable = true
+ha = false
+server = true
+
 [extraMounts."/mnt/c"]
   device = "/dev/nvme0n1p3"
   fsType = "ntfs3"
