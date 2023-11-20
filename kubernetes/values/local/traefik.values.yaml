@@ -1,5 +1,6 @@
 service:
-  externalIPs: '127.0.0.1'
+  externalIPs:
+    - '127.0.0.1'
 providers:
   kubernetesIngress:
     publishedService:
