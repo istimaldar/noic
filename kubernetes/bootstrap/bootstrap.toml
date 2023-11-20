@@ -13,7 +13,7 @@ context = "bootstrap"
         enabled = true
         chart = "argo/argo-cd"
         version = "5.51.3"
-        valuesFile = "../values/local/argo-cd.values.yaml"
+        valuesFile = "../values/${KUBERNETES_ENVIRONMENT:-office}/argo-cd.values.yaml"
         priority = -1
         wait = true
         [apps.argocd.set]
@@ -23,8 +23,8 @@ context = "bootstrap"
         enabled = true
         chart = "../charts/argo-applications"
         version = "0.1.0"
-        valuesFile = "../values/local/argo-applications.values.yaml"
+        valuesFile = "../values/${KUBERNETES_ENVIRONMENT:-office}/argo-applications.values.yaml"
         priority = 0
         wait = true
         [apps.argo-applictions.set]
-            "environment" = "${KUBERNETES_ENVIRONMENTS:-office}
+            environment = "${KUBERNETES_ENVIRONMENT:-office}"
