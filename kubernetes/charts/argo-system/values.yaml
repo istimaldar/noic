@@ -2,21 +2,31 @@ environment: local
 applications:
   openebs:
     enabled: true
+    version: '3.6.0'
   crossplane:
     enabled: true
+    version: '1.12.0'
   cert_manager:
     enabled: true
+    version: '1.11.1'
   trust_manager:
     enabled: true
+    version: '0.4.0'
   traefik:
     enabled: true
+    version: '22.1.0'
   argocd:
     enabled: true
+    version: '5.31.1'
   argo_workflows:
     enabled: true
+    version: '0.25.1'
   zitadel:
     enabled: true
-  drone:
-    enabled: true
+    version: '4.3.0'
+    components:
+      cockroachdb:
+        version: '10.0.8'
   mattermost:
     enabled: true
+    version: '6.6.22'

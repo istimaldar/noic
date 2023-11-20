@@ -1,21 +1,31 @@
 applications:
   openebs:
     enabled: true
+    version: '3.9.0'
   crossplane:
     enabled: true
+    version: '1.14.0'
   cert_manager:
     enabled: true
+    version: '1.13.2'
   trust_manager:
     enabled: true
+    version: '0.7.0'
   traefik:
     enabled: true
+    version: '25.0.0'
   argocd:
     enabled: true
+    version: '5.31.1'
   argo_workflows:
     enabled: true
+    version: '0.39.2'
   zitadel:
     enabled: true
-  drone:
-    enabled: false
+    version: '7.3.0'
+    components:
+      cockroachdb:
+        version: '11.2.2'
   mattermost:
-    enabled: false
+    enabled: true
+    version: '6.6.43'

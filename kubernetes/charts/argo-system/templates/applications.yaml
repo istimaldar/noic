@@ -12,12 +12,12 @@ spec:
   project: default
   sources:
     - repoURL: https://openebs.github.io/charts
-      targetRevision: '3.6.0'
+      targetRevision: {{ .Values.applications.openebs.version | quote }}
       chart: openebs
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/openebs.values.yaml
-    - repoURL: https://codeberg.org/istimaldar/noic.git
+    - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -32,7 +32,7 @@ spec:
       - Validate=false
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      - PruneLast=true
 {{- end }}
 {{ if .Values.applications.crossplane.enabled -}}
 ---
@@ -48,12 +48,12 @@ spec:
   project: default
   sources:
     - repoURL: https://charts.crossplane.io/stable
-      targetRevision: '1.12.0'
+      targetRevision: {{ .Values.applications.crossplane.version | quote }}
       chart: crossplane
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/crossplane.values.yaml
-    - repoURL: https://codeberg.org/istimaldar/noic.git
+    - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -68,7 +68,7 @@ spec:
       - Validate=false
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      - PruneLast=true
 {{- end }}
 {{ if .Values.applications.cert_manager.enabled -}}
 ---
@@ -84,12 +84,12 @@ spec:
   project: default
   sources:
     - repoURL: https://charts.jetstack.io
-      targetRevision: '1.11.1'
+      targetRevision: {{ .Values.applications.cert_manager.version | quote }}
       chart: cert-manager
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/cert-manager.values.yaml
-    - repoURL: https://codeberg.org/istimaldar/noic.git
+    - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -117,7 +117,7 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://codeberg.org/istimaldar/noic.git
+    - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       path: kubernetes/charts/cert-manager-issuer
       helm:
@@ -138,7 +138,7 @@ spec:
       - Validate=false
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      - PruneLast=true
 {{- end }}
 {{ if .Values.applications.trust_manager.enabled -}}
 ---
@@ -154,12 +154,12 @@ spec:
   project: default
   sources:
     - repoURL: https://charts.jetstack.io
-      targetRevision: '0.4.0'
+      targetRevision: {{ .Values.applications.trust_manager.version | quote }}
       chart: trust-manager
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/trust-manager.values.yaml
-    - repoURL: https://codeberg.org/istimaldar/noic.git
+    - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -174,7 +174,7 @@ spec:
       - Validate=false
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      - PruneLast=true
 {{- end }}
 {{ if .Values.applications.traefik.enabled -}}
 ---
@@ -195,7 +195,7 @@ spec:
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/traefik.values.yaml
-    - repoURL: https://codeberg.org/istimaldar/noic.git
+    - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -210,7 +210,7 @@ spec:
       - Validate=false
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      - PruneLast=true
 {{- end }}
 {{ if .Values.applications.argocd.enabled -}}
 ---
@@ -226,12 +226,12 @@ spec:
   project: default
   sources:
     - repoURL: https://argoproj.github.io/argo-helm
-      targetRevision: '5.31.1'
+      targetRevision: {{ .Values.applications.argocd.version | quote }}
       chart: argo-cd
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/argo-cd.values.yaml
-    - repoURL: https://codeberg.org/istimaldar/noic.git
+    - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -246,7 +246,7 @@ spec:
       - Validate=false
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      - PruneLast=true
 {{- end }}
 {{ if .Values.applications.argo_workflows.enabled -}}
 ---
@@ -262,12 +262,12 @@ spec:
   project: default
   sources:
     - repoURL: https://argoproj.github.io/argo-helm
-      targetRevision: '0.25.1'
+      targetRevision: {{ .Values.applications.argo_workflows.version | quote }}
       chart: argo-workflows
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/argo-workflows.values.yaml
-    - repoURL: https://codeberg.org/istimaldar/noic.git
+    - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -282,7 +282,7 @@ spec:
       - Validate=false
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      - PruneLast=true
 {{- end }}
 {{ if .Values.applications.zitadel.enabled -}}
 ---
@@ -298,12 +298,12 @@ spec:
   project: default
   sources:
     - repoURL: https://charts.cockroachdb.com/
-      targetRevision: '10.0.8'
+      targetRevision: {{ .Values.applications.zitadel.components.cockroachdb.version | quote }}
       chart: cockroachdb
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/zitadel-cockroachdb.values.yaml
-    - repoURL: https://codeberg.org/istimaldar/noic.git
+    - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -332,12 +332,12 @@ spec:
   project: default
   sources:
     - repoURL: https://charts.zitadel.com
-      targetRevision: '4.3.0'
+      targetRevision: {{ .Values.applications.zitadel.version | quote }}
       chart: zitadel
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/zitadel.values.yaml
-    - repoURL: https://codeberg.org/istimaldar/noic.git
+    - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -352,7 +352,7 @@ spec:
       - Validate=false
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      - PruneLast=true
 {{- end }}
 {{ if .Values.applications.mattermost.enabled -}}
 ---
@@ -368,12 +368,12 @@ spec:
   project: default
   sources:
     - repoURL: https://helm.mattermost.com
-      targetRevision: '6.6.22'
+      targetRevision: {{ .Values.applications.mattermost | quote }}
       chart: mattermost-team-edition
       helm:
         valueFiles:
           - $values/kubernetes/values/{{ .Values.environment }}/mattermost.values.yaml
-    - repoURL: https://codeberg.org/istimaldar/noic.git
+    - repoURL: https://github.com/istimaldar/noic.git
       targetRevision: HEAD
       ref: values
   destination:
@@ -388,5 +388,5 @@ spec:
       - Validate=false
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      - PruneLast=true
 {{- end }}

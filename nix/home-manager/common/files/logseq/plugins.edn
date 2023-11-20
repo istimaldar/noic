@@ -1,163 +1,115 @@
-{
-    :logseq-diagrams-as-code
-    {
-        :version "0.0.21",
-        :repo "npgrosser/logseq-diagrams-as-code",
-        :effect false,
-        :theme false
-    },
-    :logseq-awesome-ui
-    {
-        :version "v2.2.6",
-        :repo "yoyurec/logseq-awesome-ui",
-        :effect true,
-        :theme false
-    },
-    :logseq-move-block
-    {
-        :version "v0.1.0",
-        :repo "vipzhicheng/logseq-plugin-move-block",
-        :effect true,
-        :theme false
-    },
-    :logseq-todo-plugin
-    {
-        :version "v1.19.0",
-        :repo "ahonn/logseq-plugin-todo",
-        :effect true,
-        :theme false
-    },
-    :logseq-journals-calendar
-    {
-        :version "v0.10.10",
-        :repo "xyhp915/logseq-journals-calendar",
-        :effect false,
-        :theme false
-    },
-    :logseq-awesome-styler
-    {
-        :version "v3.7.1",
-        :repo "yoyurec/logseq-awesome-styler",
-        :effect true,
-        :theme false
-    },
-    :logseq-copy-code-plugin
-    {
-        :version "v.1.2.0",
-        :repo "vyleung/logseq-copy-code-plugin",
-        :effect true,
-        :theme false
-    },
-    :logseq-bullet-threading
-    {
-        :version "v1.1.4",
-        :repo "pengx17/logseq-plugin-bullet-threading",
-        :effect false,
-        :theme false
-    },
-    :logseq-awesome-props
-    {
-        :version "v1.10.0",
-        :repo "yoyurec/logseq-awesome-props",
-        :effect true,
-        :theme false
-    },
-    :logseq-banners-plugin
-    {
-        :version "v3.4.11",
-        :repo "yoyurec/logseq-banners-plugin",
-        :effect true,
-        :theme false
-    },
-    :logseq-pdf-export-plugin
-    {
-        :version "2.2.8",
-        :repo "sawhney17/logseq-pdf-export",
-        :effect true,
-        :theme false
-    },
-    :logseq13-full-house
-    {
-        :version "v2.6.0",
-        :repo "stdword/logseq13-full-house-plugin",
-        :effect false,
-        :theme false
-    },
-    :logseq-awesome-links
-    {
-        :version "v1.15.16",
-        :repo "yoyurec/logseq-awesome-links",
-        :effect true,
-        :theme false
-    },
-    :logseq-tabs
-    {
-        :version "v1.19.1",
-        :repo "pengx17/logseq-plugin-tabs",
-        :effect true,
-        :theme false
-    },
-    :unfinished-business
-    {
-        :version "0.1.6",
-        :repo "QWxleA/Unfinished-business",
-        :effect false,
-        :theme false
-    },
-    :logseq-fenced-code-plus
-    {
-        :version "0.0.7",
-        :repo "xyhp915/logseq-fenced-code-plus",
-        :effect true,
-        :theme false
-    },
-    :logseq-reference-styles
-    {
-        :version "v0.0.3",
-        :repo "benjaffe/logseq-reference-styles",
-        :effect false,
-        :theme false
-    },
-    :logseq-toolbox
-    {
-        :version "0.0.3",
-        :repo "tankcool/logseq-toolbox",
-        :effect false,
-        :theme false
-    },
-    :logseq-focus-mode
-    {
-        :version "v1.0.3",
-        :repo "sethfair/logseq-focus-mode",
-        :effect false,
-        :theme false
-    },
-    :logseq-tags
-    {
-        :version "v0.1.2",
-        :repo "gidongkwon/logseq-plugin-tags",
-        :effect false,
-        :theme false
-    },
-    :logseq-graph-analysis
-    {
-        :version "0.10.2",
-        :repo "trashhalo/logseq-graph-analysis",
-        :effect false,
-        :theme false
-    },
-    :logseq-awesome-content
-    {
-        :version "v1.2.1",
-        :repo "yoyurec/logseq-awesome-content",
-        :effect true,
-        :theme false
-    },
-    :logseq-mark-map
-    {
-        :version "v0.3.17",
-        :repo "vipzhicheng/logseq-plugin-mark-map",
-        :effect false,
-        :theme false
-    }
-}
+{:logseq-diagrams-as-code
+ {:version "0.0.21",
+  :repo "npgrosser/logseq-diagrams-as-code",
+  :effect false,
+  :theme false},
+ :logseq-awesome-ui
+ {:version "v2.4.0",
+  :repo "yoyurec/logseq-awesome-ui",
+  :effect true,
+  :theme false},
+ :logseq-move-block
+ {:version "v0.1.0",
+  :repo "vipzhicheng/logseq-plugin-move-block",
+  :effect true,
+  :theme false},
+ :logseq-todo-plugin
+ {:version "v1.19.0",
+  :repo "ahonn/logseq-plugin-todo",
+  :effect true,
+  :theme false},
+ :logseq-journals-calendar
+ {:version "v0.10.10",
+  :repo "xyhp915/logseq-journals-calendar",
+  :effect false,
+  :theme false},
+ :logseq-awesome-styler
+ {:version "v3.7.1",
+  :repo "yoyurec/logseq-awesome-styler",
+  :effect true,
+  :theme false},
+ :logseq-copy-code-plugin
+ {:version "v.1.2.0",
+  :repo "vyleung/logseq-copy-code-plugin",
+  :effect true,
+  :theme false},
+ :logseq-bullet-threading
+ {:version "v1.1.4",
+  :repo "pengx17/logseq-plugin-bullet-threading",
+  :effect false,
+  :theme false},
+ :logseq-awesome-props
+ {:version "v1.10.0",
+  :repo "yoyurec/logseq-awesome-props",
+  :effect true,
+  :theme false},
+ :logseq-banners-plugin
+ {:version "v3.4.11",
+  :repo "yoyurec/logseq-banners-plugin",
+  :effect true,
+  :theme false},
+ :logseq-pdf-export-plugin
+ {:version "2.2.8",
+  :repo "sawhney17/logseq-pdf-export",
+  :effect true,
+  :theme false},
+ :logseq13-full-house
+ {:version "v3.2.1",
+  :repo "stdword/logseq13-full-house-plugin",
+  :effect true,
+  :theme false},
+ :logseq-awesome-links
+ {:version "v1.15.16",
+  :repo "yoyurec/logseq-awesome-links",
+  :effect true,
+  :theme false},
+ :logseq-tabs
+ {:version "v1.19.3",
+  :repo "pengx17/logseq-plugin-tabs",
+  :effect true,
+  :theme false},
+ :unfinished-business
+ {:version "0.1.6",
+  :repo "QWxleA/Unfinished-business",
+  :effect false,
+  :theme false},
+ :logseq-fenced-code-plus
+ {:version "0.0.7",
+  :repo "xyhp915/logseq-fenced-code-plus",
+  :effect true,
+  :theme false},
+ :logseq-reference-styles
+ {:version "v0.0.3",
+  :repo "benjaffe/logseq-reference-styles",
+  :effect false,
+  :theme false},
+ :logseq-toolbox
+ {:version "0.0.3",
+  :repo "tankcool/logseq-toolbox",
+  :effect false,
+  :theme false},
+ :logseq-focus-mode
+ {:version "v1.0.3",
+  :repo "sethfair/logseq-focus-mode",
+  :effect false,
+  :theme false},
+ :logseq-tags
+ {:version "v0.1.2",
+  :repo "gidongkwon/logseq-plugin-tags",
+  :effect false,
+  :theme false},
+ :logseq-graph-analysis
+ {:version "0.11.0",
+  :repo "trashhalo/logseq-graph-analysis",
+  :effect true,
+  :theme false},
+ :logseq-awesome-content
+ {:version "v1.2.1",
+  :repo "yoyurec/logseq-awesome-content",
+  :effect true,
+  :theme false},
+ :logseq-mark-map
+ {:version "v0.4.0",
+  :repo "vipzhicheng/logseq-plugin-mark-map",
+  :effect false,
+  :theme false}}

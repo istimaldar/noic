@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://codeberg.org/istimaldar/noic.git
+    repoURL: https://github.com/istimaldar/noic.git
     targetRevision: HEAD
     path: kubernetes/charts/argo-system
     helm:
@@ -30,7 +30,7 @@ spec:
       - Validate=false
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      - PruneLast=true
 {{- end }}
 {{ if .Values.applications.user.enabled -}}
 ---
@@ -43,7 +43,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://codeberg.org/istimaldar/noic.git
+    repoURL: https://github.com/istimaldar/noic.git
     targetRevision: HEAD
     path: kubernetes/charts/argo-user
     helm:
@@ -64,5 +64,5 @@ spec:
       - Validate=false
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      - PruneLast=true
 {{- end }}
