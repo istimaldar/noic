@@ -8,6 +8,10 @@ ingress:
   enabled: true
   hosts:
     - mattermost.192-168-100-5.nip.io
+  tls:
+    - hosts:
+        - mattermost.192-168-100-5.nip.io
+      secretName: ingress-cert
 
 mysql:
   mysqlUser: mattermost
