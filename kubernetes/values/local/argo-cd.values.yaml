@@ -10,10 +10,10 @@ server:
     annotations:
       cert-manager.io/cluster-issuer: ca-issuer
     hosts:
-      - argo.local.gd
+      - argo.192-186-100-5.nip.io
     tls:
       - hosts:
-          - argo.local.gd
+          - argo.192-186-100-5.nip.io
         secretName: ingress-cert
 
   config:

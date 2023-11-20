@@ -17,11 +17,11 @@ server:
     annotations:
       cert-manager.io/cluster-issuer: ca-issuer
     hosts:
-      - workflows.local.gd
+      - workflows.192-186-100-5.nip.io
     pathType: Prefix
     paths:
       - /
     tls:
       - hosts:
-          - workflows.local.gd
+          - workflows.192-186-100-5.nip.io
         secretName: ingress-cert
