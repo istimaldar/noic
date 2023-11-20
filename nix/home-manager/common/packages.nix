@@ -134,6 +134,7 @@ in  [
   terraform-ls
   terraform
   vagrant
+  operator-sdk
 ] ++ lib.lists.optionals host.features.messangers.enable [
   slack
   skypeforlinux

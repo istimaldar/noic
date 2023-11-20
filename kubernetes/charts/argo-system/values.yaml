@@ -3,30 +3,78 @@ applications:
   openebs:
     enabled: true
     version: '3.6.0'
+    sync_wave: "-6"
+    repo: https://openebs.github.io/charts
+    chart: openebs
+    namespace: openebs
   crossplane:
     enabled: true
     version: '1.12.0'
-  cert_manager:
+    sync_wave: "-5"
+    repo: https://charts.crossplane.io/stable
+    chart: crossplane
+    namespace: crossplane-system
+  cert-manager:
     enabled: true
     version: '1.11.1'
-  trust_manager:
+    sync_wave: "-5"
+    repo: https://charts.jetstack.io
+    chart: cert-manager
+    namespace: cert-manager
+  cert-manager-issuer:
+    enabled: true
+    version: HEAD
+    sync_wave: "-5"
+    repo: https://github.com/istimaldar/noic.git
+    chart: cert-manager
+    local: true
+    namespace: cert-manager
+  trust-manager:
     enabled: true
     version: '0.4.0'
+    sync_wave: "-5"
+    repo: https://charts.jetstack.io
+    chart: trust-manager
+    namespace: cert-manager
   traefik:
     enabled: true
     version: '22.1.0'
-  argocd:
+    sync_wave: "-4"
+    repo: https://traefik.github.io/charts
+    chart: traefik
+    namespace: traefik
+  argo-cd:
     enabled: true
     version: '5.31.1'
-  argo_workflows:
+    sync_wave: "-2"
+    repo: https://argoproj.github.io/argo-helm
+    chart: argo-cd
+    namespace: argocd
+  argo-workflows:
     enabled: true
     version: '0.25.1'
+    sync_wave: "-2"
+    repo: https://argoproj.github.io/argo-helm
+    chart: argo-workflows
+    namespace: workflows
+  zitadel-cockroachdb:
+    enabled: true
+    version: '10.0.8'
+    sync_wave: "-5"
+    repo: https://charts.cockroachdb.com/
+    chart: cockroachdb
+    namespace: zitadel
   zitadel:
     enabled: true
     version: '4.3.0'
-    components:
-      cockroachdb:
-        version: '10.0.8'
+    sync_wave: "-3"
+    repo: https://charts.zitadel.com
+    chart: zitadel
+    namespace: zitadel
   mattermost:
     enabled: true
     version: '6.6.22'
+    sync_wave: "-1"
+    repo: https://helm.mattermost.com
+    chart: mattermost-team-edition
+    namespace: mattermost
