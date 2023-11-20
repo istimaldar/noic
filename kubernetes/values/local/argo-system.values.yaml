@@ -12,7 +12,7 @@ applications:
     enabled: true
     version: '0.7.0'
   traefik:
-    enabled: true
+    enabled: false
     version: '25.0.0'
   argocd:
     enabled: true

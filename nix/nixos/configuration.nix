@@ -144,7 +144,6 @@
       serverAddr = if host.features.kubernetes.ha && !host.features.kubernetes.server then "https://192.168.100.5:6443" else "";
       extraFlags = if host.features.kubernetes.server then toString [
         "--write-kubeconfig-mode=644"
-        "--disable=traefik"
       ] else "";
     };
     u9fs = {
