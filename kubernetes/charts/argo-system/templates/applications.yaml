@@ -8,14 +8,14 @@ kind: Application
 metadata:
   name: {{ $name | quote }}
   labels:
-    {{- include "argo-system.labels" . | nindent 4 }}
+    {{- include "argo-system.labels" $ | nindent 4 }}
   annotations:
     argocd.argoproj.io/sync-wave: {{ $config.sync_wave | quote }}
 spec:
   project: default
   sources:
     - repoURL: {{ $config.repo | quote }}
-      targetRevision: {{ .Values.applications.openebs.version | quote }}
+      targetRevision: {{ $config.version | quote }}
       {{ if $local }}path{{ else }}chart{{ end }}: {{ $config.chart | quote }}
       helm:
         valueFiles:
