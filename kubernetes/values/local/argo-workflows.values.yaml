@@ -19,7 +19,7 @@ server:
     hosts:
       - workflows.local.gd
     pathType: Prefix
-    paths: 
+    paths:
       - /
     tls:
       - hosts:

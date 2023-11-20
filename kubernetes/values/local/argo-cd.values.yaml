@@ -29,7 +29,7 @@ server:
           end
         end
       end
-      return hs  
+      return hs
 
 redis:
   image:
