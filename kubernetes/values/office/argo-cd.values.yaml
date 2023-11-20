@@ -1,0 +1,8 @@
+server:
+  ingress:
+    hosts:
+      - argo.192-168-100-5.nip.io
+    tls:
+      - hosts:
+          - argo.192-168-100-5.nip.io
+        secretName: ingress-cert

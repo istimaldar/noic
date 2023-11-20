@@ -17,6 +17,7 @@ spec:
         - name: environment
           value: {{ .Values.environment | quote }}
       valueFiles:
+        - ../../values/argo-system.values.yaml
         - ../../values/{{ .Values.environment }}/argo-system.values.yaml
   destination:
     server: https://kubernetes.default.svc
@@ -51,6 +52,7 @@ spec:
         - name: environment
           value: {{ .Values.environment | quote }}
       valueFiles:
+        - ../../values/argo-user.values.yaml
         - ../../values/{{ .Values.environment }}/argo-user.values.yaml
   destination:
     server: https://kubernetes.default.svc

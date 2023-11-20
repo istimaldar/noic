@@ -26,3 +26,5 @@ context = "bootstrap"
         valuesFile = "../values/local/argo-applications.values.yaml"
         priority = 0
         wait = true
+        [apps.argo-applictions.set]
+            "environment" = "${KUBERNETES_ENVIRONMENTS:-office}

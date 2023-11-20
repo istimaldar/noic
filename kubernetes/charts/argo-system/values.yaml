@@ -1,4 +1,4 @@
-environment: local
+environment: office
 applications:
   openebs:
     enabled: true

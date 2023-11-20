@@ -1,0 +1,14 @@
+zitadel:
+  configmapConfig:
+    ExternalDomain: zitadel.192-168-100-6.nip.io
+ingress:
+  hosts:
+    - host: zitadel.192-168-100-6.nip.io
+      paths:
+        - path: /
+          pathType: Prefix
+
+  tls:
+    - hosts:
+        - zitadel.192-168-100-6.nip.io
+      secretName: ingress-cert
