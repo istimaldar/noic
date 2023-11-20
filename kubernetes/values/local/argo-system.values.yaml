@@ -16,7 +16,7 @@ applications:
     version: '25.0.0'
   argocd:
     enabled: true
-    version: '5.31.1'
+    version: '5.51.3'
   argo_workflows:
     enabled: true
     version: '0.39.2'
