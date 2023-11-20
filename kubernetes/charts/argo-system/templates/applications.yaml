@@ -368,7 +368,7 @@ spec:
   project: default
   sources:
     - repoURL: https://helm.mattermost.com
-      targetRevision: {{ .Values.applications.mattermost | quote }}
+      targetRevision: {{ .Values.applications.mattermost.version | quote }}
       chart: mattermost-team-edition
       helm:
         valueFiles:

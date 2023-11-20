@@ -7,7 +7,7 @@ persistence:
 ingress:
   enabled: true
   hosts:
-    - mattermost.127.0.0.1.nip.io
+    - mattermost.192-168-100-5.nip.io
 
 mysql:
   mysqlUser: mattermost
