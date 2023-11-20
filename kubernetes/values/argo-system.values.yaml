@@ -1,35 +1,34 @@
 applications:
-  applications:
-    openebs:
-      enabled: true
-      version: '3.9.0'
-    crossplane:
-      enabled: true
-      version: '1.14.0'
-    cert-manager:
-      enabled: true
-      version: '1.13.2'
-    cert-manager-issuer:
-      enabled: true
-      version: HEAD
-    trust-manager:
-      enabled: true
-      version: '0.7.0'
-    traefik:
-      enabled: false
-      version: '25.0.0'
-    argo-cd:
-      enabled: true
-      version: '5.51.3'
-    argo-workflows:
-      enabled: true
-      version: '0.39.2'
-    zitadel-cockroachdb:
-      enabled: true
-      version: '11.2.2'
-    zitadel:
-      enabled: true
-      version: '7.3.0'
-    mattermost:
-      enabled: true
-      version: '6.6.43'
+  openebs:
+    enabled: true
+    version: '3.9.0'
+  crossplane:
+    enabled: true
+    version: '1.14.0'
+  cert-manager:
+    enabled: true
+    version: '1.13.2'
+  cert-manager-issuer:
+    enabled: true
+    version: HEAD
+  trust-manager:
+    enabled: true
+    version: '0.7.0'
+  traefik:
+    enabled: false
+    version: '25.0.0'
+  argo-cd:
+    enabled: true
+    version: '5.51.3'
+  argo-workflows:
+    enabled: true
+    version: '0.39.2'
+  zitadel-cockroachdb:
+    enabled: true
+    version: '11.2.2'
+  zitadel:
+    enabled: true
+    version: '7.3.0'
+  mattermost:
+    enabled: true
+    version: '6.6.43'
