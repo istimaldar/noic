@@ -8,7 +8,7 @@ context = "bootstrap"
     argo = "https://argoproj.github.io/argo-helm"
 
 [apps]
-    [apps.argocd]
+    [apps.argo-cd]
         namespace = "argocd"
         enabled = true
         chart = "argo/argo-cd"
@@ -16,7 +16,7 @@ context = "bootstrap"
         valuesFile = "../values/${KUBERNETES_ENVIRONMENT}/argo-cd.values.yaml"
         priority = -1
         wait = true
-        [apps.argocd.set]
+        [apps.argo-cd.set]
             "server.ingress.enabled" = "false"
     [apps.argo-applictions]
         namespace = "argocd"
