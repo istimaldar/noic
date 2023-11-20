@@ -6,6 +6,8 @@ persistence:
 
 ingress:
   enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: ca-issuer
   hosts:
     - mattermost.192-168-100-5.nip.io
   tls:
