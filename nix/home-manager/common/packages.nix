@@ -91,6 +91,7 @@ in  [
   ltex-ls
 
   jetbrains.pycharm-professional
+  jetbrains.dataspell
   jetbrains.datagrip
   jetbrains.goland
   jetbrains.clion

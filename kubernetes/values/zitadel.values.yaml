@@ -9,7 +9,6 @@ zitadel:
     TLS:
       Enabled: false
     FirstInstance:
-      MachineKeyPath: '/machinekey/zitadel-admin-sa.json'
       Org:
         Name: SNTLK
         Human:

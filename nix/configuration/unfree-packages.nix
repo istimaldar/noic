@@ -2,6 +2,7 @@
  "terraform"
  "megasync"
  "spotify"
+ "dataspell"
  "pycharm-professional"
  "datagrip"
  "goland"
