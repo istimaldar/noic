@@ -51,6 +51,7 @@ in  [
   grpc
   yt-dlp
   jwt-cli
+  nmap
   glances
 
   redis
