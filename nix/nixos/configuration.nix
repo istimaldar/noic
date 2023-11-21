@@ -136,6 +136,13 @@
   };
 
   services = {
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+      };
+    };
     k3s = {
       enable = host.features.kubernetes.enable;
       role = if host.features.kubernetes.server then "server" else "agent" ;
@@ -240,6 +247,7 @@
     firewall = {
         enable = true;
         allowedTCPPorts = [
+          22
           80
           443
           6443
