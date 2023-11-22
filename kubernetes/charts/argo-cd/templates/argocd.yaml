@@ -4,5 +4,35 @@ metadata:
   name: {{ include "argo-cd.name" . | quote }}
   labels:
     {{- include "argo-cd.labels" . | nindent 4 }}
-spec: {}
+spec:
+  extraConfig:
+    resource.customizations: |
+      argoproj.io/Application:
+        health.lua:
+          hs = {}
+          hs.status = "Progressing"
+          hs.message = ""
+          if obj.status ~= nil then
+            if obj.status.health ~= nil then
+              hs.status = obj.status.health.status
+              if obj.status.health.message ~= nil then
+                hs.message = obj.status.health.message
+              end
+            end
+          end
+          return hs
+      operators.coreos.com/Subscription:
+        health.lua: |
+          hs = {}
+          hs.status = "Progressing"
+          hs.message = ""
+          if obj.status ~= nil then
+            if obj.status.state ~= nil then
+              if obj.status.state == "AtLatestKnown" then
+                hs.message = obj.status.state .. " - " .. obj.status.currentCSV
+                hs.status = "Healthy"
+              end
+            end
+          end
+          return hs
 
