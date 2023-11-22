@@ -8,7 +8,7 @@
 
 {{- define "argo-operators.subscriptionSourceNamespace" -}}
 {{ if .Values.catalog.enabled -}}
-{{ .Values.catalog.publisher }}
+{{ .Release.Namespace }}
 {{- else -}}
 olm
 {{- end }}

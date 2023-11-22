@@ -20,7 +20,7 @@ context = "bootstrap"
       "catalog.display_name" = "Argo CD Operators"
       "catalog.publisher" = "Argo CD Community"
       "subscription.channel" = "alpha"
-      "subscription.name" = "argocd-catalog"
+      "subscription.name" = "argocd-operator"
   [apps.argo-cd]
     namespace = "argocd"
     enabled = true

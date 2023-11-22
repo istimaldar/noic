@@ -4,7 +4,7 @@ metadata:
   name: {{ include "argo-operators.subscritionName" . | quote }}
 spec:
   channel: {{ .Values.subscription.channel }}
-  name: argocd-operator
+  name: {{ .Values.subscription.name | quote }}
   source: {{ include "argo-operators.subscriptionSourceName" . | quote }}
   sourceNamespace: {{ include "argo-operators.subscriptionSourceNamespace" . | quote }}
   installPlanApproval: Automatic
