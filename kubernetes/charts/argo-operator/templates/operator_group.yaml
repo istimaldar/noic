@@ -1,0 +1,10 @@
+{{ if .Values.group.enabled -}}
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: argocd-operator
+spec:
+  targetNamespaces:
+    - {{ .Release.Namespace | quote }}
+{{- .Values.group.extraNamespaces | toYaml | nindent 4 }}
+{{- end }}

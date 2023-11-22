@@ -1,13 +1,10 @@
 apiVersion: operators.coreos.com/v1alpha1
-kind: CatalogSource
+kind: Subscription
 metadata:
-  name: cool-catalog
-  namespace: operator
+  name: {{ include "argo-operators.subscritionName" . | quote }}
 spec:
-  sourceType: grpc
-  image: quay.io/my-namespace/cool-catalog:latest
-  displayName: Coolest Catalog
-  publisher: Me
-  updateStrategy:
-    registryPoll:
-      interval: 10m
+  channel: {{ .Values.subscription.channel }}
+  name: argocd-operator
+  source: {{ include "argo-operators.subscriptionSourceName" . | quote }}
+  sourceNamespace: {{ include "argo-operators.subscriptionSourceNamespace" . | quote }}
+  installPlanApproval: Automatic

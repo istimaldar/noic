@@ -1,4 +1,30 @@
 environment: office
+operators:
+  argo-cd:
+    enabled: true
+    sync_wave: "-8"
+    namespace: argocd
+    catalog:
+      enabled: true
+      image: 'quay.io/argoprojlabs/argocd-operator-registry@sha256:dcf6d07ed5c8b840fb4a6e9019eacd88cd0913bc3c8caa104d3414a2e9972002'
+      display_name: 'Argo CD Operators'
+      publisher: 'Argo CD Community'
+    subscription:
+      channel: 'alpha'
+      name: 'argocd-catalog'
+    group:
+      enabled: true
+  cert-manager:
+    enabled: true
+    sync_wave: "-8"
+    namespace: cert-manager
+    catalog:
+      enabled: false
+    subscription:
+      channel: 'stable'
+      name: 'cert-manager'
+    group:
+      enabled: false
 applications:
   openebs:
     enabled: true
@@ -14,13 +40,6 @@ applications:
     repo: https://charts.crossplane.io/stable
     chart: crossplane
     namespace: crossplane-system
-  cert-manager:
-    enabled: true
-    version: '1.11.1'
-    sync_wave: "-5"
-    repo: https://charts.jetstack.io
-    chart: cert-manager
-    namespace: cert-manager
   cert-manager-issuer:
     enabled: true
     version: HEAD
@@ -45,11 +64,12 @@ applications:
     namespace: traefik
   argo-cd:
     enabled: true
-    version: '5.31.1'
+    version: HEAD
     sync_wave: "-2"
-    repo: https://argoproj.github.io/argo-helm
-    chart: argo-cd
-    namespace: argocd
+    repo: https://github.com/istimaldar/noic.git
+    chart: kubernetes/charts/argo-cd
+    local: true
+    namespace: argo-cd
   argo-workflows:
     enabled: true
     version: '0.25.1'

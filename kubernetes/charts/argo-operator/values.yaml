@@ -1,1 +1,11 @@
-subscriptions:
+catalog:
+  enabled: true
+  image: ''
+  display_name: ''
+  publisher: ''
+subscription:
+  channel: ''
+  name: ''
+group:
+  enabled: true
+  extraNamespaces: []
