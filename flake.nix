@@ -5,7 +5,7 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
-    nur = {
+    nurpkgs = {
       url = "github:nix-community/NUR";
     };
     home-manager = {
@@ -18,7 +18,7 @@
     };
   };
 
-  outputs = { nixpkgs, nur, home-manager, ... }:
+  outputs = { nixpkgs, nurpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -35,12 +35,16 @@
           ];
         };
       };
+      nur = import nurpkgs {
+        inherit pkgs;
+        nurpkgs = pkgs;
+      };
       mkHostConfiguration = host: nixpkgs.lib.nixosSystem {
         inherit pkgs system;
         specialArgs = { inherit host; };
 
         modules = [
-          nur.nixosModules.nur
+          nurpkgs.nixosModules.nur
           ./nix/nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
@@ -48,7 +52,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.users.istimaldar.imports = [
               ({ lib, config, ... }: import ./nix/home-manager/home.nix {
-                inherit lib config pkgs host;
+                inherit lib config pkgs host nur;
               })
             ];
           }

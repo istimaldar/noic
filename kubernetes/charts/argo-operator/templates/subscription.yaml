@@ -1,0 +1,13 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: cool-catalog
+  namespace: operator
+spec:
+  sourceType: grpc
+  image: quay.io/my-namespace/cool-catalog:latest
+  displayName: Coolest Catalog
+  publisher: Me
+  updateStrategy:
+    registryPoll:
+      interval: 10m

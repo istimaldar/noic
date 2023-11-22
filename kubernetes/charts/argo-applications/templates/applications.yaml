@@ -33,6 +33,41 @@ spec:
       - PrunePropagationPolicy=foreground
       - PruneLast=true
 {{- end }}
+{{ if .Values.applications.operators.enabled -}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: system
+  labels:
+    {{- include "argo-applications.labels" . | nindent 4 }}
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/istimaldar/noic.git
+    targetRevision: HEAD
+    path: kubernetes/charts/argo-operators
+    helm:
+      parameters:
+        - name: environment
+          value: {{ .Values.environment | quote }}
+      valueFiles:
+        - ../../values/argo-operators.values.yaml
+        - ../../values/{{ .Values.environment }}/argo-operators.values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+{{- end }}
 {{ if .Values.applications.user.enabled -}}
 ---
 apiVersion: argoproj.io/v1alpha1

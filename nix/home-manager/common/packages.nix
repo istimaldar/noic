@@ -1,4 +1,4 @@
-{ pkgs, host, ... }: with pkgs;
+{ pkgs, host, nur, ... }: with pkgs;
 let helmWithPackages = (wrapHelm kubernetes-helm
     {
       plugins =  with kubernetes-helmPlugins; [
@@ -53,6 +53,8 @@ in  [
   jwt-cli
   nmap
   glances
+  rclone
+  storj-uplink
 
   redis
 
@@ -97,7 +99,12 @@ in  [
   jetbrains.goland
   jetbrains.clion
   jetbrains.ruby-mine
+  jetbrains.gateway
   lapce
+  devpod
+  devpod-desktop
+
+  nur.repos.mikaelfangel-nur.spacedrive
 
   vlc
   qbittorrent
