@@ -16,7 +16,7 @@ spec:
     targetRevision: HEAD
     path: kubernetes/charts/argo-operator
     helm:
-      valuesObject:
+      values: |
         catalog: {{- $config.catalog | toYaml | nindent 12 }}
         subscription: {{- $config.subscription | toYaml | nindent 12 }}
         group: {{- $config.group | toYaml | nindent 12 }}
