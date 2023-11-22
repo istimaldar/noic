@@ -1,6 +1,6 @@
 environment: office
 operators:
-  argo-cd:
+  argo-operator:
     enabled: true
     sync_wave: "-8"
     namespace: argocd
