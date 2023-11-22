@@ -11,15 +11,15 @@ metadata:
     argocd.argoproj.io/sync-wave: {{ $config.sync_wave | quote }}
 spec:
   project: default
-  sources:
-    - repoURL: https://github.com/istimaldar/noic.git
-      targetRevision: HEAD
-      path: kubernetes/charts/argo-operator
-      helm:
-        valuesObject:
-          catalog: {{- $config.catalog | toYaml | nindent 12 }}
-          subscription: {{- $config.subscription | toYaml | nindent 12 }}
-          group: {{- $config.group | toYaml | nindent 12 }}
+  source:
+    repoURL: https://github.com/istimaldar/noic.git
+    targetRevision: HEAD
+    path: kubernetes/charts/argo-operator
+    helm:
+      valuesObject:
+        catalog: {{- $config.catalog | toYaml | nindent 12 }}
+        subscription: {{- $config.subscription | toYaml | nindent 12 }}
+        group: {{- $config.group | toYaml | nindent 12 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ $config.namespace | quote }}
