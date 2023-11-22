@@ -24,7 +24,7 @@ operators:
       channel: 'stable'
       name: 'cert-manager'
     group:
-      enabled: false
+      enabled: true
 applications:
   openebs:
     enabled: true
