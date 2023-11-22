@@ -1,5 +1,5 @@
 operators:
-  argo-cd:
+  argo-operator:
     enabled: true
   cert-manager:
     enabled: true
