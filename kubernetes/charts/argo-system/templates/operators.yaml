@@ -5,7 +5,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ $name | quote }}
-  namespace: {{ $config.namespace | quote }}
   labels:
     {{- include "argo-system.labels" $ | nindent 4 }}
   annotations:
