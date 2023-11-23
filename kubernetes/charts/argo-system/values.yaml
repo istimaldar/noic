@@ -17,14 +17,14 @@ operators:
   cert-manager:
     enabled: true
     sync_wave: "-8"
-    namespace: cert-manager
+    namespace: operators
     catalog:
       enabled: false
     subscription:
       channel: 'stable'
       name: 'cert-manager'
     group:
-      enabled: true
+      enabled: false
 applications:
   openebs:
     enabled: true
