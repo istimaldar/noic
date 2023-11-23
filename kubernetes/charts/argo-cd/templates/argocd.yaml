@@ -5,6 +5,9 @@ metadata:
   labels:
     {{- include "argo-cd.labels" . | nindent 4 }}
 spec:
+  image: quay.io/argoproj/argocd:v2.9.2
+  server:
+    insecure: true
   extraConfig:
     resource.customizations: |
       argoproj.io/Application:
