@@ -13,13 +13,6 @@
     enable = true;
   };
 
-  thunderbird = {
-    enable = true;
-    profiles = {
-      
-    };
-  };
-
   gpg = {
     enable = true;
     mutableTrust = true;

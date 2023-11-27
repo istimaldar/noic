@@ -11,9 +11,7 @@ let helmWithPackages = (wrapHelm kubernetes-helm
     let torchPackage = if host.amdGpu then python3Packages.torchWithRocm else python3Packages.torch;
     in
     openai-whisper.override {
-      cudaSupport = host.amdGpu;
       torch = torchPackage;
-      torchWithCuda = torchPackage;
       transformers = python3Packages.transformers.override {
         torch = torchPackage;
       };
@@ -146,6 +144,7 @@ in  [
   operator-sdk
 ] ++ lib.lists.optionals host.features.messangers.enable [
   slack
+  mailspring
   skypeforlinux
   telegram-desktop
   webcord

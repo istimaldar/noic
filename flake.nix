@@ -30,9 +30,7 @@
         ];
         config = {
           allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) (import ./nix/configuration/unfree-packages.nix);
-          permittedInsecurePackages = [
-            "electron-24.8.6"
-          ];
+          permittedInsecurePackages = (import ./nix/configuration/insecure-packages.nix);
         };
       };
       nur = import nurpkgs {
