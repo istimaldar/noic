@@ -15,9 +15,9 @@
   "workbench.iconTheme" = "vscode-icons";
   "gitblame.inlineMessageEnabled" = true;
   "vsicons.dontShowNewVersionMessage" = true;
-  "window.titleBarStyle" = "native";
+  "window.titleBarStyle" = "custom";
   "editor.bracketPairColorization.enabled" = true;
   "editor.autoClosingBrackets" = "always";
   "nix.enableLanguageServer" = true;
-  "nix.serverPath" = "nil"; 
+  "nix.serverPath" = "nil";
 }

@@ -147,6 +147,7 @@ in  [
   mailspring
   skypeforlinux
   telegram-desktop
+  whatsapp-for-linux
   webcord
   mattermost-desktop
   # beeper
