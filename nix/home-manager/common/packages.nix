@@ -75,6 +75,8 @@ in  [
   podman-desktop
   buildah
   skopeo
+  talosctl
+  cilium-cli
 
   gnumake
   go
@@ -102,7 +104,7 @@ in  [
   devpod
   devpod-desktop
 
-  nur.repos.mikaelfangel-nur.spacedrive
+  spacedrive
 
   vlc
   qbittorrent

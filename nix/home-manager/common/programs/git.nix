@@ -7,7 +7,12 @@
   };
   userName = "istimaldar";
   userEmail = "istimaldar@gmail.com";
-  extraConfig.core.sshCommand = "ssh -i ~/.ssh/git/istimaldar";
+  extraConfig = {
+    core.sshCommand = "ssh -i ~/.ssh/git/a5labs";
+    url = {
+      "https://teamcity-user:CTWP4mnZ96R8FWd4G8wb@bitbucket.org/a5-labs/".insteadOf = "https://bitbucket.org/a5-labs/";
+    };
+  };
   includes = [
     {
       condition = "gitdir:~/code/centaurea/";
@@ -29,6 +34,9 @@
           signingKey = "konstantin.fedortsov@a5labs.co";
         };
         core.sshCommand = "ssh -i ~/.ssh/git/a5labs";
+        url = {
+          "git@bitbucket.org:a5-labs/".insteadOf = "https://bitbucket.org/a5-labs/";
+        };
       };
     }
     {

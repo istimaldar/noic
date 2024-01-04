@@ -27,6 +27,7 @@
     vscode-icons-team.vscode-icons
     waderyan.gitblame
     wix.vscode-import-cost
+    editorconfig.editorconfig
   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace (import ./vscode/extensions.nix { inherit pkgs host; });
   userSettings = import ./vscode/userSettings.nix { inherit pkgs host; };
 }

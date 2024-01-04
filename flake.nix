@@ -23,11 +23,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [
-          (import ./nix/overlays/hyprland.nix)
-          (import ./nix/overlays/insomnia.nix)
-          (import ./nix/overlays/custom-packages.nix)
-        ];
+        overlays = map (f: (import (./nix/overlays + "/${f}"))) (builtins.attrNames (builtins.readDir ./nix/overlays));
         config = {
           allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) (import ./nix/configuration/unfree-packages.nix);
           permittedInsecurePackages = (import ./nix/configuration/insecure-packages.nix);

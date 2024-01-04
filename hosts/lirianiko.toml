@@ -22,7 +22,7 @@ enable = true
 enable = true
 
 [features.kubernetes]
-enable = true
+enable = false
 ha = false
 server = true
 
