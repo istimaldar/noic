@@ -57,7 +57,6 @@ in  [
   redis
 
   insomnia
-  mitmproxy
   httpie
   fd
   duf
