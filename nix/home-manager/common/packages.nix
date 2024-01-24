@@ -112,6 +112,8 @@ in  [
   ocl-icd
   clinfo
 
+  mitmproxy
+
   istimaldar.kubelocal
 ] ++ lib.lists.optionals host.features.java.enable [
   jetbrains.idea-ultimate
