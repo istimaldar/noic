@@ -23,6 +23,12 @@
       };
     }
     {
+      condition = "gitdir:~/code/binkki/";
+      contents = {
+        core.sshCommand = "ssh -i ~/.ssh/git/binkki";
+      };
+    }
+    {
       condition = "gitdir:~/code/a5labs/";
       contents = {
         user = {

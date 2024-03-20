@@ -11,6 +11,7 @@
   "ruby-mine"
   "idea-ultimate"
   "rider"
+  "webstorm"
   "slack"
   "skypeforlinux"
   "steam"
@@ -19,4 +20,5 @@
   "Oracle_VM_VirtualBox_Extension_Pack"
   "packer"
   "vault"
+  "vagrant"
 ]

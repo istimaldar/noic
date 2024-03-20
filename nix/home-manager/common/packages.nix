@@ -41,6 +41,7 @@ in  [
   unzip
   liquibase
   awscli2
+  aws-sam-cli
   jq
   yq-go
   packer
@@ -55,6 +56,7 @@ in  [
   storj-uplink
 
   redis
+  tigervnc
 
   insomnia
   httpie
@@ -99,6 +101,7 @@ in  [
   jetbrains.clion
   jetbrains.ruby-mine
   jetbrains.gateway
+  jetbrains.webstorm
   lapce
   devpod
   devpod-desktop

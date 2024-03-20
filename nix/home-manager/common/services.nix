@@ -4,7 +4,7 @@
   gpg-agent =  {
     enable = true;
     enableZshIntegration = true;
-    pinentryFlavor = "gnome3";
+    pinentryPackage = pkgs.pinentry-gnome3;
   };
 
   megasync = {
