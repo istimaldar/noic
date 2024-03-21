@@ -9,4 +9,6 @@
   ".local/kavita/config/appsettings.json".source = ./files/kavita/appsettings.json;
 
   ".p10k.zsh".source = ./files/.p10k.zsh;
+
+  ".continue/config.json".source = ./files/continue/config.json;
 }

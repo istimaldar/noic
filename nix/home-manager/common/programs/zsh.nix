@@ -3,7 +3,9 @@
   syntaxHighlighting = {
     enable = true;
   };
-  enableAutosuggestions = true;
+  autosuggestion = {
+    enable = true;
+  };
   enableCompletion = true;
   initExtra = ''
   source ~/.p10k.zsh

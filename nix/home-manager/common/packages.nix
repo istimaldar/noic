@@ -106,6 +106,8 @@ in  [
   devpod
   devpod-desktop
 
+  ollama
+
   spacedrive
 
   vlc

@@ -28,6 +28,7 @@
     waderyan.gitblame
     wix.vscode-import-cost
     editorconfig.editorconfig
+    continue.continue
   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace (import ./vscode/extensions.nix { inherit pkgs host; });
   userSettings = import ./vscode/userSettings.nix { inherit pkgs host; };
 }
