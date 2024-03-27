@@ -5,7 +5,7 @@
   spacing = 4;
   output = host.waybarOn;
   modules-left = [
-    "wlr/workspaces"
+    "hyprland/workspaces"
     "hyprland/language"
   ];
   modules-center = [
@@ -13,12 +13,13 @@
   ];
   modules-right = [
     "tray"
+    "disk"
     "cpu"
     "memory"
     "network"
     "pulseaudio"
   ];
-  "wlr/workspaces" = {
+  "hyprland/workspaces" = {
     disable-scroll = true;
     all-outputs = true;
     format = "{icon}";
@@ -109,16 +110,43 @@
       spacing = 10;
   };
   clock = {
-    interval= 1;
-    format = "{: %Y-%m-%d  %H:%M:%S}";
-    tooltip-format = "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>";
+    format = "{:%Y-%m-%d %H:%M:%S}  ";
+    format-alt = "{:%A, %B %d, %Y (%H:%M:%S)}  ";
+    interval = 1;
+    tooltip-format = "<tt><small>{calendar}</small></tt>";
+    calendar = {
+      mode = "year";
+      mode-mon-col = 3;
+      weeks-pos = "right";
+      on-scroll =  1;
+      on-click-right = "mode";
+      format = {
+        months = "<span color='#ffead3'><b>{}</b></span>";
+        days = "<span color='#ecc6d9'><b>{}</b></span>";
+        weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+        weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+        today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+      };
+    };
+    actions =  {
+      on-click-right = "mode";
+      on-click-forward = "tz_up";
+      on-click-backward = "tz_down";
+      on-scroll-up = "shift_up";
+      on-scroll-down = "shift_down";
+    };
+  };
+  disk = {
+    interval = 30;
+    format = "{percentage_free}% 󰉎";
+    path = "/";
   };
   cpu = {
     format = "{usage}% ";
     tooltip = false;
   };
   memory = {
-    format = "{}% ";
+    format = "{percentage}%  {swapPercentage}% 󱛟";
   };
   network = {
     # "interface": "wlp2*", // (Optional) To force the use of this interface

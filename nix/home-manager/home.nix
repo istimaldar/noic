@@ -1,9 +1,9 @@
-{ lib, config, pkgs, host, nur, ... }:
+{ lib, config, pkgs, mpkgs, spkgs, host, nur, ... }:
 {
   home = {
     username = "istimaldar";
     homeDirectory = "/home/istimaldar";
-    packages = import ./common/packages.nix { inherit pkgs host nur; };
+    packages = import ./common/packages.nix { inherit pkgs mpkgs spkgs host nur; };
     file = import ./common/files.nix { inherit pkgs host; };
     sessionVariables = import ./common/variables.nix pkgs;
     pointerCursor = {

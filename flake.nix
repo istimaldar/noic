@@ -5,6 +5,12 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
+    nixpkgs-stable = {
+      url = "github:nixos/nixpkgs/nixos-23.11";
+    };
+    nixpkgs-master = {
+      url = "github:nixos/nixpkgs/master";
+    };
     nurpkgs = {
       url = "github:nix-community/NUR";
     };
@@ -18,7 +24,7 @@
     };
   };
 
-  outputs = { nixpkgs, nurpkgs, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-stable, nixpkgs-master, nurpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -29,6 +35,8 @@
           permittedInsecurePackages = (import ./nix/configuration/insecure-packages.nix);
         };
       };
+      mpkgs = import nixpkgs-master { inherit system; };
+      spkgs = import nixpkgs-stable { inherit system; };
       nur = import nurpkgs {
         inherit pkgs;
         nurpkgs = pkgs;
@@ -46,7 +54,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.users.istimaldar.imports = [
               ({ lib, config, ... }: import ./nix/home-manager/home.nix {
-                inherit lib config pkgs host nur;
+                inherit lib config pkgs mpkgs spkgs host nur;
               })
             ];
           }

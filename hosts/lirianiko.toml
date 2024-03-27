@@ -1,7 +1,7 @@
 waybarOn = [
   "DP-2"
 ]
-amdGpu = false
+amdGpu = true
 stable = false
 serveCache = false
 listenCache = false

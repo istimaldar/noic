@@ -5,12 +5,12 @@ buildInputs = with pkgs; [
   which
   envsubst
   k9s
-  (wrapHelm kubernetes-helm 
-    { 
+  (wrapHelm kubernetes-helm
+    {
       plugins =  with kubernetes-helmPlugins; [
-        helm-secrets
+#        helm-secrets
         helm-diff
-      ]; 
+      ];
     }
   )
   helmsman

@@ -1,25 +1,22 @@
-{ pkgs, host, nur, ... }: with pkgs;
+{ pkgs, mpkgs, spkgs, host, nur, ... }: with pkgs;
 let helmWithPackages = (wrapHelm kubernetes-helm
     {
       plugins =  with kubernetes-helmPlugins; [
-        helm-secrets
+        spkgs.kubernetes-helmPlugins.helm-secrets
         helm-diff
       ];
     }
   );
-  gpuWhisper = (
-    let torchPackage = if host.amdGpu then python3Packages.torchWithRocm else python3Packages.torch;
-    in
+  torchPackage = if host.amdGpu then mpkgs.python312Packages.torchWithRocm else python312Packages.torch;
+  pythonWithPackages = (python312.withPackages(ps: with ps; [
+    virtualenv
+    # python-lsp-server
     openai-whisper.override {
       torch = torchPackage;
       transformers = python3Packages.transformers.override {
         torch = torchPackage;
       };
     }
-  );
-  pythonWithPackages = (python311.withPackages(ps: with ps; [
-    virtualenv
-    python-lsp-server
   ]));
   gcloud = google-cloud-sdk.withExtraComponents (
     [
@@ -35,12 +32,12 @@ in  [
   grim
   wl-clipboard
 
-  d2
+  spkgs.d2
   languagetool
   devbox
   unzip
   liquibase
-  awscli2
+  spkgs.awscli2
   aws-sam-cli
   jq
   yq-go
@@ -118,8 +115,6 @@ in  [
   clinfo
 
   mitmproxy
-
-  istimaldar.kubelocal
 ] ++ lib.lists.optionals host.features.java.enable [
   jetbrains.idea-ultimate
   jdk
@@ -132,7 +127,6 @@ in  [
   audacity
   olive-editor
   tesseract
-  gpuWhisper
   ffmpeg_6-full
   krita
 ] ++ lib.lists.optionals host.features.cloud.enable [

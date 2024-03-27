@@ -1,4 +1,4 @@
-{ config, pkgs, host, ... }:
+{ config, lib, pkgs, host, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -67,16 +67,12 @@
 
   hardware.opengl = if host.amdGpu then {
     extraPackages = with pkgs; [
-      rocm-opencl-icd
-      rocm-opencl-runtime
-      amdvlk
+      rocmPackages.clr.icd
     ];
     driSupport = true;
   } else {};
 
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  ];
+  systemd.tmpfiles.rules = lib.lists.optional host.amdGpu "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}";
 
   hardware = {
     enableRedistributableFirmware = true;
