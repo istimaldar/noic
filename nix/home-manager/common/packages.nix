@@ -51,6 +51,8 @@ in  [
   glances
   rclone
   storj-uplink
+  glab
+  jira-cli-go
 
   redis
   tigervnc
