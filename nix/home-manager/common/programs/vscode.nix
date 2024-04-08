@@ -30,6 +30,7 @@
     continue.continue
     catppuccin.catppuccin-vsc-icons
     catppuccin.catppuccin-vsc
+    unifiedjs.vscode-mdx
   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace (import ./vscode/extensions.nix { inherit pkgs host; });
   userSettings = import ./vscode/userSettings.nix { inherit pkgs host; };
 }
