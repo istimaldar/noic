@@ -3,7 +3,7 @@
     {
       "title": "Ollama",
       "provider": "ollama",
-      "model": "llama2-7b",
+      "model": "llama2-13b",
       "completionOptions": {}
     }
   ]

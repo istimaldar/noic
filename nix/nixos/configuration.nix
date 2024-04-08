@@ -1,4 +1,4 @@
-{ config, lib, pkgs, host, ... }:
+{ config, lib, pkgs, host, sddm-catppuccin, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -16,15 +16,16 @@
         enableCryptodisk = true;
         useOSProber = true;
         configurationLimit = 2;
+        theme = "${pkgs.catppuccin}/grub";
       };
     };
 
     plymouth = {
       enable = true;
       themePackages = [
-        pkgs.nixos-bgrt-plymouth
+        pkgs.catppuccin-plymouth
       ];
-      theme = "nixos-bgrt";
+      theme = "catppuccin-macchiato";
     };
 
     initrd = {
@@ -49,13 +50,15 @@
     };
   };
 
-  # Yes, we need half of KDE just to run Nordic theme for SDDM ¯\_(ツ)_/¯
   environment = {
     systemPackages = with pkgs; [
-      nordic
+      spotify
       libsForQt5.plasma-framework
       libsForQt5.plasma-workspace
       libsForQt5.qt5.qtgraphicaleffects
+      libsForQt5.qt5.qtsvg
+      libsForQt5.qt5.qtquickcontrols2
+      sddm-catppuccin.packages.${pkgs.hostPlatform.system}.sddm-catppuccin
       virtiofsd
     ];
     etc = {
@@ -132,6 +135,11 @@
   };
 
   services = {
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+    };
+
     openssh = {
       enable = true;
       settings = {
@@ -167,7 +175,7 @@
         sddm = {
           enable = true;
           enableHidpi = true;
-          theme = "Nordic/Nordic";
+          theme = "catppuccin";
         };
       };
     };
@@ -221,6 +229,34 @@
       enable = true;
       dockerCompat = true;
       dockerSocket.enable = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+
+    oci-containers = {
+      backend = "podman";
+      containers = {
+        open-webui = {
+          image = "ghcr.io/open-webui/open-webui:main";
+          autoStart = true;
+          ports = [
+            "0.0.0.0:3000:8080"
+          ];
+          volumes = [
+            "open-webui:/app/backend/data"
+          ];
+          labels = {
+            "io.containers.autoupdate" = "registry";
+          };
+          environment = {
+            OLLAMA_BASE_URL = "http://ollama.local:11434";
+            ANONYMIZED_TELEMETRY = "False";
+          };
+          extraOptions = [
+            "--network=slirp4netns:allow_host_loopback=true"
+            "--add-host=ollama.local:10.0.2.2"
+          ];
+        };
+      };
     };
 
     waydroid.enable = true;
@@ -247,6 +283,7 @@
           22
           80
           443
+          3000
           6443
         ];
         allowedUDPPorts = [

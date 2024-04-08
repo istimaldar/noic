@@ -48,11 +48,11 @@ in  [
   yt-dlp
   jwt-cli
   nmap
-  glances
   rclone
   storj-uplink
   glab
   jira-cli-go
+  neofetch
 
   redis
   tigervnc
@@ -63,11 +63,9 @@ in  [
   duf
   tldr
   logseq
-  spotifywm
-  spicetify-cli
+  anki
   gomplate
   zettlr
-  spotifywm
   kavita
   texlive.combined.scheme-full
 
@@ -104,8 +102,7 @@ in  [
   lapce
   devpod
   devpod-desktop
-
-  ollama
+  godot_4
 
   spacedrive
 
@@ -134,7 +131,6 @@ in  [
 ] ++ lib.lists.optionals host.features.cloud.enable [
   doctl
   kubectl
-  k9s
   helmWithPackages
   helmsman
   kube3d
@@ -152,7 +148,8 @@ in  [
   skypeforlinux
   telegram-desktop
   whatsapp-for-linux
-  webcord
+  discord
+  betterdiscordctl
   mattermost-desktop
   # beeper
 ]

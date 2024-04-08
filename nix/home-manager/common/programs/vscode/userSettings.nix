@@ -1,5 +1,6 @@
 { pkgs, ... }: {
-  "workbench.colorTheme" = "Nord";
+  "workbench.colorTheme" = "Catppuccin Macchiato";
+  "catppuccin.accentColor" = "lavender";
   "redhat.telemetry.enabled" = true;
   "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace', monospace";
   "editor.fontLigatures" = true;

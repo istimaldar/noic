@@ -2,29 +2,22 @@
   description = "NixOS system and Home Manager configuration";
 
   inputs = {
-    nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
-    };
-    nixpkgs-stable = {
-      url = "github:nixos/nixpkgs/nixos-23.11";
-    };
-    nixpkgs-master = {
-      url = "github:nixos/nixpkgs/master";
-    };
-    nurpkgs = {
-      url = "github:nix-community/NUR";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    nurpkgs.url = "github:nix-community/NUR";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    romc = {
-      url = "github:nixos-rocm/nixos-rocm";
+    sddm-catppuccin = {
+      url = "github:khaneliman/sddm-catppuccin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, nixpkgs-master, nurpkgs, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-stable, nixpkgs-master, spicetify-nix, sddm-catppuccin, nurpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -43,7 +36,7 @@
       };
       mkHostConfiguration = host: nixpkgs.lib.nixosSystem {
         inherit pkgs system;
-        specialArgs = { inherit host; };
+        specialArgs = { inherit host spicetify-nix sddm-catppuccin; };
 
         modules = [
           nurpkgs.nixosModules.nur
@@ -58,6 +51,7 @@
               })
             ];
           }
+          ./nix/spicefy/spicefy.nix
         ];
       };
       hosts = ./hosts;

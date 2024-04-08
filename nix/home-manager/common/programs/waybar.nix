@@ -5,6 +5,7 @@
   };
   systemd = {
     enable = true;
+    target = "hyprland-session.target";
   };
-  style = (builtins.readFile ./waybar/style.css);
+  style = (builtins.readFile "${pkgs.catppuccin}/waybar/macchiato.css") + "\n" + (builtins.readFile ./waybar/style.css);
 }

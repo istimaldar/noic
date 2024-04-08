@@ -7,9 +7,9 @@
     file = import ./common/files.nix { inherit pkgs host; };
     sessionVariables = import ./common/variables.nix pkgs;
     pointerCursor = {
-      package = pkgs.nordzy-cursor-theme;
+      package = pkgs.catppuccin-cursors.macchiatoLavender;
       gtk.enable = true;
-      name = "Nordzy-cursors";
+      name = "Catppuccin-Macchiato-Lavender-Cursors";
       x11.enable = true;
     };
     activation = {
@@ -90,19 +90,21 @@
 
   services = import ./common/services.nix pkgs;
 
+  wayland = import ./common/wayland.nix { inherit pkgs host; };
+
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.nordic;
-      name = "Nordic";
+      package = pkgs.catppuccin-gtk;
+      name = "Catppuccin-Macchiato-Compact-Lavender-Dark";
     };
   };
 
   qt = {
     enable = true;
     style = {
-      package = pkgs.nordic;
-      name = "Nordic";
+      package = pkgs.catppuccin;
+      name = "Catppuccin-Macchiato";
     };
   };
 

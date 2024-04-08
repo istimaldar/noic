@@ -7,7 +7,6 @@
   extensions = with pkgs.vscode-extensions; [
     hashicorp.terraform
     alefragnani.project-manager
-    arcticicestudio.nord-visual-studio-code
     bungcip.better-toml
     christian-kohler.path-intellisense
     davidlday.languagetool-linter
@@ -29,6 +28,8 @@
     wix.vscode-import-cost
     editorconfig.editorconfig
     continue.continue
+    catppuccin.catppuccin-vsc-icons
+    catppuccin.catppuccin-vsc
   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace (import ./vscode/extensions.nix { inherit pkgs host; });
   userSettings = import ./vscode/userSettings.nix { inherit pkgs host; };
 }

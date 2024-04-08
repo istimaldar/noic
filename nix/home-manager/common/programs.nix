@@ -40,10 +40,22 @@
   bat = {
     enable = true;
     extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
+    config = {
+      theme = "catppuccin";
+    };
+    themes = {
+      catppuccin = {
+        src = "${pkgs.catppuccin}/bat";
+        file = "Catppuccin Macchiato.tmTheme";
+      };
+    };
   };
 
-  htop = {
+  btop = {
     enable = true;
+    settings = {
+      color_theme = "Catppuccin";
+    };
   };
 
   eza = {
@@ -54,5 +66,16 @@
 
   fzf = {
     enable = true;
+  };
+
+  k9s = {
+    enable = true;
+    settings = {
+      k9s = {
+        ui = {
+          skin = "catppuccin";
+        };
+      };
+    };
   };
 }
