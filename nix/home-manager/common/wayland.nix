@@ -26,7 +26,7 @@ in
       "$mod3" = "ALT";
 
       bind = [
-        "$mod, D, exec, pkill wofi || wofi --show=drun"
+        "$mod, D, exec, pkill fuzzel || fuzzel"
         "$mod, Q, killactive"
         "$mod SHIFT, Q, exit"
         "$mod SHIFT, R, forcerendererreload"
@@ -50,6 +50,11 @@ in
         "$mod, down, movewindow, d"
       ] ++ (buildWorkapaces "$mod" "workspace")
       ++ (buildWorkapaces "$mod2" "movetoworkspace");
+
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
 
       general = {
         border_size = 3;

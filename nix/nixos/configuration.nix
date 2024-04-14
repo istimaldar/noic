@@ -167,17 +167,18 @@
       };
     };
 
+    displayManager = {
+      defaultSession = "hyprland";
+      sddm = {
+        enable = true;
+        enableHidpi = true;
+        theme = "catppuccin";
+      };
+    };
+
     xserver = {
       enable = true;
       videoDrivers = if host.amdGpu then [ "amdgpu" ] else [ "modesetting" "fbdev" ];
-      displayManager = {
-        defaultSession = "hyprland";
-        sddm = {
-          enable = true;
-          enableHidpi = true;
-          theme = "catppuccin";
-        };
-      };
     };
 
     pipewire = {

@@ -3,8 +3,6 @@
 
   neovim = import ./programs/nvim.nix { inherit pkgs host; };
 
-  wofi = import ./programs/wofi.nix { inherit pkgs host; };
-
   firefox = {
     enable = true;
   };
@@ -25,6 +23,8 @@
   alacritty = import ./programs/alacritty.nix { inherit pkgs host; };
 
   waybar = import ./programs/waybar.nix { inherit pkgs host; };
+
+  fuzzel = import ./programs/fuzzel.nix { inherit pkgs host; };
 
   direnv = {
     enable = true;
