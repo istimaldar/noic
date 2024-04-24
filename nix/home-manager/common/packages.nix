@@ -32,12 +32,12 @@ in  [
   grim
   wl-clipboard
 
-  spkgs.d2
+  d2
   languagetool
   devbox
   unzip
   liquibase
-  spkgs.awscli2
+  awscli2
   aws-sam-cli
   jq
   yq-go
@@ -53,6 +53,9 @@ in  [
   glab
   jira-cli-go
   neofetch
+  dua
+  nix-du
+  graphviz
 
   redis
   tigervnc
@@ -95,6 +98,7 @@ in  [
   jetbrains.dataspell
   jetbrains.datagrip
   jetbrains.goland
+  # TODO: Remove once clion
   jetbrains.clion
   jetbrains.ruby-mine
   jetbrains.gateway
@@ -108,6 +112,7 @@ in  [
 
   vlc
   qbittorrent
+  google-chrome
 
   mesa
   ocl-icd

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, host, sddm-catppuccin, ... }:
+{ config, lib, pkgs, host, sddm-catppuccin, spkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -61,11 +61,6 @@
       sddm-catppuccin.packages.${pkgs.hostPlatform.system}.sddm-catppuccin
       virtiofsd
     ];
-    etc = {
-      "libvirt/qemu.conf".text = ''
-      memory_backing_dir = "/dev/shm"
-      '';
-    };
   };
 
   hardware.opengl = if host.amdGpu then {
@@ -136,6 +131,7 @@
 
   services = {
     ollama = {
+      package = spkgs.ollama;
       enable = true;
       acceleration = "rocm";
     };
@@ -146,17 +142,6 @@
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = false;
       };
-    };
-    k3s = {
-      enable = host.features.kubernetes.enable;
-      role = if host.features.kubernetes.server then "server" else "agent" ;
-      token = if host.features.kubernetes.ha then "vBhBmda4ID46l6YzwXHM" else "";
-      clusterInit = host.features.kubernetes.ha && host.features.kubernetes.server;
-      serverAddr = if host.features.kubernetes.ha && !host.features.kubernetes.server then "https://192.168.100.5:6443" else "";
-      extraFlags = if host.features.kubernetes.server then toString [
-        "--write-kubeconfig-mode=644"
-        "--disable=metrics-server"
-      ] else "";
     };
     u9fs = {
       enable = true;
@@ -187,18 +172,6 @@
       pulse.enable = true;
     };
 
-    dnsmasq = {
-      enable = true;
-      settings = {
-        address = "/local.gd/127.0.0.1";
-        server = [
-          "1.1.1.1"
-          "8.8.8.8"
-        ];
-      };
-    };
-
-
     gnome.gnome-keyring.enable = true;
   };
 
@@ -217,6 +190,19 @@
     libvirtd = {
       enable = true;
       onBoot = "start";
+      allowedBridges = [
+        "virbr0"
+      ];
+      nss = {
+        enable = true;
+        enableGuest = true;
+      };
+      qemu = {
+        verbatimConfig = ''
+          namespaces = []
+          memory_backing_dir = "/dev/shm"
+        '';
+      };
     };
 
     virtualbox = {
@@ -260,7 +246,6 @@
       };
     };
 
-    waydroid.enable = true;
     lxd.enable = true;
   };
 
@@ -276,7 +261,7 @@
       };
     };
     nameservers = [
-      "127.0.0.1"
+      "1.1.1.1"
     ];
     firewall = {
         enable = true;

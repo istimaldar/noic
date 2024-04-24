@@ -28,15 +28,27 @@
           permittedInsecurePackages = (import ./nix/configuration/insecure-packages.nix);
         };
       };
-      mpkgs = import nixpkgs-master { inherit system; };
-      spkgs = import nixpkgs-stable { inherit system; };
+      mpkgs = import nixpkgs-master {
+        inherit system;
+        config = {
+          allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) (import ./nix/configuration/unfree-packages.nix);
+          permittedInsecurePackages = (import ./nix/configuration/insecure-packages.nix);
+        };
+      };
+      spkgs = import nixpkgs-stable {
+        inherit system;
+        config = {
+          allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) (import ./nix/configuration/unfree-packages.nix);
+          permittedInsecurePackages = (import ./nix/configuration/insecure-packages.nix);
+        };
+      };
       nur = import nurpkgs {
         inherit pkgs;
         nurpkgs = pkgs;
       };
       mkHostConfiguration = host: nixpkgs.lib.nixosSystem {
         inherit pkgs system;
-        specialArgs = { inherit host spicetify-nix sddm-catppuccin; };
+        specialArgs = { inherit host spicetify-nix sddm-catppuccin spkgs; };
 
         modules = [
           nurpkgs.nixosModules.nur

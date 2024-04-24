@@ -22,4 +22,5 @@
   "packer"
   "vault"
   "vagrant"
+  "google-chrome"
 ]

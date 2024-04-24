@@ -3,8 +3,12 @@
     {
       "title": "Ollama",
       "provider": "ollama",
-      "model": "llama2-13b",
-      "completionOptions": {}
+      "model": "llama3:8b"
     }
-  ]
+  ],
+  "tabAutocompleteModel": {
+    "title": "Starcoder2 15b",
+    "provider": "ollama",
+    "model": "starcoder2:15b"
+  }
 }
