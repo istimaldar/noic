@@ -66,7 +66,7 @@ in  [
   duf
   tldr
   logseq
-  anki
+  mpkgs.anki
   gomplate
   zettlr
   kavita
@@ -98,10 +98,8 @@ in  [
   jetbrains.dataspell
   jetbrains.datagrip
   jetbrains.goland
-  # TODO: Remove once clion
   jetbrains.clion
   jetbrains.ruby-mine
-  jetbrains.gateway
   jetbrains.webstorm
   lapce
   devpod
