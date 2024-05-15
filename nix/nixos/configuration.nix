@@ -58,7 +58,7 @@
       libsForQt5.qt5.qtgraphicaleffects
       libsForQt5.qt5.qtsvg
       libsForQt5.qt5.qtquickcontrols2
-      sddm-catppuccin.packages.${pkgs.hostPlatform.system}.sddm-catppuccin
+      catppuccin-sddm-corners
       virtiofsd
     ];
   };
@@ -157,7 +157,7 @@
       sddm = {
         enable = true;
         enableHidpi = true;
-        theme = "catppuccin";
+        theme = "catppuccin-sddm-corners";
       };
     };
 
