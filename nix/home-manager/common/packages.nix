@@ -11,6 +11,8 @@ let helmWithPackages = (wrapHelm kubernetes-helm
   pythonWithPackages = (python312.withPackages(ps: with ps; [
     virtualenv
     # python-lsp-server
+    jupyter-core
+    ipykernel
     openai-whisper.override {
       torch = torchPackage;
       transformers = python3Packages.transformers.override {
@@ -102,8 +104,6 @@ in  [
   jetbrains.ruby-mine
   jetbrains.webstorm
   lapce
-  devpod
-  devpod-desktop
   godot_4
 
   spacedrive
