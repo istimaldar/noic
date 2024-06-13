@@ -32,11 +32,12 @@
       "journal" = "";
       "telegram" = "";
       "ide_primary" = "";
-      "devtools" = "󱂛";
+      "mail" = "";
       "ide_secondary" = "";
       "spotify" = "";
       "ide_tertiary" = "";
       "passwords" = "";
+      "devtools" = "󱂛";
       urgent = "";
       focused = "";
       default = "";

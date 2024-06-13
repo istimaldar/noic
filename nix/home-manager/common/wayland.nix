@@ -13,6 +13,7 @@ let
     "0"
     "minus"
     "equal"
+    "backslash"
   ];
   buildWorkapaces = modifier: action: pkgs.lib.imap1 (index: key: "${modifier}, ${key}, ${action}, ${(toString index)}") workspacesHostkeys;
 in
@@ -25,20 +26,22 @@ in
       "$mod3" = "ALT";
       "$primary_monitor" = "DP-2";
       "$secondary_monitor" = "HDMI-A-1";
+      "$ternary_monitor" = "DP-1";
 
       workspace = [
         "1, monitor:$primary_monitor, on-created-empty:codium, defaultName:vscodium"
-        "2, monitor:$secondary_monitor, default:true, on-created-empty:firefox, defaultName:browser"
+        "2, monitor:$ternary_monitor, default:true, on-created-empty:firefox, defaultName:browser"
         "3, monitor:$primary_monitor, default:true, on-created-empty:alacritty, defaultName:terminal"
-        "4, monitor:$secondary_monitor, on-created-empty:slack && skypeforlinux, defaultName:work_messangers"
+        "4, monitor:$secondary_monitor, default:true, on-created-empty:slack && skypeforlinux, defaultName:work_messangers"
         "5, monitor:$primary_monitor, on-created-empty:logseq, defaultName:journal"
         "6, monitor:$secondary_monitor, on-created-empty:telegram-desktop, defaultName:telegram"
         "7, monitor:$primary_monitor, defaultName:ide_primary"
-        "8, monitor:$secondary_monitor, defaultName:devtools"
+        "8, monitor:$secondary_monitor, on-created-empty:mailspring --password-store=gnome-libsecret, defaultName:mail"
         "9, monitor:$primary_monitor, defaultName:ide_secondary"
-        "10, monitor:$secondary_monitor, on-created-empty:spotify, defaultName:spotify"
+        "10, monitor:$ternary_monitor, on-created-empty:spotify, defaultName:spotify"
         "11, monitor:$primary_monitor, defaultName:ide_tertiary"
         "12, monitor:$secondary_monitor, on-created-empty:keepassxc, defaultName:passwords"
+        "13, monitor:$secondary_monitor, defaultName:devtools"
       ];
 
       bind = [
