@@ -104,7 +104,7 @@ in  [
   jetbrains.ruby-mine
   jetbrains.webstorm
   lapce
-  godot_4
+  # godot_4
 
   spacedrive
 
