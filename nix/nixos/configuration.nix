@@ -63,11 +63,10 @@
     ];
   };
 
-  hardware.opengl = if host.amdGpu then {
+  hardware.graphics = if host.amdGpu then {
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
     ];
-    driSupport = true;
   } else {};
 
   systemd.tmpfiles.rules = lib.lists.optional host.amdGpu "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}";
@@ -131,7 +130,7 @@
 
   services = {
     ollama = {
-      package = spkgs.ollama;
+      package = pkgs.ollama;
       enable = true;
       acceleration = "rocm";
     };

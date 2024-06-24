@@ -26,7 +26,7 @@ in
       "$mod3" = "ALT";
       "$primary_monitor" = "DP-2";
       "$secondary_monitor" = "HDMI-A-1";
-      "$ternary_monitor" = "DP-1";
+      "$ternary_monitor" = "HDMI-A-1";
 
       workspace = [
         "1, monitor:$primary_monitor, on-created-empty:codium, defaultName:vscodium"

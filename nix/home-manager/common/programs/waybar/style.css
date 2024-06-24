@@ -1,6 +1,7 @@
 * {
   font-family: JetBrainsMono Nerd Font;
   font-size: 14px;
+  color: @text;
 }
 
 #clock,
@@ -16,6 +17,12 @@
 #memory,
 #network {
   padding: 0 7px;
+}
+
+
+window#waybar {
+  /* you can also GTK3 CSS functions! */
+  background-color: shade(@base, 0.9);
 }
 
 #clock {

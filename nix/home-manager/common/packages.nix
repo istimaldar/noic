@@ -25,6 +25,7 @@ let helmWithPackages = (wrapHelm kubernetes-helm
       google-cloud-sdk.components.gke-gcloud-auth-plugin
     ]
   );
+  
 in  [
   nerdfonts
   keepassxc
