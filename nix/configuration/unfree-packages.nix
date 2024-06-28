@@ -23,4 +23,8 @@
   "vault"
   "vagrant"
   "google-chrome"
+  "vscode-extension-ms-vscode-remote-remote-ssh"
+  "vscode-extension-ms-vscode-remote-remote-ssh-edit"
+  "vscode-extension-ms-vscode-remote-remote-containers"
+  "vscode-extension-MS-python-vscode-pylance"
 ]

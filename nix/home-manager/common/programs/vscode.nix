@@ -32,6 +32,18 @@
     catppuccin.catppuccin-vsc
     unifiedjs.vscode-mdx
     dbaeumer.vscode-eslint
+    ms-vscode-remote.remote-ssh
+    ms-vscode-remote.remote-ssh-edit
+    ms-vscode-remote.remote-containers
+    redhat.ansible
+    tim-koehler.helm-intellisense
+    vscjava.vscode-java-pack
+    ms-azuretools.vscode-docker
+    gitlab.gitlab-workflow
+    ms-python.vscode-pylance
+    aaron-bond.better-comments
+    yzhang.markdown-all-in-one
+    ms-vscode.powershell
   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace (import ./vscode/extensions.nix { inherit pkgs host; });
   userSettings = import ./vscode/userSettings.nix { inherit pkgs host; };
 }

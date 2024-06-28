@@ -21,4 +21,8 @@
   "editor.autoClosingBrackets" = "always";
   "nix.enableLanguageServer" = true;
   "nix.serverPath" = "nil";
+  "files.exclude" = {
+    ".idea" = true;
+    ".devbox" = true;
+  };
 }

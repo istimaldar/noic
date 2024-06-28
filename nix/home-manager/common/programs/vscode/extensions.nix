@@ -19,28 +19,10 @@
     sha256 = "0mpdsc8gzf19mgf90rfba90klgvijjddigaj4f9hqjmkvlrbghzg";
   }
   {
-    name = "remote-containers";
-    publisher = "ms-vscode-remote";
-    version = "0.305.0";
-    sha256 = "1rx8hwwxbs8rj6wy34dnxrjczidm317jcvpxyhlb8390zh7r3d5j";
-  }
-  {
-    name = "ansible";
-    publisher = "redhat";
-    version = "2.7.98";
-    sha256 = "0bl7bzcz77fm9i6n8wgw3qqflir6lpry7h32icfdcvlhhz87hxkg";
-  }
-  {
     name = "d2";
-    publisher = "Terrastruct";
-    version = "0.8.7";
-    sha256 = "1w0nqm8zqkzixvlrkqgf6lmjg10j0xmjjv4j60xs18nlnsgqg375";
-  }
-  {
-    name = "helm-intellisense";
-    publisher = "Tim-Koehler";
-    version = "0.14.3";
-    sha256 = "13bs7406g4nq5wfxh90zyp4yq62wlzzwl7gzkill2a56gvrfgiad";
+    publisher = "terrastruct";
+    version = "0.8.8";
+    sha256 = "12yj9ammrhrh0cnyr30x3d87d4n7q7j19cggdvyblbwmdln66ycy";
   }
   {
     name = "vscode-conventional-commits";
@@ -49,9 +31,15 @@
     sha256 = "00mv34898y4xgqv6xf57bdl32qbbma4imz08jc4v5skmwjrgbwr8";
   }
   {
-    name = "vscode-java-pack";
-    publisher = "vscjava";
-    version = "0.25.2023091107";
-    sha256 = "01d30wisnzaqpmi50bki84kn7ayc44485xmgy7zw45zppl0pnrss";
+    name = "terraform-doc-snippets";
+    publisher = "run-at-scale";
+    version = "0.6.0";
+    sha256 = "OlI8oaWBG2glEFFHLcP9woT0iKr/btCxaCaOkL1ROMQ=";
+  }
+  {
+    name = "yaml-plus-json";
+    publisher = "hilleer";
+    version = "1.12.2";
+    sha256 = "dkYYEO92eo48U7EzKpOusWw79HgRtPgu7zqlpyr83Bc=";
   }
 ]
