@@ -2,12 +2,12 @@
 let helmWithPackages = (wrapHelm kubernetes-helm
     {
       plugins =  with kubernetes-helmPlugins; [
-        spkgs.kubernetes-helmPlugins.helm-secrets
+        kubernetes-helmPlugins.helm-secrets
         helm-diff
       ];
     }
   );
-  torchPackage = if host.amdGpu then mpkgs.python312Packages.torchWithRocm else python312Packages.torch;
+  torchPackage = if host.amdGpu then python312Packages.torchWithRocm else python312Packages.torch;
   pythonWithPackages = (python312.withPackages(ps: with ps; [
     virtualenv
     # python-lsp-server
@@ -25,7 +25,7 @@ let helmWithPackages = (wrapHelm kubernetes-helm
       google-cloud-sdk.components.gke-gcloud-auth-plugin
     ]
   );
-  
+
 in  [
   nerdfonts
   keepassxc
@@ -68,8 +68,9 @@ in  [
   fd
   duf
   tldr
+  yazi
   logseq
-  mpkgs.anki
+  anki
   gomplate
   zettlr
   kavita
