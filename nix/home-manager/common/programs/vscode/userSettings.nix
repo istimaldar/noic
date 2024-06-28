@@ -24,5 +24,6 @@
   "files.exclude" = {
     ".idea" = true;
     ".devbox" = true;
+    ".vagrant" = true;
   };
 }
