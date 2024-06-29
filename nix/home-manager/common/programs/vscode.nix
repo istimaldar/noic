@@ -44,6 +44,7 @@
     aaron-bond.better-comments
     yzhang.markdown-all-in-one
     ms-vscode.powershell
+    signageos.signageos-vscode-sops
   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace (import ./vscode/extensions.nix { inherit pkgs host; });
   userSettings = import ./vscode/userSettings.nix { inherit pkgs host; };
 }

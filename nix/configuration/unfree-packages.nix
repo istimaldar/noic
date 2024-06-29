@@ -27,4 +27,5 @@
   "vscode-extension-ms-vscode-remote-remote-ssh-edit"
   "vscode-extension-ms-vscode-remote-remote-containers"
   "vscode-extension-MS-python-vscode-pylance"
+  "vscode-extension-signageos-signageos-vscode-sops"
 ]
