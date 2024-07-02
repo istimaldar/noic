@@ -59,6 +59,10 @@ in  [
   dua
   nix-du
   graphviz
+  sops
+  age
+  dig
+  mtr
 
   redis
   tigervnc
@@ -106,7 +110,7 @@ in  [
   jetbrains.ruby-mine
   jetbrains.webstorm
   lapce
-  # godot_4
+  godot_4
 
   spacedrive
 
@@ -156,5 +160,4 @@ in  [
   discord
   betterdiscordctl
   mattermost-desktop
-  # beeper
 ]
