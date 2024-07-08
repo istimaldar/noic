@@ -96,7 +96,7 @@
     enable = true;
     theme = {
       package = pkgs.catppuccin-gtk;
-      name = "catppuccin-macchiato-lavender-compact+default";
+      name = "catppuccin-macchiato-lavender-compact";
     };
   };
 

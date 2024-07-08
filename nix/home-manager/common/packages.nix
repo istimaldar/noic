@@ -10,7 +10,7 @@ let helmWithPackages = (wrapHelm kubernetes-helm
   torchPackage = if host.amdGpu then python312Packages.torchWithRocm else python312Packages.torch;
   pythonWithPackages = (python312.withPackages(ps: with ps; [
     virtualenv
-    # python-lsp-server
+    python-lsp-server
     jupyter-core
     ipykernel
     openai-whisper.override {

@@ -8,16 +8,17 @@ self: super: {
     ];
     size = "compact";
     variant = "macchiato";
-  }).overrideAttrs (oldAttrs : {
-      nativeBuildInputs = [
-        (self.python311.withPackages (ps: [
-          ps.catppuccin
-        ]))
-        self.sassc
-        self.inkscape
-        self.optipng
-        self.ruff
-        self.git
-      ];
   });
+  # .overrideAttrs (oldAttrs : {
+  #     nativeBuildInputs = [
+  #       (self.python311.withPackages (ps: [
+  #         ps.catppuccin
+  #       ]))
+  #       self.sassc
+  #       self.inkscape
+  #       self.optipng
+  #       self.ruff
+  #       self.git
+  #     ];
+  # });
 }
