@@ -25,7 +25,7 @@
     format = "{icon}";
     sort-by-number = true;
     format-icons = {
-      "vscodium" = "󰨞";
+      "vscode" = "󰨞";
       "browser" = "";
       "terminal" = "";
       "work_messangers" = "󰒱";

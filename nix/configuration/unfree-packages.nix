@@ -1,4 +1,5 @@
 [
+  "vscode"
   "terraform"
   "megasync"
   "spotify"

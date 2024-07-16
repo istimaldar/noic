@@ -29,7 +29,7 @@ in
       "$ternary_monitor" = "HDMI-A-1";
 
       workspace = [
-        "1, monitor:$primary_monitor, on-created-empty:codium, defaultName:vscodium"
+        "1, monitor:$primary_monitor, on-created-empty:code, defaultName:vscode"
         "2, monitor:$ternary_monitor, default:true, on-created-empty:firefox, defaultName:browser"
         "3, monitor:$primary_monitor, default:true, on-created-empty:alacritty, defaultName:terminal"
         "4, monitor:$secondary_monitor, default:true, on-created-empty:slack && skypeforlinux, defaultName:work_messangers"

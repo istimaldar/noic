@@ -1,13 +1,13 @@
 { pkgs, host, ... }: {
   enable = true;
-  package = pkgs.vscodium;
+  package = pkgs.vscode;
   enableExtensionUpdateCheck = false;
   enableUpdateCheck = false;
   mutableExtensionsDir = false;
   extensions = with pkgs.vscode-extensions; [
     hashicorp.terraform
     alefragnani.project-manager
-    bungcip.better-toml
+    tamasfe.even-better-toml
     christian-kohler.path-intellisense
     davidlday.languagetool-linter
     donjayamanne.githistory
