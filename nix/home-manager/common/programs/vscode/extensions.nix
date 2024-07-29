@@ -42,4 +42,10 @@
     version = "1.12.2";
     sha256 = "dkYYEO92eo48U7EzKpOusWw79HgRtPgu7zqlpyr83Bc=";
   }
+  {
+    name = "packer";
+    publisher = "4ops";
+    version = "0.3.0";
+    sha256 = "aYvTxdd+6ESSEDFtb8hwITVjLdbwTV5ZabpwAywGwVc=";
+  }
 ]

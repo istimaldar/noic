@@ -3,7 +3,9 @@
   position = "top";
   height = 41;
   spacing = 4;
-  output = host.waybarOn;
+  output = [
+    host.monitors.primary
+  ];
   modules-left = [
     "hyprland/workspaces"
     "hyprland/language"

@@ -240,6 +240,8 @@
     };
 
     lxd.enable = true;
+
+    virtualbox.host.enable = true;
   };
 
   networking = {

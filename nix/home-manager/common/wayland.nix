@@ -24,9 +24,9 @@ in
       "$mod" = "SUPER";
       "$mod2" = "SUPERSHIFT";
       "$mod3" = "ALT";
-      "$primary_monitor" = "DP-2";
-      "$secondary_monitor" = "HDMI-A-1";
-      "$ternary_monitor" = "HDMI-A-1";
+      "$primary_monitor" = host.monitors.primary;
+      "$secondary_monitor" = host.monitors.secondary;
+      "$ternary_monitor" = host.monitors.secondary;
 
       workspace = [
         "1, monitor:$primary_monitor, on-created-empty:code, defaultName:vscode"

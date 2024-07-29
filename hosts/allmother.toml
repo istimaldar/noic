@@ -1,10 +1,11 @@
-waybarOn = [
-  "DP-1"
-]
 amdGpu = false
 stable = false
 serveCache = true
 listenCache = false
+
+[monitors]
+primary = "HDMI-A-1"
+secondary = "DP-1"
 
 [features.dotnet]
 enable = true

@@ -13,6 +13,7 @@ let helmWithPackages = (wrapHelm kubernetes-helm
     python-lsp-server
     jupyter-core
     ipykernel
+    conda
     openai-whisper.override {
       torch = torchPackage;
       transformers = python3Packages.transformers.override {
@@ -147,6 +148,7 @@ in  [
   gcloud
   ansible
   ansible-lint
+  molecule
   terraform-ls
   terraform
   vagrant
