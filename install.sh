@@ -11,12 +11,13 @@ export DEVICE=""
 export BOOT_PARTITION=""
 export INSTALL_PARTITION=""
 export TARGET="kionithar"
+export MAX_RETRY_ATTEMPTS=20
 
 usage() {
     cat <<HELP
 Usage:
-    install.sh ( -f | --format ) ( -d | --device ) [ -w | --swap ] [ -s | --script ] [ -t | --target ]
-    install.sh ( -b | --boot-partition ) ( -i | --install-partition ) [ -w | --swap ] [ -s | --script ] [ -t | --target ]
+    install.sh ( -f | --format ) ( -d | --device ) [ -w | --swap ] [ -s | --script ] [ -t | --target ] [ -a | --max-retry-attempts ]
+    install.sh ( -b | --boot-partition ) ( -i | --install-partition ) [ -w | --swap ] [ -s | --script ] [ -t | --target ] [ -a | --max-retry-attempts ]
 
 -s, --script                                    Run in script mode. Do not prompt for user output.
 -f, --format                                    Format device and create GPT partition table before installation.
@@ -25,8 +26,9 @@ Usage:
 -b <partition>, --boot-partition <partition>    Partition to mount as boot.
 -i <partiton>, --install-partition <partition>  Partition to install system on.
 -w <size>, --swap <size>                        Size of the swap partition in gigabytes. [default: 8]
--c <size>, --cerph <size>                       Size of logical volume for cerph storage. [default: 50] 
+-c <size>, --cerph <size>                       Size of logical volume for cerph storage. [default: 50]
 -t <target>, --target <target>                  Configuration target to apply. [default: kionithar]
+-a <attempts>, --max-retry-attempts <attempts>  Max attempts to retry installation (useful in case of network errors). [default: 20]
 HELP
 
     exit 2;
@@ -56,16 +58,17 @@ eval set -- "$ARGUMENTS"
 while :;
 do
   case $1 in
-    -s | --script)            export SCRIPT=1                ; shift;    ;;
-    -f | --format)            export FORMAT=1                ; shift;    ;;
-    -r | --dry-run)           export DRY_RUN=1               ; shift;    ;;
-    -d | --device)            export DEVICE="$2"             ; shift 2;  ;;
-    -b | --boot-partition)    export BOOT_PARTITION="$2"     ; shift 2;  ;;
-    -i | --install-partition) export INSTALL_PARTITION="$2"  ; shift 2;  ;;
-    -w | --swap)              export SWAP="$2"               ; shift 2;  ;;
-    -c | --cerph)             export CERPH_SIZE="$2"         ; shift 2;  ;;
-    -t | --target)            export TARGET="$2"             ; shift 2;  ;;
-    --)                       shift                          ; break;    ;;
+    -s | --script)              export SCRIPT=1                ; shift;    ;;
+    -f | --format)              export FORMAT=1                ; shift;    ;;
+    -r | --dry-run)             export DRY_RUN=1               ; shift;    ;;
+    -d | --device)              export DEVICE="$2"             ; shift 2;  ;;
+    -b | --boot-partition)      export BOOT_PARTITION="$2"     ; shift 2;  ;;
+    -i | --install-partition)   export INSTALL_PARTITION="$2"  ; shift 2;  ;;
+    -w | --swap)                export SWAP="$2"               ; shift 2;  ;;
+    -c | --cerph)               export CERPH_SIZE="$2"         ; shift 2;  ;;
+    -t | --target)              export TARGET="$2"             ; shift 2;  ;;
+    -a | --max-retry-attempts)  export MAX_RETRY_ATTEMPTS="$2" ; shift 2;  ;;
+    --)                         shift                          ; break;    ;;
     *) echo "Unexpected option: $1 - this should not happen."
        usage ;;
   esac
@@ -124,7 +127,7 @@ execute btrfs subvolume create /mnt/log
 execute btrfs subvolume snapshot -r /mnt/root /mnt/root-blank
 execute umount /mnt
 
-# Mount the directories
+# Mount directories
 execute mount -o subvol=root,compress=zstd,noatime /dev/lvm/root /mnt
 execute mkdir /mnt/home
 execute mount -o subvol=home,compress=zstd,noatime /dev/lvm/root /mnt/home
@@ -137,5 +140,8 @@ execute mount -o subvol=log,compress=zstd,noatime /dev/lvm/root /mnt/var/log
 execute mkdir /mnt/boot
 execute mount "$BOOT_PARTITION" /mnt/boot
 
-# Enable flakes support
-execute nixos-install --flake "github:istimaldar/noic#$TARGET"
+NEXT_TIMEOUT=0
+until (( NEXT_TIMEOUT < MAX_RETRY_ATTEMPTS )) || execute nixos-install --flake "github:istimaldar/noic#$TARGET";
+do
+  sleep "$(( NEXT_TIMEOUT++ ))"
+done
