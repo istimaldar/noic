@@ -86,7 +86,7 @@
     };
   };
 
-  programs = import ./common/programs.nix { inherit pkgs host; };
+  programs = import ./common/programs.nix { inherit lib pkgs host; };
 
   services = import ./common/services.nix pkgs;
 

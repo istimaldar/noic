@@ -1,4 +1,4 @@
-{ pkgs, host, ... }: {
+{ lib, pkgs, host, ... }: {
   vscode = import ./programs/vscode.nix { inherit pkgs host; };
 
   neovim = import ./programs/nvim.nix { inherit pkgs host; };
@@ -25,6 +25,8 @@
   waybar = import ./programs/waybar.nix { inherit pkgs host; };
 
   fuzzel = import ./programs/fuzzel.nix { inherit pkgs host; };
+
+  yazi = import ./programs/yazi.nix { inherit lib pkgs host; };
 
   direnv = {
     enable = true;

@@ -4,8 +4,8 @@ serveCache = true
 listenCache = false
 
 [monitors]
-primary = "HDMI-A-1"
-secondary = "DP-1"
+primary = "HDMI-A-2"
+secondary = "DP-2"
 
 [features.dotnet]
 enable = true

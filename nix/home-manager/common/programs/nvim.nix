@@ -30,7 +30,7 @@
     };
   };
   extraConfig = ''
-    colorscheme nord
+    colorscheme catppuccin-macchiato
 
     set laststatus=2
     let g:airline#extensions#tabline#enabled = 1
@@ -40,16 +40,15 @@
     let g:airline#extensions#tabline#formatter = 'default'
 
     autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * NERDTree
-
-    let g:NERDTreeGitStatusWithFlags = 1
   '';
   plugins = with pkgs.vimPlugins; [
     vim-airline
     auto-pairs
     nerdcommenter
     neoformat
-    nerdtree
+    yazi-nvim
+    catppuccin-nvim
+    vim-airline-themes
     vim-multiple-cursors
     vim-highlightedyank
     SimpylFold
