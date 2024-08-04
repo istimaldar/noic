@@ -6,6 +6,10 @@ stable = false
 serveCache = false
 listenCache = false
 
+[monitors]
+primary = "DP-2"
+secondary = "DP-2"
+
 [features.dotnet]
 enable = true
 
