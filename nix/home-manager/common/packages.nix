@@ -63,6 +63,7 @@ in  [
   age
   dig
   mtr
+  teller
 
   redis
   tigervnc

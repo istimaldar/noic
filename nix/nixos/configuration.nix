@@ -9,13 +9,14 @@
     supportedFilesystems = [ "btrfs" ];
     loader = {
       efi.canTouchEfiVariables = true;
+      timeout = 21;
       grub = {
         enable = true;
         device = "nodev";
         efiSupport = true;
         enableCryptodisk = true;
         useOSProber = true;
-        configurationLimit = 2;
+        configurationLimit = 9;
         theme = "${pkgs.catppuccin}/grub";
       };
     };

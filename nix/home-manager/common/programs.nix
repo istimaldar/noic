@@ -70,6 +70,20 @@
     enable = true;
   };
 
+  zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [
+      "--cmd=cd"
+    ];
+  };
+
+  thefuck = {
+    enable = true;
+    enableInstantMode = true;
+    enableZshIntegration = true;
+  };
+
   k9s = {
     enable = true;
     settings = {
