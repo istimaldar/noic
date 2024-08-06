@@ -57,7 +57,7 @@ in  [
   jira-cli-go
   neofetch
   dua
-  nix-du
+  spkgs.nix-du
   graphviz
   sops
   age
@@ -92,7 +92,7 @@ in  [
   go
   pythonWithPackages
   poetry
-  julia
+  spkgs.julia
   ruby
   babashka
   clojure
