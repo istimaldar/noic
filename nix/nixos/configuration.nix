@@ -205,6 +205,12 @@
       };
     };
 
+    containers.storage.settings = {
+      storage = {
+        driver = "btrfs";
+      };
+    };
+
 
     podman = {
       enable = true;

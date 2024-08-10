@@ -13,6 +13,7 @@ let helmWithPackages = (wrapHelm kubernetes-helm
     python-lsp-server
     jupyter-core
     ipykernel
+    notebook
     openai-whisper.override {
       torch = torchPackage;
       transformers = python3Packages.transformers.override {
