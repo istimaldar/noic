@@ -28,6 +28,8 @@
 
   yazi = import ./programs/yazi.nix { inherit lib pkgs host; };
 
+  hyprlock = import ./programs/hyprlock.nix { };
+
   direnv = {
     enable = true;
     config = {

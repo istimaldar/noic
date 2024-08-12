@@ -56,6 +56,8 @@ in
         "$mod, R, togglesplit"
         "$mod, F, fullscreen"
 
+        "$mod, L, exec, hyprlock"
+
         "$mod2, S, exec, grim -g \"$(slurp)\" - | wl-copy"
 
         "$mod3, left, movefocus, l"
