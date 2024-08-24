@@ -28,6 +28,11 @@ in
       "$secondary_monitor" = host.monitors.secondary;
       "$ternary_monitor" = host.monitors.secondary;
 
+      env = [
+        "HYPRCURSOR_THEME,catppuccin-macchiato-lavender-cursors"
+        "HYPRCURSOR_SIZE,24"
+      ];
+
       workspace = [
         "1, monitor:$primary_monitor, on-created-empty:code, defaultName:vscode"
         "2, monitor:$ternary_monitor, default:true, on-created-empty:firefox, defaultName:browser"

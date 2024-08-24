@@ -1,4 +1,4 @@
-{ lib, pkgs, host, ... }: {
+{ lib, pkgs, mpkgs, host, ... }: {
   vscode = import ./programs/vscode.nix { inherit pkgs host; };
 
   neovim = import ./programs/nvim.nix { inherit pkgs host; };
@@ -43,7 +43,7 @@
 
   bat = {
     enable = true;
-    extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
+    extraPackages = with pkgs.bat-extras; [ batman batgrep batwatch ];
     config = {
       theme = "catppuccin";
     };

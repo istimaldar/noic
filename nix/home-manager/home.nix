@@ -9,7 +9,7 @@
     pointerCursor = {
       package = pkgs.catppuccin-cursors.macchiatoLavender;
       gtk.enable = true;
-      name = "Catppuccin-Macchiato-Lavender-Cursors";
+      name = "catppuccin-macchiato-lavender-cursors";
       x11.enable = true;
     };
     activation = {
@@ -86,7 +86,7 @@
     };
   };
 
-  programs = import ./common/programs.nix { inherit lib pkgs host; };
+  programs = import ./common/programs.nix { inherit lib pkgs mpkgs host; };
 
   services = import ./common/services.nix pkgs;
 

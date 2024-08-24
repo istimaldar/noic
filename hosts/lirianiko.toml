@@ -7,7 +7,7 @@ serveCache = false
 listenCache = false
 
 [monitors]
-primary = "DP-2"
+primary = "DP-1"
 secondary = "DP-2"
 
 [features.dotnet]

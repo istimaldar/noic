@@ -42,7 +42,6 @@ in  [
   unzip
   liquibase
   awscli2
-  aws-sam-cli
   jq
   yq-go
   packer
@@ -98,20 +97,19 @@ in  [
   babashka
   clojure
   yarn
-  nodejs_18
+  nodejs_22
 
   nil
   nodePackages.bash-language-server
   ltex-ls
 
-  jetbrains.pycharm-professional
-  jetbrains.dataspell
-  jetbrains.datagrip
-  jetbrains.goland
-  jetbrains.clion
-  jetbrains.ruby-mine
-  jetbrains.webstorm
-  lapce
+  mpkgs.jetbrains.pycharm-professional
+  mpkgs.jetbrains.dataspell
+  mpkgs.jetbrains.datagrip
+  mpkgs.jetbrains.goland
+  mpkgs.jetbrains.clion
+  mpkgs.jetbrains.ruby-mine
+  mpkgs.jetbrains.webstorm
   godot_4
 
   spacedrive
@@ -126,12 +124,12 @@ in  [
 
   mitmproxy
 ] ++ lib.lists.optionals host.features.java.enable [
-  jetbrains.idea-ultimate
+  mpkgs.jetbrains.idea-ultimate
   jdk
   maven
 ] ++ lib.lists.optionals host.features.dotnet.enable [
   dotnet-sdk
-  jetbrains.rider
+  mpkgs.jetbrains.rider
 ] ++ lib.lists.optionals host.features.media_edit.enable [
   obs-studio
   audacity
