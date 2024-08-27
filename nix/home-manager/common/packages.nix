@@ -35,6 +35,7 @@ in  [
   slurp
   grim
   wl-clipboard
+  ntfs3g
 
   d2
   languagetool
