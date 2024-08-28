@@ -29,7 +29,17 @@
     editorconfig.editorconfig
     continue.continue
     catppuccin.catppuccin-vsc-icons
-    catppuccin.catppuccin-vsc
+    (pkgs.catppuccin-vsc.override {
+      accent = "lavender";
+      boldKeywords = true;
+      italicComments = true;
+      italicKeywords = true;
+      extraBordersEnabled = false;
+      workbenchMode = "default";
+      bracketMode = "rainbow";
+      colorOverrides = {};
+      customUIColors = {};
+    })
     unifiedjs.vscode-mdx
     dbaeumer.vscode-eslint
     ms-vscode-remote.remote-ssh

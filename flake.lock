@@ -1,5 +1,24 @@
 {
   "nodes": {
+    "catppuccin-vsc": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1721282986,
+        "narHash": "sha256-v5/9BWQJG06AZH9eTheuq5xMOi7pFK/TkeSCuXs3x9A=",
+        "rev": "94e2135389b52eff1b372473d0676537393fbf9a",
+        "revCount": 495,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/catppuccin/vscode/3.15.0/01911a6e-38d5-7d5f-a914-ab6be68e8b23/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/catppuccin/vscode/%2A.tar.gz"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -118,6 +137,7 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-vsc": "catppuccin-vsc",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",

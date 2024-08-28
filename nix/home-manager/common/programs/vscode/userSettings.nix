@@ -26,4 +26,7 @@
     ".devbox" = true;
     ".vagrant" = true;
   };
+  "vs-kubernetes" = {
+    "vs-kubernetes.crd-code-completion" = "enabled";
+  };
 }

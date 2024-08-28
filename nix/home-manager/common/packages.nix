@@ -141,6 +141,7 @@ in  [
 ] ++ lib.lists.optionals host.features.cloud.enable [
   doctl
   kubectl
+  kube-capacity
   helmWithPackages
   helmsman
   kube3d
