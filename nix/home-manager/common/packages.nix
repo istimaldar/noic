@@ -93,7 +93,7 @@ in  [
   go
   pythonWithPackages
   poetry
-  spkgs.julia
+  julia
   ruby
   babashka
   clojure
@@ -104,13 +104,13 @@ in  [
   nodePackages.bash-language-server
   ltex-ls
 
-  mpkgs.jetbrains.pycharm-professional
-  mpkgs.jetbrains.dataspell
-  mpkgs.jetbrains.datagrip
-  mpkgs.jetbrains.goland
-  mpkgs.jetbrains.clion
-  mpkgs.jetbrains.ruby-mine
-  mpkgs.jetbrains.webstorm
+  jetbrains.pycharm-professional
+  jetbrains.dataspell
+  jetbrains.datagrip
+  jetbrains.goland
+  jetbrains.clion
+  jetbrains.ruby-mine
+  jetbrains.webstorm
   godot_4
 
   spacedrive
@@ -163,4 +163,5 @@ in  [
   discord
   betterdiscordctl
   mattermost-desktop
+  element-desktop
 ]
