@@ -1,6 +1,8 @@
-{ ... }: {
+{ pkgs, ... }: {
   enable = true;
   settings = {
+    shell = "${pkgs.tmux}/bin/tmux";
+
     font = {
       normal = {
         family = "JetBrainsMono Nerd Font";
