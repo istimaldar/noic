@@ -13,7 +13,10 @@ let
     "0"
     "minus"
     "equal"
-    "backslash"
+    "KP_Insert"
+    "KP_End"
+    "KP_Down"
+    "KP_Next"
   ];
   buildWorkapaces = modifier: action: pkgs.lib.imap1 (index: key: "${modifier}, ${key}, ${action}, ${(toString index)}") workspacesHostkeys;
 in
@@ -46,7 +49,10 @@ in
         "10, monitor:$ternary_monitor, on-created-empty:spotify, defaultName:spotify"
         "11, monitor:$primary_monitor, defaultName:ide_tertiary"
         "12, monitor:$secondary_monitor, on-created-empty:keepassxc, defaultName:passwords"
-        "13, monitor:$secondary_monitor, defaultName:devtools"
+        "13, monitor:$secondary_monitor, on-created-empty:element-desktop, defaultName:element"
+        "14, monitor:$secondary_monitor, on-created-empty:discord & whatsapp-for-linux, defaultName:discord"
+        "15, monitor:$secondary_monitor, defaultName:devtools"
+        "15, monitor:$primary_monitor, defaultName:ide_quaternary"
       ];
 
       bind = [
