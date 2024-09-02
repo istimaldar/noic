@@ -65,6 +65,7 @@ in  [
   dig
   mtr
   teller
+  viddy
 
   redis
   tigervnc

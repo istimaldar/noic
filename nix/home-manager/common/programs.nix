@@ -28,8 +28,6 @@
 
   yazi = import ./programs/yazi.nix { inherit lib pkgs host; };
 
-  tmux = import ./programs/tmux.nix { inherit pkgs; };
-
   hyprlock = import ./programs/hyprlock.nix { };
 
   direnv = {
@@ -81,6 +79,14 @@
     options = [
       "--cmd=cd"
     ];
+  };
+
+  zellij = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      theme = "catppuccin-macchiato";
+    };
   };
 
   thefuck = {

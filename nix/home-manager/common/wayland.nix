@@ -42,7 +42,7 @@ in
         "3, monitor:$primary_monitor, default:true, on-created-empty:alacritty, defaultName:terminal"
         "4, monitor:$secondary_monitor, default:true, on-created-empty:slack & skypeforlinux, defaultName:work_messangers"
         "5, monitor:$primary_monitor, on-created-empty:logseq, defaultName:journal"
-        "6, monitor:$secondary_monitor, on-created-empty:telegram-desktop & discord, defaultName:telegram"
+        "6, monitor:$secondary_monitor, on-created-empty:telegram-desktop, defaultName:telegram"
         "7, monitor:$primary_monitor, defaultName:ide_primary"
         "8, monitor:$secondary_monitor, on-created-empty:mailspring --password-store=gnome-libsecret, defaultName:mail"
         "9, monitor:$primary_monitor, defaultName:ide_secondary"
@@ -52,7 +52,7 @@ in
         "13, monitor:$secondary_monitor, on-created-empty:element-desktop, defaultName:element"
         "14, monitor:$secondary_monitor, on-created-empty:discord & whatsapp-for-linux, defaultName:discord"
         "15, monitor:$secondary_monitor, defaultName:devtools"
-        "15, monitor:$primary_monitor, defaultName:ide_quaternary"
+        "16, monitor:$primary_monitor, defaultName:ide_quaternary"
       ];
 
       bind = [
