@@ -83,16 +83,9 @@
 
   zellij = {
     enable = true;
-    enableZshIntegration = true;
     settings = {
       theme = "catppuccin-macchiato";
     };
-  };
-
-  thefuck = {
-    enable = true;
-    enableInstantMode = true;
-    enableZshIntegration = true;
   };
 
   k9s = {

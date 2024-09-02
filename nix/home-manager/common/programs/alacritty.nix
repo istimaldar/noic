@@ -1,6 +1,8 @@
-{ ... }: {
+{ pkgs, ... }: {
   enable = true;
   settings = {
+    shell = "${pkgs.zellij}/bin/zellij";
+
     font = {
       normal = {
         family = "JetBrainsMono Nerd Font";
