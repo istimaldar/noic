@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   ".logseq/config/config.edn".source = ./logseq/config.edn;
   ".local/kavita/config/appsettings.json".source = ./kavita/appsettings.json;
-  ".p10k.zsh".source = ./oh-my-zsh/.p10k.zsh;
   ".continue/config.json".source = ./continue/config.json;
   ".config/btop/themes/Catppuccin.theme".source = "${pkgs.catppuccin}/btop/catppuccin_macchiato.theme";
   ".config/godot/text_editor_themes/Capuccin.tet".source = (pkgs.fetchFromGitHub {
