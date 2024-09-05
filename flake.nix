@@ -55,7 +55,7 @@
       };
       mkHostConfiguration = host: nixpkgs.lib.nixosSystem {
         inherit pkgs system;
-        specialArgs = { inherit host spicetify-nix sddm-catppuccin spkgs; };
+        specialArgs = { inherit host spicetify-nix sddm-catppuccin mpkgs; };
 
         modules = [
           nurpkgs.nixosModules.nur

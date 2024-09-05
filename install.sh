@@ -141,7 +141,7 @@ execute mkdir /mnt/boot
 execute mount "$BOOT_PARTITION" /mnt/boot
 
 NEXT_TIMEOUT=0
-until (( NEXT_TIMEOUT < MAX_RETRY_ATTEMPTS )) || execute nixos-install --flake "github:istimaldar/noic#$TARGET";
+until execute nixos-install --flake "github:istimaldar/noic#$TARGET" || (( NEXT_TIMEOUT < MAX_RETRY_ATTEMPTS ));
 do
   sleep "$(( NEXT_TIMEOUT++ ))"
 done

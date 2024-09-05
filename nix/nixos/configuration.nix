@@ -8,7 +8,7 @@
   environment = import ./environment/environment.nix { inherit pkgs; };
   nix = import ./nix/nix.nix { };
   networking = import ./networking/networking.nix { inherit host; };
-  programs = import ./programs/programs.nix { };
+  programs = import ./programs/programs.nix { inherit config; };
   security = import ./security/security.nix { };
   services = import ./services/services.nix { inherit config pkgs host; };
   virtualisation = import ./virtualisation/virtualisation.nix { inherit config; };
