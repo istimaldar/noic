@@ -27,8 +27,8 @@
   {
     name = "vscode-conventional-commits";
     publisher = "vivaxy";
-    version = "1.25.0";
-    sha256 = "00mv34898y4xgqv6xf57bdl32qbbma4imz08jc4v5skmwjrgbwr8";
+    version = "1.26.0";
+    sha256 = "1n414wwd6my4xjmh55b6l0s8bqadnq35ya1isxvdi6yabapbwg9f";
   }
   {
     name = "terraform-doc-snippets";
@@ -47,5 +47,17 @@
     publisher = "4ops";
     version = "0.3.0";
     sha256 = "aYvTxdd+6ESSEDFtb8hwITVjLdbwTV5ZabpwAywGwVc=";
+  }
+  {
+    name = "kdl";
+    publisher = "kdl-org";
+    version = "1.3.1";
+    sha256 = "0Wbyh6yaGyj/fyTUERB5KQd668i0fx/XLc/i2YkXYKg=";
+  }
+  {
+    name = "kcl-vscode-extension";
+    publisher = "kcl";
+    version = "0.2.2";
+    sha256 = "iMRIe9IoVebu4KwIYw/558FPBL/NdDNDUy1le1luif8=";
   }
 ]

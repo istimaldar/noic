@@ -66,6 +66,8 @@ in  [
   mtr
   teller
   viddy
+  cue
+  kcl
 
   redis
   tigervnc
