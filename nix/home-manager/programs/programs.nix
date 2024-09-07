@@ -3,6 +3,7 @@
   bat = import ./bat.nix { inherit pkgs; };
   btop = import ./btop.nix { };
   chromium = import ./chromium.nix { };
+  dircolors = import ./dircolors.nix { };
   direnv = import ./direnv.nix { };
   eza = import ./eza.nix { };
   firefox = import ./firefox.nix { inherit mpkgs; };

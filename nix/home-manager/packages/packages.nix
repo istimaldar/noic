@@ -61,6 +61,7 @@ in  [
   viddy
   cue
   kcl
+  vivid
 
   redis
   tigervnc
