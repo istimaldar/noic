@@ -1,5 +1,5 @@
 { lib, pkgs, mpkgs, spkgs, host, nur, ... }: {
-  programs = import ./programs/programs.nix { inherit lib pkgs mpkgs host; };
+  programs = import ./programs/programs.nix { inherit lib pkgs host; };
   services = import ./services/services.nix pkgs;
   wayland = import ./ui/wayland.nix { inherit lib pkgs host; };
   gtk = import ./ui/gtk.nix { inherit pkgs; };

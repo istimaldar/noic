@@ -18,7 +18,7 @@
     kamikillerto.vscode-colorize
     matthewpi.caddyfile-support
     ms-kubernetes-tools.vscode-kubernetes-tools
-    ms-python.python
+    # ms-python.python
     ms-vscode.makefile-tools
     oderwat.indent-rainbow
     redhat.vscode-yaml
