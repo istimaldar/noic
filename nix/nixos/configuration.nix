@@ -1,4 +1,4 @@
-{ config, lib, pkgs, host, ... }:
+{ config, lib, pkgs, mpkgs, host, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -10,7 +10,7 @@
   networking = import ./networking/networking.nix { inherit host; };
   programs = import ./programs/programs.nix { inherit config; };
   security = import ./security/security.nix { };
-  services = import ./services/services.nix { inherit config pkgs host; };
+  services = import ./services/services.nix { inherit config mpkgs host; };
   virtualisation = import ./virtualisation/virtualisation.nix { inherit config; };
 
   hardware.graphics = if host.amdGpu then {
