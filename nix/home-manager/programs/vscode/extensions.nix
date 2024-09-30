@@ -59,10 +59,10 @@
     version = "0.2.2";
     sha256 = "iMRIe9IoVebu4KwIYw/558FPBL/NdDNDUy1le1luif8=";
   }
-  # {
-  #   name = "python";
-  #   publisher = "ms-python";
-  #   version = "2024.15.2024091301";
-  #   sha256 = "MB8Vq2rjO37yW3Zh+f8ek/yz0qT+ZYHn/JnF5ZA6CXQ=";
-  # }
+  {
+    name = "jsoncrack-vscode";
+    publisher = "AykutSarac";
+    version = "2.0.3";
+    sha256 = "YmVMeE5yWZ7vrQmyDJKk/LgqYhFQFIPLf0bRYV5PRF0=";
+  }
 ]
