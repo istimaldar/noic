@@ -34,7 +34,7 @@ in  [
   languagetool
   devbox
   unzip
-  liquibase
+  spkgs.liquibase
   awscli2
   jq
   yq-go
