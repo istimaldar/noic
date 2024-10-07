@@ -1,4 +1,4 @@
-{ lib, pkgs, host, mpkgs, ... }: {
+{ lib, pkgs, host, ... }: {
   alacritty = import ./alacritty.nix { inherit pkgs; };
   bat = import ./bat.nix { inherit pkgs; };
   btop = import ./btop.nix { };
@@ -6,7 +6,7 @@
   dircolors = import ./dircolors.nix { };
   direnv = import ./direnv.nix { };
   eza = import ./eza.nix { };
-  firefox = import ./firefox.nix { inherit mpkgs; };
+  firefox = import ./firefox.nix { };
   fuzzel = import ./fuzzel.nix { };
   fzf = import ./fzf.nix { };
   git = import ./git.nix { };
