@@ -32,9 +32,9 @@ in  [
 
   d2
   languagetool
-  devbox
+  mpkgs.devbox
   unzip
-  spkgs.liquibase
+  liquibase
   awscli2
   jq
   yq-go
@@ -142,7 +142,7 @@ in  [
   helmWithPackages
   helmsman
   kube3d
-  go-task
+  spkgs.go-task
   gcloud
   ansible
   ansible-lint
