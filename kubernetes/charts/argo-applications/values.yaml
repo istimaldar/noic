@@ -1,8 +1,0 @@
-environment: office
-applications:
-  system:
-    enabled: true
-  operators:
-    enabled: false
-  user:
-    enabled: false

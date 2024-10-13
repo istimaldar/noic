@@ -1,5 +1,0 @@
-environment: local
-secret:
-  annotations: {}
-issuer:
-  annotations: {}

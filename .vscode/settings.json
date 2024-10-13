@@ -1,10 +1,13 @@
 {
-    "conventionalCommits.scopes": [
-        "install",
-        "nixos",
-        "terminal",
-        "k8s",
-        "ui",
-        "workflow"
-    ]
+  "conventionalCommits.scopes": [
+    "install",
+    "nixos",
+    "terminal",
+    "k8s",
+    "ui",
+    "workflow"
+  ],
+  "evenBetterToml.schema.associations": {
+    "*.toml": "file://./schemas/host.schema.json"
+  }
 }

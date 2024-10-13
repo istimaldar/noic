@@ -1,16 +1,17 @@
-waybarOn = [
-  "DP-2"
-]
 amdGpu = true
 stable = false
-serveCache = false
-listenCache = false
 
 [monitors]
 primary = "DP-1"
-secondary = "DP-2"
+secondary = "DP-1"
 
 [features.dotnet]
+enable = true
+
+[features.java]
+enable = true
+
+[features.python]
 enable = true
 
 [features.media_edit]
@@ -22,13 +23,11 @@ enable = true
 [features.messangers]
 enable = true
 
-[features.java]
+[features.kubernetes]
 enable = true
 
-[features.kubernetes]
-enable = false
-ha = false
-server = true
+[features.miscellaneous]
+enable = true
 
 [extraMounts."/mnt/c"]
   device = "/dev/nvme0n1p3"

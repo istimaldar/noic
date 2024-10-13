@@ -1,7 +1,0 @@
-ingress:
-  hosts:
-    - mattermost.192-168-100-6.nip.io
-  tls:
-    - hosts:
-        - mattermost.192-168-100-6.nip.io
-      secretName: ingress-cert

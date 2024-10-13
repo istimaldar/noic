@@ -27,33 +27,24 @@
   outputs = { nixpkgs, nixpkgs-stable, nixpkgs-master, spicetify-nix, sddm-catppuccin, catppuccin-vsc, nurpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
+      configurePackages = host: input: import input {
         inherit system;
         overlays = map (f: (import (./nix/overlays + "/${f}"))) (builtins.attrNames (builtins.readDir ./nix/overlays)) ++ [catppuccin-vsc.overlays.default];
         config = {
           allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) (import ./nix/configuration/unfree-packages.nix);
           permittedInsecurePackages = (import ./nix/configuration/insecure-packages.nix);
+          rocmSupport = host.amdGpu;
         };
       };
-      mpkgs = import nixpkgs-master {
-        inherit system;
-        config = {
-          allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) (import ./nix/configuration/unfree-packages.nix);
-          permittedInsecurePackages = (import ./nix/configuration/insecure-packages.nix);
+      mkHostConfiguration = host: let
+        pkgs = configurePackages host (if host.stable then nixpkgs-stable else nixpkgs);
+        mpkgs = configurePackages host nixpkgs-master;
+        spkgs = configurePackages host nixpkgs-stable;
+        nur = import nurpkgs {
+          inherit pkgs;
+          nurpkgs = pkgs;
         };
-      };
-      spkgs = import nixpkgs-stable {
-        inherit system;
-        config = {
-          allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) (import ./nix/configuration/unfree-packages.nix);
-          permittedInsecurePackages = (import ./nix/configuration/insecure-packages.nix);
-        };
-      };
-      nur = import nurpkgs {
-        inherit pkgs;
-        nurpkgs = pkgs;
-      };
-      mkHostConfiguration = host: nixpkgs.lib.nixosSystem {
+      in nixpkgs.lib.nixosSystem {
         inherit pkgs system;
         specialArgs = { inherit host spicetify-nix sddm-catppuccin spkgs mpkgs; };
 
@@ -83,7 +74,7 @@
               builtins.split "\\." element
             );
             path = hosts + ("/" + name + ".toml");
-            content = pkgs.lib.importTOML path;
+            content = nixpkgs.lib.importTOML path;
             settings = content // { name = name; };
           in { name = name; value = mkHostConfiguration settings; }
         )
@@ -91,19 +82,5 @@
           builtins.attrNames (builtins.readDir hosts)
         )
       );
-      apps.x86_64-linux = with pkgs.istimaldar; {
-        default = {
-          type = "app";
-          program = "${installer}/bin/install.sh";
-        };
-        kubelocal = {
-          type = "app";
-          program = "${kubelocal}/bin/kubelocal.sh";
-        };
-      };
-      packages.x86_64-linux = with pkgs.istimaldar; {
-        installer = installer;
-        kubelocal = kubelocal;
-      };
     };
 }

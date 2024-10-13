@@ -1,9 +1,0 @@
-{{ if .Values.group.enabled -}}
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  name: {{ include "argo-operators.subscritionName" . | quote }}
-spec:
-  targetNamespaces:
-{{- append .Values.group.extraNamespaces .Release.Namespace | toYaml | nindent 4 }}
-{{- end }}

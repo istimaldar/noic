@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, host, ... }: {
   systemPackages = with pkgs; [
     spotify
     libsForQt5.plasma-framework
@@ -8,5 +8,5 @@
     libsForQt5.qt5.qtquickcontrols2
     catppuccin-sddm-corners
     virtiofsd
-  ];
+  ] ++ lib.lists.optional host.amdGpu rocmPackages.rocminfo;
 }

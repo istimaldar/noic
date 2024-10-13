@@ -15,7 +15,7 @@
   k9s = import ./k9s.nix { };
   neovim = import ./neovim.nix { inherit pkgs; };
   oh-my-posh = import ./oh-my-posh.nix { };
-  vscode = import ./vscode/vscode.nix { inherit pkgs; };
+  vscode = import ./vscode/vscode.nix { inherit lib pkgs host; };
   waybar = import ./waybar/waybar.nix { inherit pkgs host; };
   yazi = import ./yazi/yazi.nix { inherit lib pkgs; };
   zellij = import ./zellij.nix { };

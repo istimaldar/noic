@@ -1,13 +1,17 @@
 amdGpu = false
 stable = false
-serveCache = true
-listenCache = false
 
 [monitors]
 primary = "HDMI-A-2"
 secondary = "DP-2"
 
 [features.dotnet]
+enable = true
+
+[features.java]
+enable = true
+
+[features.python]
 enable = true
 
 [features.media_edit]
@@ -19,12 +23,10 @@ enable = true
 [features.messangers]
 enable = true
 
-[features.java]
-enable = true
-
 [features.kubernetes]
 enable = true
-ha = true
-server = true
+
+[features.miscellaneous]
+enable = true
 
 [extraMounts]

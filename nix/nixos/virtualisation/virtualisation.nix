@@ -1,7 +1,7 @@
-{ config, ... }: {
+{ config, host, ... }: {
   containers = import ./containers.nix { };
   libvirtd = import ./libvirtd.nix { };
-  oci-containers = import ./oci-containers.nix { inherit config; };
+  oci-containers = import ./oci-containers.nix { inherit config host; };
   podman = import ./podman.nix { };
 
   lxd.enable = true;

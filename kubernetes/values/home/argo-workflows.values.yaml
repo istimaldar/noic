@@ -1,8 +1,0 @@
-server:
-  ingress:
-    hosts:
-      - workflows.192-168-100-6.nip.io
-    tls:
-      - hosts:
-          - workflows.192-168-100-6.nip.io
-        secretName: ingress-cert

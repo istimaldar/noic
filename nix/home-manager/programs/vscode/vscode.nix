@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, host, ... }: {
   enable = true;
   package = pkgs.vscode;
   enableExtensionUpdateCheck = false;
@@ -27,7 +27,6 @@
     waderyan.gitblame
     wix.vscode-import-cost
     editorconfig.editorconfig
-    continue.continue
     catppuccin.catppuccin-vsc-icons
     (pkgs.catppuccin-vsc.override {
       accent = "lavender";
@@ -56,6 +55,7 @@
     ms-vscode.powershell
     signageos.signageos-vscode-sops
     asdine.cue
-  ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace (import ./extensions.nix { inherit pkgs; });
+  ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace (import ./extensions.nix { inherit pkgs; })
+    ++ lib.lists.optional host.amdGpu continue.continue;
   userSettings = import ./user-settings.nix { inherit pkgs; };
 }

@@ -1,13 +1,14 @@
-{ config, mpkgs, host, ... }: {
-    displayManager = import ./displayManager.nix { };
-    grafana = import ./grafana.nix { inherit config; };
-    loki = import ./loki.nix { };
-    ollama = import ./ollama.nix { inherit mpkgs; };
-    openssh = import ./openssh.nix { };
-    pipewire = import ./pipewire.nix { };
-    prometheus = import ./prometheus.nix { inherit config; };
-    promtail = import ./promtail.nix { inherit config; };
-    xserver = import ./xserver.nix { inherit host; };
+{ config, host, ... }: {
+  displayManager = import ./displayManager.nix { };
+  grafana = import ./grafana.nix { inherit config; };
+  loki = import ./loki.nix { };
+  k3s = import ./k3s.nix { inherit host; };
+  ollama = import ./ollama.nix { inherit host; };
+  openssh = import ./openssh.nix { };
+  pipewire = import ./pipewire.nix { };
+  prometheus = import ./prometheus.nix { inherit config; };
+  promtail = import ./promtail.nix { inherit config; };
+  xserver = import ./xserver.nix { inherit host; };
 
-    gnome.gnome-keyring.enable = true;
+  gnome.gnome-keyring.enable = true;
 }
