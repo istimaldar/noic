@@ -1,4 +1,4 @@
-{ pkgs, mpkgs, python, ... }: with pkgs; [
+{ pkgs, python, ... }: with pkgs; [
   nerdfonts
   keepassxc
   pinentry
@@ -93,5 +93,5 @@
 
   mitmproxy
 
-  mpkgs.go-task
+  master.go-task
 ]

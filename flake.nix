@@ -37,16 +37,18 @@
         };
       };
       mkHostConfiguration = host: let
-        pkgs = configurePackages host (if host.stable then nixpkgs-stable else nixpkgs);
-        mpkgs = configurePackages host nixpkgs-master;
-        spkgs = configurePackages host nixpkgs-stable;
+        pkgs = (configurePackages host (if host.stable then nixpkgs-stable else nixpkgs)) // {
+          master = configurePackages host nixpkgs-master;
+          stable = configurePackages host nixpkgs-stable;
+        };
+
         nur = import nurpkgs {
           inherit pkgs;
           nurpkgs = pkgs;
         };
       in nixpkgs.lib.nixosSystem {
         inherit pkgs system;
-        specialArgs = { inherit host spicetify-nix sddm-catppuccin spkgs mpkgs; };
+        specialArgs = { inherit host spicetify-nix sddm-catppuccin; };
 
         modules = [
           nurpkgs.nixosModules.nur
@@ -57,7 +59,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.users.istimaldar.imports = [
               ({ lib, config, ... }: import ./nix/home-manager/home.nix {
-                inherit lib config pkgs mpkgs spkgs host nur;
+                inherit lib config pkgs host nur;
               })
             ];
           }
