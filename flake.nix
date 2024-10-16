@@ -6,6 +6,11 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nurpkgs.url = "github:nix-community/NUR";
+    sops-nix ={
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
+    };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +29,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-stable, nixpkgs-master, spicetify-nix, sddm-catppuccin, catppuccin-vsc, nurpkgs, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-stable, nixpkgs-master, spicetify-nix, sddm-catppuccin, catppuccin-vsc, nurpkgs, home-manager, sops-nix, ... }:
     let
       system = "x86_64-linux";
       configurePackages = host: input: import input {
@@ -53,6 +58,7 @@
         modules = [
           nurpkgs.nixosModules.nur
           ./nix/nixos/configuration.nix
+          sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
@@ -75,8 +81,8 @@
             name = builtins.head (
               builtins.split "\\." element
             );
-            path = hosts + ("/" + name + ".toml");
-            content = nixpkgs.lib.importTOML path;
+            path = hosts + ("/" + name + ".json");
+            content = nixpkgs.lib.importJSON path;
             settings = content // { name = name; };
           in { name = name; value = mkHostConfiguration settings; }
         )

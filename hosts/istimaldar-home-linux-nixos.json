@@ -1,0 +1,45 @@
+{
+  "amdGpu": true,
+  "stable": false,
+  "monitors": {
+    "primary": "DP-1",
+    "secondary": "DP-1"
+  },
+  "features": {
+    "cloud": {
+      "enable": true
+    },
+    "dotnet": {
+      "enable": true
+    },
+    "java": {
+      "enable": true
+    },
+    "kubernetes": {
+      "enable": true
+    },
+    "media_edit": {
+      "enable": true
+    },
+    "messangers": {
+      "enable": true
+    },
+    "miscellaneous": {
+      "enable": true
+    },
+    "python": {
+      "enable": true
+    }
+  },
+  "extraMounts": [
+    {
+      "device": "/dev/nvme0n1p3",
+      "target": "/mnt/c",
+      "filesystemType": "ntfs3",
+      "mountOptions": [
+        "ro",
+        "uid=1000"
+      ]
+    }
+  ]
+}

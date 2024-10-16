@@ -7,7 +7,12 @@
     "ui",
     "workflow"
   ],
-  "evenBetterToml.schema.associations": {
-    "*.toml": "file://./schemas/host.schema.json"
-  }
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "hosts/*.json"
+      ],
+      "url": "/schemas/host.schema.json"
+    }
+  ]
 }

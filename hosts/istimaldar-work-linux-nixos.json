@@ -1,0 +1,35 @@
+{
+  "amdGpu": false,
+  "stable": false,
+  "monitors": {
+    "primary": "HDMI-A-2",
+    "secondary": "DP-2"
+  },
+  "features": {
+    "cloud": {
+      "enable": true
+    },
+    "dotnet": {
+      "enable": true
+    },
+    "java": {
+      "enable": true
+    },
+    "kubernetes": {
+      "enable": true
+    },
+    "media_edit": {
+      "enable": true
+    },
+    "messangers": {
+      "enable": true
+    },
+    "miscellaneous": {
+      "enable": true
+    },
+    "python": {
+      "enable": true
+    }
+  },
+  "extraMounts": []
+}

@@ -1,0 +1,259 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$defs": {
+    "enable": {
+      "title": "Enable",
+      "description": "Wheteher to enable the feature",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "title": "NixOs Host",
+  "description": "A NixOS host configuration",
+  "type": "object",
+  "properties": {
+    "amdGpu": {
+      "title": "AMD GPU",
+      "description": "Wheteher to enable AMD GPU",
+      "type": "boolean",
+      "default": false
+    },
+    "stable": {
+      "title": "Stable",
+      "description": "Wheteher to use stable Nixpkgs channel",
+      "type": "boolean",
+      "default": false
+    },
+    "monitors": {
+      "title": "Monitors",
+      "description": "Video outputs monitors configuration",
+      "type": "object",
+      "properties": {
+        "primary": {
+          "title": "Primary monitor",
+          "description": "A monitor that will run waybar and primary work",
+          "type": "string",
+          "default": "DP-1",
+          "examples": [
+            "DP-1",
+            "DP-2",
+            "HDMI-1"
+          ]
+        },
+        "secondary": {
+          "title": "Secondary monitor",
+          "description": "A monitor that will run browser and messengers",
+          "type": "string",
+          "default": "DP-1",
+          "examples": [
+            "DP-1",
+            "DP-2",
+            "HDMI-1"
+          ]
+        }
+      },
+      "required": [
+        "primary",
+        "secondary"
+      ],
+      "additionalProperties": false
+    },
+    "features": {
+      "title": "Features",
+      "description": "System features configuration",
+      "type": "object",
+      "properties": {
+        "dotnet": {
+          "title": "Dotnet",
+          "description": ".Net development features",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/$defs/enable"
+            }
+          },
+          "required": [
+            "enable"
+          ],
+          "additionalProperties": false
+        },
+        "java": {
+          "title": "Java",
+          "description": "Java and JDK development features",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/$defs/enable"
+            }
+          },
+          "required": [
+            "enable"
+          ],
+          "additionalProperties": false
+        },
+        "python": {
+          "title": "python",
+          "description": "Python development features",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/$defs/enable"
+            }
+          },
+          "required": [
+            "enable"
+          ],
+          "additionalProperties": false
+        },
+        "media_edit": {
+          "title": "Media Edit",
+          "description": "A set of programs to work with media files",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/$defs/enable"
+            }
+          },
+          "required": [
+            "enable"
+          ],
+          "additionalProperties": false
+        },
+        "cloud": {
+          "title": "Cloud",
+          "description": "A set of tool to work with clouds",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/$defs/enable"
+            }
+          },
+          "required": [
+            "enable"
+          ],
+          "additionalProperties": false
+        },
+        "messangers": {
+          "title": "Messangers",
+          "description": "Messangers and SNI",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/$defs/enable"
+            }
+          },
+          "required": [
+            "enable"
+          ],
+          "additionalProperties": false
+        },
+        "kubernetes": {
+          "title": "Kubernetes",
+          "description": "Kubernetes-related programs",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/$defs/enable"
+            },
+            "charts": {
+              "title": "Charts",
+              "description": "Helm Charts' configuration",
+              "type": "object",
+              "items": {
+
+              }
+            }
+          },
+          "required": [
+            "enable"
+          ],
+          "additionalProperties": false
+        },
+        "miscellaneous": {
+          "title": "Miscellaneous",
+          "description": "Other programs and features",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/$defs/enable"
+            }
+          },
+          "required": [
+            "enable"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+      ],
+      "additionalProperties": false
+    },
+    "extraMounts": {
+      "title": "Extra mounts",
+      "description": "Additional volumes to mount",
+      "type": "array",
+      "items": {
+        "title": "Mount",
+        "description": "A mount configuration",
+        "properties": {
+          "device": {
+            "title": "Device",
+            "description": "A name of the device to mount",
+            "type": "string",
+            "pattern": "^\\/dev\\/[a-z0-9\\/]*$",
+            "examples": [
+              "/dev/sda1",
+              "/dev/nvme0n1p1"
+            ]
+          },
+          "target": {
+            "title": "Target",
+            "description": "A folder to mount in",
+            "type": "string",
+            "examples": [
+              "/mnt/c"
+            ]
+          },
+          "filesystemType": {
+            "title": "Filesystem Type",
+            "description": "A type of mounted filesystem",
+            "type": "string",
+            "examples": [
+              "ntfs3",
+              "fat",
+              "ext4",
+              "btrfs"
+            ]
+          },
+          "mountOptions": {
+            "title": "Mount Options",
+            "description": "Additional options to pass to the mount command (-o flag)",
+            "type": "array",
+            "items": {
+              "title": "Mount Option",
+              "type": "string",
+              "examples": [
+                "ro",
+                "exec"
+              ]
+            }
+          }
+        },
+        "required": [
+          "device",
+          "target",
+          "filesystemType"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "amdGpu",
+    "stable",
+    "monitors",
+    "features",
+    "extraMounts"
+  ],
+  "additionalProperties": false
+}
