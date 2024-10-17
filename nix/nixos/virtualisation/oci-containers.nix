@@ -1,6 +1,6 @@
-{ config, host, ... }: {
+{ config, lib, host, ... }: {
   backend = "podman";
-  containers = if host.amdGpu then {
+  containers = lib.attrsets.optionalAttrs host.amdGpu {
     open-webui = {
       image = "ghcr.io/open-webui/open-webui:main";
       autoStart = true;
@@ -23,5 +23,5 @@
       ];
       log-driver = "journald";
     };
-  } else {};
+  };
 }

@@ -58,7 +58,22 @@
       device = "/dev/disk/by-label/nix-boot";
       fsType = "vfat";
     };
-  } // host.extraMounts;
+  } // (
+    builtins.listToAttrs (
+      builtins.map
+      (mount:
+        {
+          name = mount.target;
+          value = with mount; {
+            inherit device;
+            fsType = filesystemType;
+            options = mountOptions;
+          };
+        }
+      )
+      host.extraMounts
+    )
+  );
 
   swapDevices = [
     {

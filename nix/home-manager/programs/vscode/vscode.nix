@@ -57,5 +57,5 @@
     asdine.cue
   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace (import ./extensions.nix { inherit pkgs; })
     ++ lib.lists.optional host.amdGpu continue.continue;
-  userSettings = import ./user-settings.nix { inherit pkgs; };
+  userSettings = import ./user-settings.nix { inherit pkgs lib; };
 }

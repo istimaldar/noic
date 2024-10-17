@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   "workbench.colorTheme" = "Catppuccin Macchiato";
   "catppuccin.accentColor" = "lavender";
   "redhat.telemetry.enabled" = true;
@@ -30,4 +30,5 @@
     "vs-kubernetes.crd-code-completion" = "enabled";
   };
   "editor.inlineSuggest.enable" = true;
+  "jsonnet.languageServer.pathToBinary" = "${lib.getExe pkgs.jsonnet-language-server}";
 }

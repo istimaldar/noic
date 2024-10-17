@@ -11,31 +11,12 @@
   programs = import ./programs/programs.nix { inherit config; };
   security = import ./security/security.nix { };
   services = import ./services/services.nix { inherit config host; };
-  virtualisation = import ./virtualisation/virtualisation.nix { inherit config host; };
+  virtualisation = import ./virtualisation/virtualisation.nix { inherit config lib host; };
 
-  hardware.graphics = if host.amdGpu then {
+  hardware.graphics = lib.attrsets.optionalAttrs host.amdGpu {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs.rocmPackages; [
-      clr.icd
-      rocblas
-      hipblas
-      clr
-      rocminfo
-    ];
-  } else {};
-
-  systemd.tmpfiles.rules =
-  let
-    rocmEnv = pkgs.symlinkJoin {
-      name = "rocm-combined";
-      paths = with pkgs.rocmPackages; [
-        rocblas
-        hipblas
-        clr
-      ];
-    };
-  in lib.lists.optional host.amdGpu "L+    /opt/rocm   -    -    -     -    ${rocmEnv}";
+  };
 
   hardware = {
     enableRedistributableFirmware = true;

@@ -32,11 +32,12 @@
   outputs = { nixpkgs, nixpkgs-stable, nixpkgs-master, spicetify-nix, sddm-catppuccin, catppuccin-vsc, nurpkgs, home-manager, sops-nix, ... }:
     let
       system = "x86_64-linux";
+      lib = nixpkgs.lib;
       configurePackages = host: input: import input {
         inherit system;
         overlays = map (f: (import (./nix/overlays + "/${f}"))) (builtins.attrNames (builtins.readDir ./nix/overlays)) ++ [catppuccin-vsc.overlays.default];
         config = {
-          allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) (import ./nix/configuration/unfree-packages.nix);
+          allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) (import ./nix/configuration/unfree-packages.nix);
           permittedInsecurePackages = (import ./nix/configuration/insecure-packages.nix);
           rocmSupport = host.amdGpu;
         };
@@ -51,7 +52,7 @@
           inherit pkgs;
           nurpkgs = pkgs;
         };
-      in nixpkgs.lib.nixosSystem {
+      in lib.nixosSystem {
         inherit pkgs system;
         specialArgs = { inherit host spicetify-nix sddm-catppuccin; };
 
@@ -82,8 +83,24 @@
               builtins.split "\\." element
             );
             path = hosts + ("/" + name + ".json");
-            content = nixpkgs.lib.importJSON path;
-            settings = content // { name = name; };
+            content = lib.importJSON path;
+            defaultSettings = {
+              inherit name;
+              amdGpu = false;
+              stable = false;
+              features = {
+                cloud.enable = false;
+                dotnet.enable = false;
+                java.enable = false;
+                kubernetes.enable = false;
+                media_edit.enable = false;
+                messangers.enable = false;
+                miscellaneous.enable = true;
+                python.enable = false;
+              };
+              extraMounts = [];
+            };
+            settings = lib.attrsets.recursiveUpdate defaultSettings content;
           in { name = name; value = mkHostConfiguration settings; }
         )
         (

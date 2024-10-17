@@ -252,8 +252,7 @@
     "amdGpu",
     "stable",
     "monitors",
-    "features",
-    "extraMounts"
+    "features"
   ],
   "additionalProperties": false
 }

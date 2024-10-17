@@ -65,4 +65,10 @@
     version = "2.0.3";
     sha256 = "YmVMeE5yWZ7vrQmyDJKk/LgqYhFQFIPLf0bRYV5PRF0=";
   }
+  {
+    name = "vscode-jsonnet";
+    publisher = "Grafana";
+    version = "0.6.1";
+    sha256 = "8t/9EJs9Ly6C89jM6HdCbeAdIvjSfePKD2WQwBtuJI0=";
+  }
 ]

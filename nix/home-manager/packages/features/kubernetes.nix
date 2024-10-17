@@ -5,4 +5,6 @@
   helm
   helmsman
   kube3d
+  jsonnet
+  jsonnet-language-server
 ]
