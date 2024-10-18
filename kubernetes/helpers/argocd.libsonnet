@@ -4,9 +4,9 @@
     repoURL: repo,
     targetRevision: version,
     helm: {
-      releaseName: releaseName
-    },
-    valuesObject: values
+      releaseName: releaseName,
+      valuesObject: values
+    }
   },
   generateSyncWave: function(wave) {
     'argocd.argoproj.io/sync-wave': wave
