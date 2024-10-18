@@ -1,9 +1,11 @@
 local constants = import '../../helpers/constants.libsonnet';
+local argocd = import '../../helpers/argocd.libsonnet';
 {
   apiVersion: 'cert-manager.io/v1',
   kind: 'ClusterIssuer',
   metadata: {
-    name: constants.cert_manager.issuer.name
+    name: constants.cert_manager.issuer.name,
+    annotations: argocd.generateSyncWave('-4')
   },
   spec: {
     acme: {
