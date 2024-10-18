@@ -5,7 +5,7 @@ argocd.HelmArgoApplication + {
   version:: '1.16.1',
   values:: {
     crds: {
-      install: true,
+      enabled: true,
       keep: true
     }
   }
