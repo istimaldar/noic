@@ -47,7 +47,7 @@
     chart:: self.name,
     repo:: error 'Repo URL must be specified',
     version:: error 'Chart version must be specified',
-    values: {},
+    values:: {},
     source:: generateHelmSource(self.releaseName, self.chart, self.repo, self.version, self.values)
   }
 }
