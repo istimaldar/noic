@@ -1,13 +1,9 @@
-{ host, ... }: {
+{ ... }: {
   apiVersion = "argoproj.io/v1alpha1";
   kind = "Application";
   metadata = {
     name = "system-applications";
     namespace = "argocd";
-    annotations = {
-      "helm.sh/hook" = "post-install";
-      "helm.sh/hook-weight" = "999";
-    };
   };
   spec = {
     project = "default";
@@ -22,6 +18,16 @@
       directory = {
         recurse = false;
       };
+    };
+    syncPolicy = {
+      automated = {
+        prune = true;
+        selfHeal = true;
+        allowEmpty = false;
+      };
+      syncOptions = [
+        "CreateNamespace=true"
+      ];
     };
   };
 }

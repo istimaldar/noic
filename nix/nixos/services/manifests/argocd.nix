@@ -1,4 +1,4 @@
-{ host, ... }: {
+{ ... }: {
   apiVersion = "helm.cattle.io/v1";
   kind = "HelmChart";
   metadata = {
@@ -7,10 +7,10 @@
   };
   spec = {
     chart = "argo-cd";
-    targetNamespace = "argo-cd";
+    targetNamespace = "argocd";
     createNamespace = true;
     version = "7.6.8";
     repo = "https://argoproj.github.io/argo-helm";
-    valuesContent = builtins.toJSON (import ../values/argocd.nix { inherit host; });
+    valuesContent = builtins.toJSON (import ../values/argocd.nix { });
   };
 }

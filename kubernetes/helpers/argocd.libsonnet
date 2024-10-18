@@ -29,6 +29,16 @@
         server: "https://kubernetes.default.svc",
         namespace: application.namespace
       },
+      syncPolicy: {
+        automated: {
+          prune: true,
+          selfHeal: true,
+          allowEmpty: false
+        },
+        syncOptions: [
+          'CreateNamespace=true'
+        ]
+      },
       source: application.source
     }
   },
