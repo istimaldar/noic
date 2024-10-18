@@ -1,5 +1,5 @@
 local argocd = import 'helpers/argocd.libsonnet';
 local configuration = import 'helpers/configuration.libsonnet';
-argocd.ArgoApplication + {
+argocd.JsonnetArgoApplication + {
   name:: 'cert-manager-issuer'
 }
