@@ -1,5 +1,5 @@
 { ... }: {
-  config.params = {
+  configs.params = {
     "server.insecure" = true;
   };
 }

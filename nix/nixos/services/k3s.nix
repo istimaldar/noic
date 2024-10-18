@@ -1,4 +1,4 @@
-{ pkgs, host, ... }: {
+{ lib, pkgs, host, ... }: {
   enable = host.features.kubernetes.enable;
   package = pkgs.k3s_1_29;
   role = "server";
@@ -14,7 +14,7 @@
     system-applications = {
       enable = true;
       target = "system-applications.yaml";
-      content = import ./manifests/system-applications.nix { };
+      content = import ./manifests/system-applications.nix { inherit lib; };
     };
   };
 }

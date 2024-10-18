@@ -8,6 +8,17 @@
       valuesObject: values
     }
   },
+  local generateJsonnetSource = function(name, values) {
+    repoURL: "https://github.com/istimaldar/noic.git",
+    targetRevision: "HEAD",
+    path: "kubernetes/manifests/" + name,
+    directory: {
+      recurse: false,
+      jsonnet: {
+        extVars: values
+      }
+    }
+  },
   generateSyncWave: function(wave) {
     'argocd.argoproj.io/sync-wave': wave
   },
@@ -49,5 +60,9 @@
     version:: error 'Chart version must be specified',
     values:: {},
     source:: generateHelmSource(self.releaseName, self.chart, self.repo, self.version, self.values)
+  },
+  JsonnetArgoApplication: self.ArgoApplication + {
+    values:: {},
+    source:: generateJsonnetSource(self.name, self.values)
   }
 }

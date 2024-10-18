@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
   apiVersion = "argoproj.io/v1alpha1";
   kind = "Application";
   metadata = {
@@ -17,6 +17,10 @@
       path = "kubernetes";
       directory = {
         recurse = false;
+        jsonnet = {
+          tlas = (
+            lib.attrsets.mapAttrsToList (name: value: { inherit name value; }) (import ../values/jsonnet.nix {}));
+        };
       };
     };
     syncPolicy = {
