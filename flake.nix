@@ -53,8 +53,8 @@
           nurpkgs = pkgs;
         };
       in lib.nixosSystem {
-        inherit pkgs system;
-        specialArgs = { inherit host spicetify-nix sddm-catppuccin; };
+        inherit system;
+        specialArgs = { inherit pkgs host spicetify-nix sddm-catppuccin; };
 
         modules = [
           nurpkgs.nixosModules.nur

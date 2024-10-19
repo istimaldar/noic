@@ -10,6 +10,6 @@
   molecule
   terraform-ls
   terraform
-  vagrant
+  stable.vagrant # TODO: Remove once it's fixed in unstable
   operator-sdk
 ]

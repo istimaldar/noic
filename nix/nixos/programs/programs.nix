@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   hyprland = {
     enable = true;
     xwayland = {
@@ -18,5 +18,6 @@
 
   openvpn3 = {
     enable = true;
+    package = pkgs.stable.openvpn3; # TODO: remove when merged upstream
   };
 }
