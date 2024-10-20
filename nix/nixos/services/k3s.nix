@@ -1,6 +1,5 @@
-{ pkgs, host, ... }: {
+{ host, ... }: {
   enable = host.features.kubernetes.enable;
-  package = pkgs.k3s_1_29;
   role = "server";
   extraFlags = [
     "--disable=traefik,metrics-server"

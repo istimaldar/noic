@@ -10,7 +10,7 @@
   networking = import ./networking/networking.nix { inherit host; };
   programs = import ./programs/programs.nix { inherit pkgs; };
   security = import ./security/security.nix { };
-  services = import ./services/services.nix { inherit config pkgs host; };
+  services = import ./services/services.nix { inherit config host; };
   virtualisation = import ./virtualisation/virtualisation.nix { inherit config lib host; };
   sops = import ./sops/sops.nix { };
 

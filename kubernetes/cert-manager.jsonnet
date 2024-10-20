@@ -10,24 +10,24 @@ argocd.HelmArgoApplication + {
     },
     deploymentAnnotations: argocd.generateSyncWave('-6'),
     serviceAnnotations: argocd.generateSyncWave('-6'),
-    serviceAccount: {
-      annotations: argocd.generateSyncWave('-6')
-    },
+    // serviceAccount: {
+    //   annotations: argocd.generateSyncWave('-6')
+    // },
     webhook: {
       deploymentAnnotations: argocd.generateSyncWave('-6'),
       serviceAnnotations: argocd.generateSyncWave('-6'),
       mutatingWebhookConfigurationAnnotations: argocd.generateSyncWave('-7'),
       validatingWebhookConfigurationAnnotations: argocd.generateSyncWave('-7'),
-      serviceAccount: {
-        annotations: argocd.generateSyncWave('-6')
-      }
+      // serviceAccount: {
+      //   annotations: argocd.generateSyncWave('-6')
+      // }
     },
     cainjector: {
       deploymentAnnotations: argocd.generateSyncWave('-6'),
       serviceAnnotations: argocd.generateSyncWave('-6'),
-      serviceAccount: {
-        annotations: argocd.generateSyncWave('-6')
-      }
+      // serviceAccount: {
+      //   annotations: argocd.generateSyncWave('-6')
+      // }
     }
   }
 }

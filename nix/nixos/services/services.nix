@@ -1,8 +1,8 @@
-{ config, pkgs, host, ... }: {
+{ config, host, ... }: {
   displayManager = import ./displayManager.nix { };
   grafana = import ./grafana.nix { inherit config; };
   loki = import ./loki.nix { };
-  k3s = import ./k3s.nix { inherit pkgs host; };
+  k3s = import ./k3s.nix { inherit host; };
   ollama = import ./ollama.nix { inherit host; };
   openssh = import ./openssh.nix { };
   pipewire = import ./pipewire.nix { };
