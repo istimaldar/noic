@@ -10,5 +10,9 @@
       sopsFile = ../../../secrets/manifests.yaml;
       path = "/var/lib/rancher/k3s/server/manifests/cert-manager-acme-cloudflare.yaml";
     };
+    "external-dns-cloudflare.yaml" = {
+      sopsFile = ../../../secrets/manifests.yaml;
+      path = "/var/lib/rancher/k3s/server/manifests/external-dns-cloudflare.yaml";
+    };
   };
 }
