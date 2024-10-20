@@ -12,9 +12,9 @@
     repoURL: "https://github.com/istimaldar/noic.git",
     targetRevision: "HEAD",
     path: "kubernetes/manifests/" + name,
-    [if std.length(values) > 0 then 'directory']: {
+    directory: {
       recurse: false,
-      jsonnet: {
+      [if std.length(values) > 0 then 'jsonnet']: {
         extVars: values
       }
     }
@@ -33,7 +33,7 @@
     kind: 'Application',
     metadata: {
       name: application.name,
-      namespace: 'argocd',
+      namespace: 'argo-cd',
       annotations: $.generateSyncWave(application.syncWave),
     },
     spec: {

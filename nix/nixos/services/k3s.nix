@@ -13,7 +13,7 @@
     system-applications = {
       enable = true;
       target = "system-applications.yaml";
-      content = import ./manifests/system-applications.nix { };
+      content = import ./manifests/system-applications.nix { inherit host; };
     };
   };
 }

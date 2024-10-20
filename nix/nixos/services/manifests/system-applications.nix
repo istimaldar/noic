@@ -1,15 +1,15 @@
-{ ... }: {
+{ host, ... }: {
   apiVersion = "argoproj.io/v1alpha1";
   kind = "Application";
   metadata = {
     name = "system-applications";
-    namespace = "argocd";
+    namespace = "argo-cd";
   };
   spec = {
     project = "default";
     destination = {
       server = "https://kubernetes.default.svc";
-      namespace = "argocd";
+      namespace = "argo-cd";
     };
     source = {
       repoURL = "https://github.com/istimaldar/noic.git";
@@ -17,6 +17,14 @@
       path = "kubernetes";
       directory = {
         recurse = false;
+        jsonnet = {
+          extVars  = [
+            {
+              name  = "hostname";
+              value  = host.name;
+            }
+          ];
+        };
       };
     };
     syncPolicy = {

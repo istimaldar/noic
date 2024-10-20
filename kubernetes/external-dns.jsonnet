@@ -4,7 +4,7 @@ argocd.HelmArgoApplication + {
   name:: 'external-dns',
   repo:: 'https://charts.bitnami.com/bitnami',
   version:: '8.3.9',
-  syncWave:: 0,
+  syncWave:: -5,
   values:: {
     provider: 'cloudflare',
     cloudflare: {

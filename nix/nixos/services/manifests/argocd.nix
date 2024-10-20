@@ -2,14 +2,14 @@
   apiVersion = "helm.cattle.io/v1";
   kind = "HelmChart";
   metadata = {
-    name = "argocd";
+    name = "argo-cd";
     namespace = "kube-system";
   };
   spec = {
     chart = "argo-cd";
-    targetNamespace = "argocd";
+    targetNamespace = "argo-cd";
     createNamespace = true;
-    version = "7.6.8";
+    version = "7.6.12";
     repo = "https://argoproj.github.io/argo-helm";
     valuesContent = builtins.toJSON (import ../values/argocd.nix { });
   };

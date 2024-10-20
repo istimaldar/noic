@@ -3,7 +3,7 @@ argocd.HelmArgoApplication + {
   name:: 'traefik',
   repo:: 'https://traefik.github.io/charts',
   version:: '32.1.1',
-  syncWave:: 2,
+  syncWave:: -3,
   values:: {
     providers: {
       kubernetesCRD: {
