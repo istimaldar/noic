@@ -5,7 +5,7 @@ local argocd = import '../../helpers/argocd.libsonnet';
   kind: 'ClusterIssuer',
   metadata: {
     name: constants.cert_manager.issuer.name,
-    annotations: argocd.generateSyncWave('-4')
+    annotations: argocd.generateSyncWave('-5')
   },
   spec: {
     acme: {
