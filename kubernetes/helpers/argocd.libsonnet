@@ -62,7 +62,7 @@
     source:: generateHelmSource(self.releaseName, self.chart, self.repo, self.version, self.values)
   },
   JsonnetArgoApplication: self.ArgoApplication + {
-    values:: {},
+    values:: [],
     source:: generateJsonnetSource(self.name, self.values)
   }
 }
