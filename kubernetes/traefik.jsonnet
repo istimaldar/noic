@@ -1,5 +1,5 @@
 local argocd = import './helpers/argocd.libsonnet';
-{
+argocd.HelmArgoApplication + {
   name:: 'traefik',
   repo:: 'https://traefik.github.io/charts',
   version:: '32.1.1',
