@@ -20,19 +20,21 @@
     }
   },
   generateSyncWave: function(wave) {
-    'argocd.argoproj.io/sync-wave': wave
+    'argocd.argoproj.io/sync-wave': std.toString(wave)
   },
   ArgoApplication: {
     local application = self,
     name:: error 'Name must be specified',
     namespace:: self.name,
     source:: error 'Source must be specified',
+    syncWave:: 0,
 
     apiVersion: 'argoproj.io/v1alpha1',
     kind: 'Application',
     metadata: {
       name: application.name,
-      namespace: 'argocd'
+      namespace: 'argocd',
+      annotations: $.generateSyncWave(application.syncWave),
     },
     spec: {
       project: "default",
