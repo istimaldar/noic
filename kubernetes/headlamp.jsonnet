@@ -17,7 +17,7 @@ argocd.HelmArgoApplication + {
           paths: [
             {
               path: '/',
-              pathType: 'ImplementationSpecific'
+              type: 'ImplementationSpecific'
             }
           ]
         }
