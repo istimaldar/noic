@@ -21,7 +21,10 @@ argocd.HelmArgoApplication + {
         {
           secretName: 'headlamp-tls',
           hosts: [
-            constants.headlamp.domain
+            {
+              host: constants.headlamp.domain,
+              path: '/'
+            }
           ]
         }
       ]
