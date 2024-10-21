@@ -1,4 +1,5 @@
 local argocd = import './helpers/argocd.libsonnet';
+local ingress = import './helpers/ingress.libsonnet';
 local constants = import './helpers/constants.libsonnet';
 argocd.HelmArgoApplication + {
   name:: 'argo-cd',
@@ -34,9 +35,7 @@ argocd.HelmArgoApplication + {
       ingress: {
         enabled: true,
         ingressClassName: constants.traefik.ingressClassName,
-        annotations: {
-          'cert-manager.io/cluster-issuer': constants.cert_manager.issuer.name
-        },
+        annotations: ingress.IngressAnnotations,
         extraTls: [
           {
             secretName: 'argo-cd-tls',

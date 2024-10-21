@@ -1,7 +1,8 @@
 local variables = import './variables.libsonnet';
 {
   email: 'istimaldar@gmail.com',
-  domain: 'istimaldar.site',
+  tld: 'istimaldar.site',
+  host_domain: '%s.%s' % [variables.hostname.value, $.tld],
   acme: {
     staging_url: 'https://acme-staging-v02.api.letsencrypt.org/directory',
     production_url: 'https://acme-v02.api.letsencrypt.org/directory'
@@ -25,6 +26,9 @@ local variables = import './variables.libsonnet';
     ingressClassName: 'traefik'
   },
   argocd: {
-    domain: 'argocd.%s.%s' % [variables.hostname.value, $.domain]
+    domain: 'argocd.%s' % $.host_domain
+  },
+  headlamp: {
+    domain: 'headlamp.%s' % $.host_domain
   }
 }
