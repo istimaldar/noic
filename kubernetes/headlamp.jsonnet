@@ -5,7 +5,7 @@ argocd.HelmArgoApplication + {
   name:: 'headlamp',
   repo:: 'https://headlamp-k8s.github.io/headlamp/',
   version:: '0.25.0',
-  syncWave:: -5,
+  syncWave:: -1,
   values:: {
     config: {
       baseURL: constants.headlamp.domain
