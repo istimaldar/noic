@@ -15,16 +15,16 @@ argocd.HelmArgoApplication + {
       ingressClassName: constants.traefik.ingressClassName,
       annotations: ingress.IngressAnnotations,
       hosts: [
-        constants.headlamp.domain
+        {
+          host: constants.headlamp.domain,
+          path: '/'
+        }
       ],
-      extraTls: [
+      tls: [
         {
           secretName: 'headlamp-tls',
           hosts: [
-            {
-              host: constants.headlamp.domain,
-              path: '/'
-            }
+            constants.headlamp.domain
           ]
         }
       ]
