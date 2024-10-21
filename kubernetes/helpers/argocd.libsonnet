@@ -12,9 +12,8 @@
     repoURL: "https://github.com/istimaldar/noic.git",
     targetRevision: "HEAD",
     path: "kubernetes/manifests/" + name,
-    directory: {
-      recurse: false,
-      [if std.length(values) > 0 then 'jsonnet']: {
+    [if std.length(values) > 0 then 'directory']: {
+      jsonnet: {
         extVars: values
       }
     }
