@@ -14,7 +14,10 @@ argocd.HelmArgoApplication + {
       hosts: [
         {
           host: constants.headlamp.domain,
-          path: '/'
+          paths: {
+            path: '/',
+            pathType: 'ImplementationSpecific'
+          }
         }
       ],
       tls: [
