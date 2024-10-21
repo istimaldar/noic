@@ -7,9 +7,6 @@ argocd.HelmArgoApplication + {
   version:: '0.25.0',
   syncWave:: -1,
   values:: {
-    config: {
-      baseURL: constants.headlamp.domain
-    },
     ingress: {
       enabled: true,
       ingressClassName: constants.traefik.ingressClassName,
