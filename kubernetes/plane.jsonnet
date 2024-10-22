@@ -5,7 +5,7 @@ argocd.HelmArgoApplication + {
   name:: 'plane-ce',
   namespace:: 'plane',
   repo:: 'https://helm.plane.so/',
-  version:: '0.23.0',
+  version:: '1.0.26',
   syncWave:: 0,
   values:: {
     ingress: {
