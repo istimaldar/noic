@@ -1,0 +1,222 @@
+## 1.1.0 (2024-10-22)
+
+### Feat
+
+- **nixos**: NixOS updated
+- **nixos**: NixOS update
+- **nixos**: NixOS updated
+- **nixos**: Workspace configuration
+- **nixos**: Dadana rodnaja mova
+- **nixos**: Android emulator added
+- **nixos**: Beeper installation added
+- **nixos**: Plugins updated
+- **nixos**: NixOs updated
+- **nixos**: Updated and some new apps added
+- **nixos**: Kionithar host update
+- **nixos**: Multiple updates
+- **nixos**: VsCode extensions updated
+- **nixos**: GPRC tools added, packages updated
+- **nixos**: Multiple packages updated
+- **nixos**: Glances package added
+- **nixos**: Updates and ansible support improvements
+- **nixos**: Virtualbox support added
+- **nixos**: Mail client added. Some updates on VSCode and Logseq plugins
+- **nixos**: VSCode plugina and system updated
+- **nixos**: Julia added
+- **nixos**: Gomplate package added
+- **nixos**: 2023-05-21 Update
+- **nixos**: 2023-05-18 Update
+- CoreDNS updates
+- **k8s**: Kluster local DNS enabled with dnsmasq
+- **nixos**: Goland appearance fixed
+- **nixos**: OpenVPN Quick access
+- **nixos**: Logseq autostart added
+- **nixos**: Logseq config updated
+- **nixos**: Home manager programs refactoring
+- **nixos**: Multiple UI improvements
+- **nixos**: Git authofetch enabled for VSCode
+- **nixos**: Whisper updated
+- **k8s**: Crossplane added
+- **k8s**: Argo workflows switched to server mode
+- **k8s**: Zitadel machine authomation added
+- **nixos**: Packages structure refactored
+- **nixos**: Refactoring for proper AMD GPU support
+- **nixos**: 2023-05-06 Update
+- **nixos**: Lore extraction pipeline added
+- **k8s**: Argo Workflows added
+- **nixos**: DataGrip added
+- **k8s**: Migrated to NIP io
+- **nixos**: Protoc compiler added
+- Initial user added to zitadel
+- **k8s**: Zitadel TLS configured
+- **nixos**: 2023-05-04 Update
+- **k8s**: Zitadel certificates disabled
+- **k8s**: Zitadel enabled
+- **k8s**: CockroachDB storage class fixed
+- **k8s**: Zitadel DB added
+- **k8s**: OpenEBS added
+- **k8s**: Prsistant storage with longhorn added
+- **k8s**: Cert manager enabled for argocd
+- **k8s**: Certificate manager added
+- **nixos**: Plymouth added
+- **k8s**: Cert manager initial
+- **nixos**: Terraform added
+- **ui**: Waybar font changed to JB Mono
+- Logseq workspace fixed
+- **ui**: Total waybar redesign
+- License added
+- **nixos**: Language menu added
+- **workflow**: Logseq auto start
+- **nixos**: Proper screenshots added
+- **ui**: Nord cursors
+- **ui**: Nord Theme for GTK and QT + Logseq Configuration
+- **nixos**: Logseq added
+- **nixos**: Mattermost installed
+- **k8s**: Applications created
+- **k8s**: Kubernetes startup scripts
+- **nixos**: AWS packages added
+- **ui**: VSCode status menu hidden
+- **ui**: Wallpapper added
+- **k8s**: Dependencies for Kubernetes cluster added
+- **terminal**: Switch to modern alternatives to classic command
+- **nixos**: Direnv configured, kubernetes configuration started
+- **nixos**: Seconds host fixed, additional keyboard layouts added
+- **install**: Installation script updated, second host added
+- **nixos**: Mitmproxy configured
+- **ui**: Waypar and Hyprland configured
+- **ui**: Hyprland configuration fixed
+- **nixos**: Terminal configuration improved
+- **nixos**: Default programs added
+- **nixos**: Initial installation version
+- **nixos**: New terminal added
+- **nixos**: Wofi configured
+- **nixos**: Kitty and VSCode added
+- **nixos**: Session manager enabled
+- **nixos**: Hyprland enabled
+- **nixos**: Default user added to sudoers
+- **nixos**: Multiple user fixes
+- Initial system flake created
+- **install**: Encryption setup added
+- **install**: Partition formatting added
+- **install**: Installation arguments validation added
+- **install**: Script option parsing added
+
+### Fix
+
+- Typo fixed
+- Path type fixed
+- Headlamp Ingress fixed
+- Base URL for Headlamp fixed
+- Headlamp deployment fixed
+- Headlamp sync wave fixed
+- Argo app synchronization fixed
+- Inherance fixed
+- Secret key for Cloudflare fixed
+- Sync waves reorganized
+- Default issue vakues types fixed
+- Removed all annotations except for deployment
+- Eza, display configuration and cert-manager service account testing
+- Cluster issuer fixed
+- ArgoCD sync wave added to cluster issuer
+- Secretes configurations added
+- Helm values fixed
+- Values rendering fixed
+- Proper cert manger installation
+- Default shell fixed
+- Monitors configuration fixed on Lirianiko
+- ZSH history search fixed
+- Installation script fixed
+- Godot removed
+- Logseq fixed
+- SSH key fixed
+- Dependencies updated
+- Cert manager operator fixed
+- Argo Operator fixed
+- Group fixed
+- Chart values fixed
+- Operators subscriptions fixed
+- Operator name fxed
+- Charts operator fixed
+- Namespaces list fixed
+- Initial operators implementation
+- An attempt to fix zitadel
+- ArgoCD fixed
+- Cert manager issues fixed
+- ArgoCD values fixed
+- Templating errors fixed
+- Mattermost annotation fixed
+- TLS added for mattermost
+- Mattermost fixed
+- IP fixed
+- IP fixed
+- Address fixed
+- K3S settings fixed
+- K3S fixed
+- Redundant user removed
+- Lapce added
+- **nixos**: Electron reverted to fix Logseq problem
+- **k8s**: Trust manager values fixed
+- **k8s**: Trust manger naming fixed
+- **k8s**: Domain names fixed
+- **nixos**: Update, VSCodium fix and AMD restoration
+- **nixos**: Terraform extension hash fixed
+- **k8s**: Workflow bootstrap name fixed
+- **k8s**: Namespaces configuration fixed
+- **k8s**: ArgoCD secret reverted
+- Password copy logic removed
+- **k8s**: Agro and Zitadel fixes
+- **k8s**: ArgoCD docker images fixed
+- **k8s**: Zitadel initial user configuration fixed
+- **nixos**: User creation added
+- **k8s**: Zitadel ingress fixed
+- **k8s**: SSL mode fixed
+- **k8s**: DB provisioning
+- **k8s**: Certs mount fixed
+- **k8s**: Zitadel host fixed
+- **k8s**: Zitadel config fixed
+- **k8s**: DB TLS enabled
+- **k8s**: SSL disabled on cocroachdb
+- **k8s**: Zitadel configs fixed
+- **k8s**: Node configuration fixed
+- **k8s**: CockroachDB version fixed
+- **k8s**: Sync wave fix
+- **k8s**: Cluster status fixed
+- **k8s**: HTTPS port forward for local deployment
+- **k8s**: ArgoCD HTTPS enabled
+- **k8s**: HTTP3 disabled on http
+- **k8s**: Traefik syncwave fixed
+- **k8s**: ArgoCD settings fixed
+- **k8s**: Sync wave annotations
+- **k8s**: Cert manager variable fixed
+- **ui**: Workspaces icons fixed
+- **k8s**: Packages repository fixed
+- **k8s**: Kubernetes initial deployment improved
+- **k8s**: Charts paths fixed
+- **nixos**: Flake updated
+- **nixos**: AmdGpu tempararily removed
+- **nixos**: Drun fixed
+- **install**: More ways to run wofi
+- **nixos**: Hyprland config moced to a regular file
+- **nixos**: Flake fixed
+- **nixos**: Home manager hyperland added
+- **nixos**: Pulse server fixed
+- **nixos**: XGG fixed
+- **nixos**: XServer enabled
+- **nixos**: Nix config fixed
+- **nixos**: Nix registry fixed
+- **nixos**: Flake path fixed
+- **nixos**: Unfree packages allowed
+- **nixos**: Host name fixed
+- **install**: Default flake for NixOS
+- **nixos**: Home manager version fixed
+- **install**: NUR fixed
+- **nixos**:
+- **nixos**: Home manager fixed according to template
+- **nixos**: Trying to inherit
+- **nixos**: Imports fixed
+- **nixos**: Imports configuration refactored
+- **nixos**: Home manager import fixed
+- **install**: Flake installation fixed
+- **install**: System boot replaced with GRUB
+- **install**: DHCP disabled
+- **install**: Mkdir configuration fixed

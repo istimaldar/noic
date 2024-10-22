@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   systemd.enable = true;
   luks.devices = {
     root = {

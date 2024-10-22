@@ -3,7 +3,7 @@
   "$defs": {
     "enable": {
       "title": "Enable",
-      "description": "Wheteher to enable the feature",
+      "description": "Whether to enable the feature",
       "type": "boolean",
       "default": false
     }
@@ -14,13 +14,13 @@
   "properties": {
     "amdGpu": {
       "title": "AMD GPU",
-      "description": "Wheteher to enable AMD GPU",
+      "description": "Whether to enable AMD GPU",
       "type": "boolean",
       "default": false
     },
     "stable": {
       "title": "Stable",
-      "description": "Wheteher to use stable Nixpkgs channel",
+      "description": "Whether to use stable Nixpkgs channel",
       "type": "boolean",
       "default": false
     },
@@ -133,9 +133,9 @@
           ],
           "additionalProperties": false
         },
-        "messangers": {
-          "title": "Messangers",
-          "description": "Messangers and SNI",
+        "messengers": {
+          "title": "Messengers",
+          "description": "Messengers and SNI",
           "type": "object",
           "properties": {
             "enable": {
@@ -160,13 +160,42 @@
               "description": "A hostname that will be used with kubernetes",
               "type": "string"
             },
-            "charts": {
-              "title": "Charts",
-              "description": "Helm Charts' configuration",
+            "components": {
+              "title": "Components",
+              "description": "Kubernetes components' configuration",
               "type": "object",
-              "items": {
-
-              }
+              "properties": {
+                "headlamp": {
+                  "title": "Headlamp",
+                  "description": "A Kubernetes web UI that is fully-featured, user-friendly and extensible",
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "$ref": "#/$defs/enable"
+                    }
+                  },
+                  "required": [
+                    "enable"
+                  ],
+                  "additionalProperties": false
+                },
+                "plane": {
+                  "title": "Plane",
+                  "description": "Thoughtfully crafted project management software that works for any team in any industry without any configurations gymnastics",
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "$ref": "#/$defs/enable"
+                    }
+                  },
+                  "required": [
+                    "enable"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
@@ -200,6 +229,7 @@
       "items": {
         "title": "Mount",
         "description": "A mount configuration",
+        "type": "object",
         "properties": {
           "device": {
             "title": "Device",

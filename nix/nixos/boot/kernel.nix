@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   sysctl = {
     "net.ipv4.ip_unprivileged_port_start" = 0;
     "net.netfilter.nf_conntrack_max" = 524288;

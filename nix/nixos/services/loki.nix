@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   enable = true;
   configuration = {
     auth_enabled = false;

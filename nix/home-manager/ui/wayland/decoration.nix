@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   rounding = 10;
 
   dim_inactive = true;

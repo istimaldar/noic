@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   apiVersion = "helm.cattle.io/v1";
   kind = "HelmChart";
   metadata = {

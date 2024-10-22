@@ -30,7 +30,7 @@
       vscode = "󰨞";
       browser = "";
       terminal = "";
-      work_messangers = "󰒱";
+      work_messengers = "󰒱";
       journal = "";
       telegram = "";
       ide_primary = "";

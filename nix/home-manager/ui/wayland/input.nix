@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   kb_layout = "us,by,ru";
   kb_options = "grp:caps_toggle";
   numlock_by_default = true;

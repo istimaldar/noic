@@ -94,4 +94,12 @@
   mitmproxy
 
   master.go-task
+
+  semantic-release
+  commitizen
+  commitlint
+  lefthook
+
+  statix
+  nur.repos.sikmir.ajv-cli
 ]

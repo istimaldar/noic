@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   configs = {
     params = {
       "server.insecure" = true;

@@ -13,6 +13,7 @@
     ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
+      # cspell:disable-next-line
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYxsZ0H7rZSRki1OW6oKo9zbr4yrqQ8EMwbpvIBCSrn istimaldar"
     ];
   };

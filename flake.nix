@@ -32,13 +32,13 @@
   outputs = { nixpkgs, nixpkgs-stable, nixpkgs-master, spicetify-nix, sddm-catppuccin, catppuccin-vsc, nurpkgs, home-manager, sops-nix, ... }:
     let
       system = "x86_64-linux";
-      lib = nixpkgs.lib;
+      inherit (nixpkgs) lib;
       configurePackages = host: input: import input {
         inherit system;
         overlays = map (f: (import (./nix/overlays + "/${f}"))) (builtins.attrNames (builtins.readDir ./nix/overlays)) ++ [catppuccin-vsc.overlays.default];
         config = {
           allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) (import ./nix/configuration/unfree-packages.nix);
-          permittedInsecurePackages = (import ./nix/configuration/insecure-packages.nix);
+          permittedInsecurePackages = import ./nix/configuration/insecure-packages.nix;
           rocmSupport = host.amdGpu;
         };
       };
@@ -46,11 +46,10 @@
         pkgs = (configurePackages host (if host.stable then nixpkgs-stable else nixpkgs)) // {
           master = configurePackages host nixpkgs-master;
           stable = configurePackages host nixpkgs-stable;
-        };
-
-        nur = import nurpkgs {
-          inherit pkgs;
-          nurpkgs = pkgs;
+          nur = import nurpkgs {
+            inherit pkgs;
+            nurpkgs = pkgs;
+          };
         };
       in lib.nixosSystem {
         inherit system;
@@ -62,13 +61,15 @@
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
-            home-manager.useUserPackages = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.users.istimaldar.imports = [
-              ({ lib, config, ... }: import ./nix/home-manager/home.nix {
-                inherit lib config pkgs host nur;
-              })
-            ];
+            home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = true;
+              users.istimaldar.imports = [
+                ({ lib, config, ... }: import ./nix/home-manager/home.nix {
+                  inherit lib config pkgs host;
+                })
+              ];
+            };
           }
           ./nix/spicefy/spicefy.nix
         ];
@@ -95,16 +96,24 @@
                 kubernetes = {
                   enable = false;
                   hostname = name;
+                  components = {
+                    headlamp = {
+                      enable = false;
+                    };
+                    plane = {
+                      enable = false;
+                    };
+                  };
                 };
                 media_edit.enable = false;
-                messangers.enable = false;
+                messengers.enable = false;
                 miscellaneous.enable = true;
                 python.enable = false;
               };
               extraMounts = [];
             };
             settings = lib.attrsets.recursiveUpdate defaultSettings content;
-          in { name = name; value = mkHostConfiguration settings; }
+          in { inherit name; value = mkHostConfiguration settings; }
         )
         (
           builtins.attrNames (builtins.readDir hosts)

@@ -1,0 +1,15 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint-nix:
+      run: statix check
+    spellcheck:
+      run: yarn cspell '**'
+    schema:
+      run: find -path './hosts/*.json' -exec yarn ajv -s schemas/host.schema.json -d {} \;
+commit-msg:
+  commands:
+    commitlint:
+      run: yarn commitlint --edit {1}
+    spellcheck:
+      run: yarn cspell {1}

@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   extraOptions = ''
   experimental-features = nix-command flakes
   min-free = ${toString (10 * 1024 * 1024 * 1024)}

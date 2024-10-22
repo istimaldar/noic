@@ -1,0 +1,10 @@
+{
+  "name": "noic",
+  "packageManager": "yarn@4.5.1",
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "ajv-cli": "^5.0.0",
+    "cspell": "^8.15.4"
+  }
+}

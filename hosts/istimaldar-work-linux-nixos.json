@@ -16,12 +16,13 @@
       "enable": true
     },
     "kubernetes": {
-      "enable": true
+      "enable": true,
+      "hostname": "work.istimaldar.site"
     },
     "media_edit": {
       "enable": true
     },
-    "messangers": {
+    "messengers": {
       "enable": true
     },
     "miscellaneous": {

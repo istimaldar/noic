@@ -21,6 +21,6 @@
       animations = import ./wayland/animations.nix {};
     };
 
-    extraConfig = (builtins.readFile "${pkgs.catppuccin}/hyprland/macchiato.conf");
+    extraConfig = builtins.readFile "${pkgs.catppuccin}/hyprland/macchiato.conf";
   };
 }

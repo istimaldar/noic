@@ -1,0 +1,41 @@
+version: 3
+includes: {}
+tasks:
+  switch:
+    desc: Switch to a new NixOS configuration based on this repo
+    aliases:
+      - default
+    cmd: nixos-rebuild switch --flake "${PWD}#" -L
+
+  verify:
+    desc: Runs linting, spellchecks and schema validations
+    aliases:
+      - check
+    cmds:
+      - task: lint
+      - task: spellcheck
+      - task: validate-schema
+
+  lint:
+    desc: Linting Nix files in the repo
+    sources:
+      - flake.nix
+      - nix/**/*.nix
+    cmd: statix check
+
+  spellcheck:
+    desc: Check grammar in the repository
+    sources:
+      - '**'
+      - exclude: node_modules
+      - exclude: secrets
+      - exclude: certificates
+    cmd: yarn cspell '**'
+
+  validate-schema:
+    desc: Validate hosts with JSON Schema
+    sources:
+      - hosts/*.json
+    cmds:
+      - for: sources
+        cmd: yarn ajv -s schemas/host.schema.json -d {{ .ITEM }}

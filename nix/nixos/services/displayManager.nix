@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   defaultSession = "hyprland";
   sddm = {
     enable = true;

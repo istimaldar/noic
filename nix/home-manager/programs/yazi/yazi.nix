@@ -9,5 +9,5 @@ theme = lib.attrsets.recursiveUpdate themeSettings highlightPatch;
 in {
   enable = true;
   enableZshIntegration = true;
-  theme = theme;
+  inherit theme;
 }

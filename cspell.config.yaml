@@ -1,0 +1,10 @@
+version: "0.2"
+dictionaryDefinitions:
+  - name: noic
+    path: './noic.txt'
+    addWords: true
+dictionaries:
+  - noic
+ignorePaths:
+  - secrets
+  - certificates
