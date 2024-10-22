@@ -155,6 +155,11 @@
             "enable": {
               "$ref": "#/$defs/enable"
             },
+            "hostname": {
+              "title": "Hostname",
+              "description": "A hostname that will be used with kubernetes",
+              "type": "string"
+            },
             "charts": {
               "title": "Charts",
               "description": "Helm Charts' configuration",

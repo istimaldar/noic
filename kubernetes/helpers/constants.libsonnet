@@ -1,8 +1,7 @@
 local variables = import './variables.libsonnet';
 {
   email: 'istimaldar@gmail.com',
-  tld: 'istimaldar.site',
-  host_domain: '%s.%s' % [variables.hostname.value, $.tld],
+  host_domain: variables.hostname.value,
   acme: {
     staging_url: 'https://acme-staging-v02.api.letsencrypt.org/directory',
     production_url: 'https://acme-v02.api.letsencrypt.org/directory'
@@ -30,5 +29,8 @@ local variables = import './variables.libsonnet';
   },
   headlamp: {
     domain: 'headlamp.%s' % $.host_domain
+  },
+  plane: {
+    domain: 'plane.%s' % $.host_domain
   }
 }

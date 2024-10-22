@@ -92,7 +92,10 @@
                 cloud.enable = false;
                 dotnet.enable = false;
                 java.enable = false;
-                kubernetes.enable = false;
+                kubernetes = {
+                  enable = false;
+                  hostname = name;
+                };
                 media_edit.enable = false;
                 messangers.enable = false;
                 miscellaneous.enable = true;

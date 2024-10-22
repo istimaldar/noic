@@ -16,7 +16,8 @@
       "enable": true
     },
     "kubernetes": {
-      "enable": true
+      "enable": true,
+      "hostname": "home.istimaldar.site"
     },
     "media_edit": {
       "enable": true

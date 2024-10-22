@@ -21,7 +21,7 @@
           extVars  = [
             {
               name  = "hostname";
-              value  = host.name;
+              value  = host.features.kubernetes.hostname;
             }
           ];
         };
