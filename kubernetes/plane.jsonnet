@@ -15,6 +15,18 @@ argocd.HelmArgoApplication + {
     },
     ssl: {
       issuer: constants.cert_manager.issuer.name
+    },
+    postgres: {
+      storageClass: constants.storage.class
+    },
+    redis: {
+      storageClass: constants.storage.class
+    },
+    rabbitmq: {
+      storageClass: constants.storage.class
+    },
+    minio: {
+      storageClass: constants.storage.class
     }
   }
 }

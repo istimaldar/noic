@@ -21,6 +21,9 @@ local variables = import './variables.libsonnet';
       secret_name: 'external-dns-cloudflare'
     }
   },
+  storage: {
+    class: 'local-path'
+  },
   traefik: {
     ingressClassName: 'traefik'
   },
