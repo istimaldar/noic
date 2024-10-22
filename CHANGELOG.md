@@ -2,6 +2,7 @@
 
 ### Feat
 
+- **repo**: linters, spellcheck, schema validators and repo lifecycle managers added
 - **nixos**: NixOS updated
 - **nixos**: NixOS update
 - **nixos**: NixOS updated
@@ -28,7 +29,7 @@
 - **nixos**: 2023-05-18 Update
 - CoreDNS updates
 - **k8s**: Kluster local DNS enabled with dnsmasq
-- **nixos**: Goland appearance fixed
+- **nixos**: Goland apperance fixed
 - **nixos**: OpenVPN Quick access
 - **nixos**: Logseq autostart added
 - **nixos**: Logseq config updated
@@ -40,7 +41,7 @@
 - **k8s**: Argo workflows switched to server mode
 - **k8s**: Zitadel machine authomation added
 - **nixos**: Packages structure refactored
-- **nixos**: Refactoring for proper AMD GPU support
+- **nixos**: Refactoring for propper AMD GPU support
 - **nixos**: 2023-05-06 Update
 - **nixos**: Lore extraction pipeline added
 - **k8s**: Argo Workflows added
@@ -109,7 +110,7 @@
 - Base URL for Headlamp fixed
 - Headlamp deployment fixed
 - Headlamp sync wave fixed
-- Argo app synchronization fixed
+- Argo app syncronization fixed
 - Inherance fixed
 - Secret key for Cloudflare fixed
 - Sync waves reorganized
@@ -149,7 +150,7 @@
 - Mattermost fixed
 - IP fixed
 - IP fixed
-- Address fixed
+- Adress fixed
 - K3S settings fixed
 - K3S fixed
 - Redundant user removed
@@ -210,7 +211,7 @@
 - **install**: Default flake for NixOS
 - **nixos**: Home manager version fixed
 - **install**: NUR fixed
-- **nixos**:
+- **nixos**: 
 - **nixos**: Home manager fixed according to template
 - **nixos**: Trying to inherit
 - **nixos**: Imports fixed

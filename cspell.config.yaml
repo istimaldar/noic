@@ -8,3 +8,4 @@ dictionaries:
 ignorePaths:
   - secrets
   - certificates
+  - CHANGELOG.md

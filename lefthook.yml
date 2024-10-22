@@ -8,6 +8,8 @@ pre-commit:
     schema:
       run: find -path './hosts/*.json' -exec yarn ajv -s schemas/host.schema.json -d {} \;
 commit-msg:
+  skip:
+    - run: grep '\[skip-ci\]$' .git/COMMIT_EDITMSG
   commands:
     commitlint:
       run: yarn commitlint --edit {1}
